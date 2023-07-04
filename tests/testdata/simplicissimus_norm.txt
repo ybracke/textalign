@@ -1,0 +1,5048 @@
+[5	0 2
+]Erstes	2 7
+Buch	10 4
+Das	15 3
+I.	19 2	[ADJA]	[$ABBREV]	[$ORD]
+Kapitel	22 7
+Es	31 2
+eröffnet	34 9
+sich	44 4
+zu	49 2
+dieser	52 6
+unserer	59 7
+Zeit	67 4
+(	72 1	[$(]
+von	73 3
+welcher	77 7
+man	85 3
+glaubt	89 6
+,	95 1	[$,]
+dass	97 4
+es	102 2
+die	105 3
+letzte	109 6
+seie	116 4
+)	120 1	[$(]
+unter	122 5
+geringen	128 8
+Leuten	137 6
+eine	144 4
+Sucht	149 5
+,	154 1	[$,]
+in	156 2
+deren	159 5
+die	165 3
+Patienten	169 9
+,	178 1	[$,]
+wann	180 4
+sie	185 3
+daran	189 5
+krank	195 5
+liegen	201 6
+und	208 3
+so	212 2
+viel	215 4
+zusammengeraspelt	220 17
+und	238 3
+erschachert	242 11
+haben	254 5
+,	259 1	[$,]
+dass	261 4
+sie	266 3
+neben	270 5
+ein	276 3
+paar	280 4
+Hellern	285 7
+im	293 2
+Beutel	296 6
+ein	303 3
+närrisches	307 11
+Kleid	319 5
+auf	325 3
+die	329 3
+neue	333 4
+Mode	338 4
+,	342 1	[$,]
+mit	344 3
+tausenderlei	348 12
+seidenen	361 8
+Banden	370 6
+,	376 1	[$,]
+antragen	378 8
+können	387 7
+,	394 1	[$,]
+oder	396 4
+sonst	401 5
+etwan	407 5
+durch	413 5
+Glücksfall	419 11
+mannhaft	431 8
+und	440 3
+bekannt	444 7
+worden	452 6
+,	458 1	[$,]
+gleich	460 6
+rittermäßige	467 14
+Herren	482 6
+und	489 3
+adeliche	493 8
+Personen	502 8
+von	511 3
+uraltem	515 7
+Geschlecht	523 10
+sein	534 4
+wollen	539 6
+;	545 1	[$.]
+da	547 2
+sich	550 4
+doch	555 4
+oft	560 3
+befindet	564 8
+,	572 1	[$,]
+dass	574 4
+ihre	579 4
+Voreltern	584 9
+Taglöhner	594 10
+,	604 1	[$,]
+Karchelzieher	606 13
+und	620 3
+Lastträger	624 11
+:	635 1	[$.]	[$(]
+
+ihre	637 4
+Vettern	642 7
+Eseltreiber	650 11
+:	661 1	[$.]	[$(]
+ihre	663 4
+Brüder	668 7
+Büttel	676 7
+und	684 3
+Schergen	688 8
+:	696 1	[$.]	[$(]
+ihre	698 4
+Schwestern	703 10
+Huren	714 5
+:	719 1	[$.]	[$(]
+ihre	721 4
+Mütter	726 7
+Kupplerin	734 9
+,	743 1	[$,]
+oder	745 4
+gar	750 3
+Hexen	754 5
+:	759 1	[$.]	[$(]
+und	761 3
+in	765 2
+Summa	768 5
+,	773 1	[$,]
+ihr	775 3
+ganzes	779 6
+Geschlecht	786 10
+von	797 3
+allen	801 5
+32	807 2	[CARD]
+Anichen	810 7
+her	818 3
+,	821 1	[$,]
+also	823 4
+besudelt	828 8
+und	837 3
+befleckt	841 8
+gewesen	850 7
+,	857 1	[$,]
+als	859 3
+des	863 3
+Zuckerbastels	867 13
+Zunft	881 5
+zu	887 2
+Prag	890 4
+immer	895 5
+sein	901 4
+mögen	906 6
+;	912 1	[$.]
+
+ja	914 2
+sie	917 3
+,	920 1	[$,]
+diese	922 5
+neue	928 4
+Nobilisten	933 10
+,	943 1	[$,]
+seind	945 5
+oft	951 3
+selbst	955 6
+so	962 2
+schwarz	965 7
+,	972 1	[$,]
+als	974 3
+wann	978 4
+sie	983 3
+in	987 2
+Guinea	990 6
+geboren	997 7
+und	1005 3
+erzogen	1009 7
+wären	1017 6
+worden	1024 6
+.	1030 1	[$.]
+
+Solchen	1033 7
+närrischen	1041 11
+Leuten	1053 6
+nun	1060 3
+mag	1064 3
+ich	1068 3
+mich	1072 4
+nicht	1077 5
+gleichstellen	1083 13
+,	1096 1	[$,]
+obzwar	1098 6
+,	1104 1	[$,]
+die	1106 3
+Wahrheit	1110 8
+zu	1119 2
+bekennen	1122 8
+,	1130 1	[$,]
+nicht	1132 5
+ohn	1138 3
+ist	1142 3
+,	1145 1	[$,]
+dass	1147 4
+ich	1152 3
+mir	1156 3
+oft	1160 3
+eingebildet	1164 11
+,	1175 1	[$,]
+ich	1177 3
+müsse	1181 6
+ohnfehlbar	1188 10
+auch	1199 4
+von	1204 3
+einem	1208 5
+großen	1214 7
+Herrn	1222 5
+,	1227 1	[$,]
+oder	1229 4
+wenigst	1234 7
+einem	1242 5
+gemeinen	1248 8
+Edelmann	1257 8
+,	1265 1	[$,]
+meinen	1267 6
+Ursprung	1274 8
+haben	1283 5
+,	1288 1	[$,]
+weil	1290 4
+ich	1295 3
+von	1299 3
+Natur	1303 5
+geneigt	1309 7
+,	1316 1	[$,]
+das	1318 3
+Junkernhandwerk	1322 15
+zu	1338 2
+treiben	1341 7
+,	1348 1	[$,]
+wann	1350 4
+ich	1355 3
+nur	1359 3
+den	1363 3
+Verlag	1367 6
+und	1374 3
+den	1378 3
+Werkzeug	1382 8
+darzu	1391 5
+hätte	1397 6
+.	1403 1	[$.]
+
+Zwar	1405 4
+ohngescherzt	1410 12
+,	1422 1	[$,]
+mein	1424 4
+Herkommen	1429 9
+und	1439 3
+Auferziehung	1443 12
+lässt	1456 6
+sich	1463 4
+noch	1468 4
+wohl	1473 4
+mit	1478 3
+eines	1482 5
+Fürsten	1488 8
+vergleichen	1497 11
+,	1508 1	[$,]
+wann	1510 4
+man	1515 3
+nur	1519 3
+den	1523 3
+großen	1527 7
+Unterscheid	1535 11
+nicht	1547 5
+ansehen	1553 7
+wollte	1561 6
+.	1567 1	[$.]
+
+Was	1569 3
+?	1572 1	[$.]
+Mein	1574 4
+Knan	1579 4
+(	1584 1	[$(]
+dann	1585 4
+also	1590 4
+nennet	1595 6
+man	1602 3
+die	1606 3
+Vätter	1610 7
+im	1618 2
+Spessert	1621 8
+)	1629 1	[$(]
+hatte	1631 5
+einen	1637 5
+eignen	1643 6
+Palast	1650 6
+,	1656 1	[$,]
+so	1658 2
+wohl	1661 4
+als	1666 3
+ein	1670 3
+anderer	1674 7
+,	1681 1	[$,]
+ja	1683 2
+so	1686 2
+artlich	1689 7
+,	1696 1	[$,]
+dergleichen	1698 11
+ein	1710 3
+jeder	1714 5
+König	1720 6
+mit	1727 3
+eigenen	1731 7
+Händen	1739 7
+zu	1747 2
+bauen	1750 5
+nicht	1756 5
+vermag	1762 6
+,	1768 1	[$,]
+[	1770 1	[$(]
+6	1771 1	[CARD]
+]	1772 1	[$(]
+sondern	1773 7
+solches	1781 7
+in	1789 2
+Ewigkeit	1792 8
+wohl	1801 4
+unterwegen	1806 10
+lassen	1817 6
+wird	1824 4
+;	1828 1	[$.]
+
+er	1830 2
+war	1833 3
+mit	1837 3
+
+Leimen	1841 6
+gemalet	1848 7
+und	1856 3
+anstatt	1860 7
+des	1868 3
+unfruchtbaren	1872 13
+Schiefers	1886 9
+,	1895 1	[$,]
+kalten	1897 6
+Blei	1904 4
+und	1909 3
+roten	1913 5
+Kupfers	1919 7
+mit	1927 3
+Stroh	1931 5
+bedeckt	1937 7
+,	1944 1	[$,]
+darauf	1946 6
+das	1953 3
+edel	1957 4
+Getreid	1962 7
+wächst	1970 7
+;	1977 1	[$.]
+und	1979 3
+damit	1983 5
+er	1989 2
+,	1991 1	[$,]
+mein	1993 4
+Knan	1998 4
+,	2002 1	[$,]
+mit	2004 3
+seinem	2008 6
+Adel	2015 4
+und	2020 3
+Reichtum	2024 8
+recht	2033 5
+prangen	2039 7
+möchte	2047 7
+,	2054 1	[$,]
+ließ	2056 5
+er	2062 2
+die	2065 3
+Mauer	2069 5
+um	2075 2
+sein	2078 4
+Schloss	2083 7
+nicht	2091 5
+mit	2097 3
+Mauersteinen	2101 12
+,	2113 1	[$,]
+die	2115 3
+man	2119 3
+am	2123 2
+Weg	2126 3
+findet	2130 6
+oder	2137 4
+an	2142 2
+unfruchtbaren	2145 13
+Orten	2159 5
+aus	2165 3
+der	2169 3
+Erden	2173 5
+gräbt	2179 6
+,	2185 1	[$,]
+viel	2187 4
+weniger	2192 7
+mit	2200 3
+liederlichen	2204 12
+gebachenen	2217 10
+Steinen	2228 7
+,	2235 1	[$,]
+die	2237 3
+in	2241 2
+geringer	2244 8
+Zeit	2253 4
+verfertigt	2258 10
+und	2269 3
+gebrennt	2273 8
+werden	2282 6
+können	2289 7
+,	2296 1	[$,]
+wie	2298 3
+andere	2302 6
+große	2309 6
+Herren	2316 6
+zu	2323 2
+tun	2326 3
+pflegen	2330 7
+,	2337 1	[$,]
+aufführen	2339 10
+;	2349 1	[$.]
+
+sondern	2351 7
+er	2359 2
+nahm	2362 4
+Eichenholz	2367 10
+darzu	2378 5
+,	2383 1	[$,]
+welcher	2385 7
+nutzliche	2393 9
+edle	2403 4
+Baum	2408 4
+,	2412 1	[$,]
+als	2414 3
+worauf	2418 6
+Bratwürste	2425 11
+und	2437 3
+fette	2441 5
+Schunken	2447 8
+wachsen	2456 7
+,	2463 1	[$,]
+bis	2465 3
+zu	2469 2
+seinem	2472 6
+vollständigen	2479 14
+Alter	2494 5
+über	2500 5
+hundert	2506 7
+Jahr	2514 4
+erfordert	2519 9
+:	2528 1	[$.]	[$(]
+
+Wo	2530 2
+ist	2533 3
+ein	2537 3
+Monarch	2541 7
+,	2548 1	[$,]
+der	2550 3
+ihm	2554 3
+dergleichen	2558 11
+nachtut	2570 7
+?	2577 1	[$.]
+
+Seine	2579 5
+Zimmer	2585 6
+,	2591 1	[$,]
+Säl	2593 4
+und	2598 3
+Gemächer	2602 9
+hatte	2612 5
+er	2618 2
+inwendig	2621 8
+vom	2630 3
+Rauch	2634 5
+ganz	2640 4
+erschwarzen	2645 11
+lassen	2657 6
+,	2663 1	[$,]
+nur	2665 3
+darum	2669 5
+,	2674 1	[$,]
+dieweil	2676 7
+dies	2684 4
+die	2689 3
+beständigste	2693 13
+Farb	2707 4
+von	2712 3
+der	2716 3
+Welt	2720 4
+ist	2725 3
+und	2729 3
+dergleichen	2733 11
+Gemäld	2745 7
+bis	2753 3
+zu	2757 2
+seiner	2760 6
+Perfektion	2767 10
+mehr	2778 4
+Zeit	2783 4
+brauchet	2788 8
+,	2796 1	[$,]
+als	2798 3
+ein	2802 3
+künstlicher	2806 12
+Maler	2819 5
+zu	2825 2
+seinen	2828 6
+trefflichsten	2835 13
+Kunststücken	2849 13
+erfordert	2863 9
+;	2872 1	[$.]
+
+die	2874 3
+Tapezereien	2878 11
+waren	2890 5
+das	2896 3
+zärteste	2900 9
+Geweb	2910 5
+auf	2916 3
+dem	2920 3
+ganzen	2924 6
+Erdboden	2931 8
+,	2939 1	[$,]
+dann	2941 4
+diejenige	2946 9
+machte	2956 6
+uns	2963 3
+solche	2967 6
+,	2973 1	[$,]
+die	2975 3
+sich	2979 4
+vor	2984 3
+alters	2988 6
+vermaß	2995 7
+,	3002 1	[$,]
+mit	3004 3
+der	3008 3
+Minerva	3012 7
+selbst	3020 6
+um	3027 2
+die	3030 3
+Wett	3034 4
+zu	3039 2
+spinnen	3042 7
+;	3049 1	[$.]
+
+seine	3051 5
+Fenster	3057 7
+waren	3065 5
+keiner	3071 6
+anderer	3078 7
+Ursachen	3086 8
+halber	3095 6
+dem	3102 3
+Sant	3106 4
+Nitglas	3111 7
+gewidmet	3119 8
+,	3127 1	[$,]
+als	3129 3
+darum	3133 5
+,	3138 1	[$,]
+dieweil	3140 7
+er	3148 2
+wusste	3151 6
+,	3157 1	[$,]
+dass	3159 4
+ein	3164 3
+solches	3168 7
+,	3175 1	[$,]
+vom	3177 3
+Hanf	3181 4
+oder	3186 4
+Flachssamen	3191 11
+an	3203 2
+zu	3206 2
+rechnen	3209 7
+,	3216 1	[$,]
+bis	3218 3
+es	3222 2
+zu	3225 2
+seiner	3228 6
+vollkommenen	3235 12
+Verfertigung	3248 12
+gelangt	3261 7
+,	3268 1	[$,]
+weit	3270 4
+mehrere	3275 7
+Zeit	3283 4
+und	3288 3
+Arbeit	3292 6
+kostet	3299 6
+,	3305 1	[$,]
+als	3307 3
+das	3311 3
+beste	3315 5
+und	3321 3
+durchsichtigste	3325 15
+Glas	3341 4
+von	3346 3
+Muran	3350 5
+,	3355 1	[$,]
+dann	3357 4
+sein	3362 4
+Stand	3367 5
+macht	3373 5
+ihm	3379 3
+ein	3383 3
+Belieben	3387 8
+zu	3396 2
+glauben	3399 7
+,	3406 1	[$,]
+dass	3408 4
+alles	3413 5
+dasjenige	3419 9
+,	3428 1	[$,]
+was	3430 3
+durch	3434 5
+viel	3440 4
+Mühe	3445 5
+zuwegen	3451 7
+gebracht	3459 8
+würde	3468 6
+,	3474 1	[$,]
+auch	3476 4
+schätzbar	3481 10
+und	3492 3
+desto	3496 5
+köstlicher	3502 11
+sei	3514 3
+,	3517 1	[$,]
+was	3519 3
+aber	3523 4
+köstlich	3528 9
+seie	3538 4
+,	3542 1	[$,]
+das	3544 3
+seie	3548 4
+auch	3553 4
+dem	3558 3
+Adel	3562 4
+am	3567 2
+anständigsten	3570 14
+;	3584 1	[$.]
+
+anstatt	3586 7
+der	3594 3
+Pagen	3598 5
+,	3603 1	[$,]
+Lakaien	3605 7
+und	3613 3
+Stallknecht	3617 11
+hatte	3629 5
+er	3635 2
+Schaf	3638 5
+,	3643 1	[$,]
+Böcke	3645 6
+und	3652 3
+Säu	3656 4
+,	3660 1	[$,]
+jedes	3662 5
+fein	3668 4
+ordenlich	3673 9
+in	3683 2
+seine	3686 5
+natürliche	3692 11
+Liberei	3704 7
+gekleidet	3712 9
+,	3721 1	[$,]
+welche	3723 6
+mir	3730 3
+auch	3734 4
+oft	3739 3
+auf	3743 3
+der	3747 3
+Weid	3751 4
+aufgewartet	3756 11
+,	3767 1	[$,]
+bis	3769 3
+ich	3773 3
+sie	3777 3
+heimgetrieben	3781 13
+.	3794 1	[$.]
+
+Die	3796 3
+
+Rüst-	3800 6	[TRUNC]
+oder	3807 4
+Harnischkammer	3812 14
+war	3827 3
+[	3831 1	[$(]
+7	3832 1	[CARD]
+]	3833 1	[$(]
+mit	3834 3
+Pflügen	3838 8
+,	3846 1	[$,]
+Kärsten	3848 8
+,	3856 1	[$,]
+Äxten	3858 6
+,	3864 1	[$,]
+Hauen	3866 5
+,	3871 1	[$,]
+Schaufeln	3873 9
+,	3882 1	[$,]
+Mist-	3884 5	[TRUNC]
+und	3890 3
+Heugabeln	3894 9
+genugsam	3904 8
+versehen	3913 8
+,	3921 1	[$,]
+mit	3923 3
+welchen	3927 7
+Waffen	3935 6
+er	3942 2
+sich	3945 4
+täglich	3950 8
+übet	3959 5
+;	3964 1	[$.]
+
+dann	3966 4
+Hacken	3971 6
+und	3978 3
+Reuten	3982 6
+war	3989 3
+seine	3993 5
+disciplina	3999 10
+militaris	4010 9
+,	4019 1	[$,]
+wie	4021 3
+bei	4025 3
+den	4029 3
+alten	4033 5
+Römern	4039 7
+zu	4047 2
+Friedenszeiten	4050 14
+,	4064 1	[$,]
+Ochsen	4066 6
+anspannen	4073 9
+war	4083 3
+sein	4087 4
+hauptmannschaftliches	4092 21
+Kommando	4114 8
+,	4122 1	[$,]
+Mist	4124 4
+ausführen	4129 10
+sein	4140 4
+Fortifikationswesen	4145 19
+,	4164 1	[$,]
+und	4166 3
+Ackern	4170 6
+sein	4177 4
+Feldzug	4182 7
+,	4189 1	[$,]
+Stallausmisten	4191 14
+aber	4206 4
+sein	4211 4
+adeliche	4216 8
+Kurzweil	4225 8
+und	4234 3
+Turnierspiel	4238 12
+;	4250 1	[$.]
+
+hiermit	4252 7
+bestritte	4260 9
+er	4270 2
+die	4273 3
+ganze	4277 5
+Weltkugel	4283 9
+,	4292 1	[$,]
+so	4294 2
+weit	4297 4
+er	4302 2
+reichen	4305 7
+konnte	4313 6
+,	4319 1	[$,]
+und	4321 3
+jagte	4325 5
+ihr	4331 3
+damit	4335 5
+alle	4341 4
+Ernt	4346 4
+ein	4351 3
+reiche	4355 6
+Beut	4362 4
+ab	4367 2
+.	4369 1	[$.]
+
+Dieses	4371 6
+alles	4378 5
+setze	4384 5
+ich	4390 3
+hindan	4394 6
+und	4401 3
+überhebe	4405 9
+mich	4415 4
+dessen	4420 6
+ganz	4427 4
+nicht	4432 5
+,	4437 1	[$,]
+damit	4439 5
+niemand	4445 7
+Ursach	4453 6
+habe	4460 4
+,	4464 1	[$,]
+mich	4466 4
+mit	4471 3
+andern	4475 6
+meinesgleichen	4482 14
+neuen	4497 5
+Nobilisten	4503 10
+auszulachen	4514 11
+,	4525 1	[$,]
+dann	4527 4
+ich	4532 3
+schätze	4536 8
+mich	4545 4
+nicht	4550 5
+besser	4556 6
+,	4562 1	[$,]
+als	4564 3
+mein	4568 4
+Knan	4573 4
+war	4578 3
+,	4581 1	[$,]
+welcher	4583 7
+diese	4591 5
+seine	4597 5
+Wohnung	4603 7
+an	4611 2
+einem	4614 5
+sehr	4620 4
+lustigen	4625 8
+Ort	4634 3
+,	4637 1	[$,]
+nämlich	4639 8
+im	4648 2
+Spessert	4651 8
+liegen	4660 6
+hatte	4667 5
+,	4672 1	[$,]
+allwo	4674 5
+die	4680 3
+Wölf	4684 5
+einander	4690 8
+gute	4699 4
+Nacht	4704 5
+geben	4710 5
+.	4715 1	[$.]
+
+Dass	4717 4
+ich	4722 3
+aber	4726 4
+nichts	4731 6
+Ausführliches	4738 14
+von	4753 3
+meines	4757 6
+Knans	4764 5
+Geschlecht	4770 10
+,	4780 1	[$,]
+Stammen	4782 7
+und	4790 3
+Namen	4794 5
+vor	4800 3
+diesmal	4804 7
+doziert	4812 7
+,	4819 1	[$,]
+beschiehet	4821 10
+um	4832 2
+geliebter	4835 9
+Kürze	4845 6
+willen	4852 6
+,	4858 1	[$,]
+vornehmlich	4860 11
+,	4871 1	[$,]
+weil	4873 4
+es	4878 2
+ohnedas	4881 7
+allhier	4889 7
+um	4897 2
+keine	4900 5
+adeliche	4906 8
+Stiftung	4915 8
+zu	4924 2
+tun	4927 3
+ist	4931 3
+,	4934 1	[$,]
+da	4936 2
+ich	4939 3
+soll	4943 4
+auf	4948 3
+schwören	4952 9
+;	4961 1	[$.]
+
+genug	4963 5
+ist’	4969 6
+s	4975 1
+,	4976 1	[$,]
+wann	4978 4
+man	4983 3
+weiß	4987 5
+,	4992 1	[$,]
+dass	4994 4
+ich	4999 3
+im	5003 2
+Spessert	5006 8
+geboren	5015 7
+bin	5023 3
+.	5026 1	[$.]
+
+Gleichwie	5029 9
+nun	5039 3
+aber	5043 4
+meines	5048 6
+Knans	5055 5
+Hauswesen	5061 9
+sehr	5071 4
+adelich	5076 7
+vermerkt	5084 8
+wird	5093 4
+,	5097 1	[$,]
+also	5099 4
+kann	5104 4
+ein	5109 3
+jeder	5113 5
+Verständiger	5119 13
+auch	5133 4
+leichtlich	5138 10
+schließen	5149 10
+,	5159 1	[$,]
+dass	5161 4
+meine	5166 5
+Auferziehung	5172 12
+derselben	5185 9
+gemäß	5195 7
+und	5203 3
+ähnlich	5207 8
+gewesen	5216 7
+;	5223 1	[$.]
+
+und	5225 3
+wer	5229 3
+solches	5233 7
+davorhält	5241 10
+,	5251 1	[$,]
+findet	5253 6
+sich	5260 4
+auch	5265 4
+nicht	5270 5
+betrogen	5276 8
+,	5284 1	[$,]
+dann	5286 4
+in	5291 2
+meinem	5294 6
+zehenjährigen	5301 14
+Alter	5316 5
+hatte	5322 5
+ich	5328 3
+schon	5332 5
+die	5338 3
+principia	5342 9
+in	5352 2
+obgemeldten	5355 11
+meines	5367 6
+Knans	5374 5
+adelichen	5380 9
+Exerzitien	5390 10
+begriffen	5401 9
+,	5410 1	[$,]
+aber	5412 4
+der	5417 3
+Studien	5421 7
+halber	5429 6
+konnte	5436 6
+ich	5443 3
+neben	5447 5
+dem	5453 3
+berühmten	5457 10
+Amplistidi	5468 10
+hin	5479 3
+passieren	5483 9
+,	5492 1	[$,]
+von	5494 3
+welchem	5498 7
+Suidas	5506 6
+meldet	5513 6
+,	5519 1	[$,]
+dass	5521 4
+er	5526 2
+nicht	5529 5
+über	5535 5
+fünfe	5541 6
+zählen	5548 7
+konnte	5556 6
+;	5562 1	[$.]
+
+dann	5564 4
+mein	5569 4
+Knan	5574 4
+hatte	5579 5
+vielleicht	5585 10
+einen	5596 5
+viel	5602 4
+zu	5607 2
+hohen	5610 5
+Geist	5616 5
+und	5622 3
+folgte	5626 6
+dahero	5633 6
+dem	5640 3
+gewöhnlichen	5644 13
+Gebrauch	5658 8
+jetziger	5667 8
+Zeit	5676 4
+,	5680 1	[$,]
+in	5682 2
+welcher	5685 7
+viel	5693 4
+vornehme	5698 8
+Leut	5707 4
+mit	5712 3
+Studieren	5716 9
+,	5725 1	[$,]
+oder	5727 4
+wie	5732 3
+sie	5736 3
+es	5740 2
+nennen	5743 6
+,	5749 1	[$,]
+mit	5751 3
+Schulpossen	5755 11
+sich	5767 4
+nicht	5772 5
+viel	5778 4
+bekümmern	5783 10
+,	5793 1	[$,]
+weil	5795 4
+sie	5800 3
+ihre	5804 4
+Leut	5809 4
+haben	5814 5
+,	5819 1	[$,]
+der	5821 3
+Plackscheißerei	5825 16
+abzuwarten	5842 10
+.	5852 1	[$.]
+
+Sonst	5854 5
+war	5860 3
+ich	5864 3
+ein	5868 3
+trefflicher	5872 11
+[	5884 1	[$(]
+8	5885 1	[CARD]
+]	5886 1	[$(]
+Musikus	5887 7
+auf	5895 3
+der	5899 3
+Sackpfeifen	5903 11
+,	5914 1	[$,]
+mit	5916 3
+deren	5920 5
+ich	5926 3
+schöne	5930 7
+Jalemigesäng	5938 13
+machen	5952 6
+konnte	5959 6
+:	5965 1	[$.]	[$(]
+
+Aber	5967 4
+die	5972 3
+Theologiam	5976 10
+anbelangend	5987 11
+,	5998 1	[$,]
+lass	6000 4
+ich	6005 3
+mich	6009 4
+nicht	6014 5
+bereden	6020 7
+,	6027 1	[$,]
+dass	6029 4
+einer	6034 5
+meines	6040 6
+Alters	6047 6
+damals	6054 6
+in	6061 2
+der	6064 3
+ganzen	6068 6
+Christenwelt	6075 12
+gewest	6088 6
+seie	6095 4
+,	6099 1	[$,]
+der	6101 3
+mir	6105 3
+darin	6109 5
+hätte	6115 6
+gleichen	6122 8
+mögen	6131 6
+,	6137 1	[$,]
+dann	6139 4
+ich	6144 3
+kennete	6148 7
+weder	6156 5
+Gott	6162 4
+noch	6167 4
+Menschen	6172 8
+,	6180 1	[$,]
+weder	6182 5
+Himmel	6188 6
+noch	6195 4
+Höll	6200 5
+,	6205 1	[$,]
+weder	6207 5
+Engel	6213 5
+noch	6219 4
+Teufel	6224 6
+,	6230 1	[$,]
+und	6232 3
+wusste	6236 6
+weder	6243 5
+Gutes	6249 5
+noch	6255 4
+Böses	6260 6
+zu	6267 2
+unterscheiden	6270 13
+:	6283 1	[$.]	[$(]
+
+Dahero	6285 6
+ohnschwer	6292 9
+zu	6302 2
+gedenken	6305 8
+,	6313 1	[$,]
+dass	6315 4
+ich	6320 3
+vermittelst	6324 11
+solcher	6336 7
+Theologiae	6344 10
+wie	6355 3
+unsere	6359 6
+erste	6366 5
+Eltern	6372 6
+im	6379 2
+Paradies	6382 8
+gelebt	6391 6
+,	6397 1	[$,]
+die	6399 3
+in	6403 2
+ihrer	6406 5
+Unschuld	6412 8
+von	6421 3
+Krankheit	6425 9
+,	6434 1	[$,]
+Tod	6436 3
+und	6440 3
+Sterben	6444 7
+,	6451 1	[$,]
+weniger	6453 7
+von	6461 3
+der	6465 3
+Auferstehung	6469 12
+nichts	6482 6
+gewusst	6489 7
+.	6496 1	[$.]
+
+O	6498 1
+edels	6500 5
+Leben	6506 5
+!	6511 1	[$.]
+
+(	6513 1	[$(]
+du	6514 2
+mögst	6517 6
+wohl	6524 4
+Eselsleben	6529 10
+sagen	6540 5
+)	6545 1	[$(]
+in	6547 2
+welchem	6550 7
+man	6558 3
+sich	6562 4
+auch	6567 4
+nichts	6572 6
+um	6579 2
+die	6582 3
+Medizin	6586 7
+bekümmert	6594 10
+.	6604 1	[$.]
+
+Eben	6606 4
+auf	6611 3
+diesen	6615 6
+Schlag	6622 6
+kann	6629 4
+man	6634 3
+mein	6638 4
+Erfahrenheit	6643 12
+in	6656 2
+dem	6659 3
+studio	6663 6
+legum	6670 5
+und	6676 3
+allen	6680 5
+andern	6686 6
+Künsten	6693 8
+und	6702 3
+Wissenschaften	6706 14
+,	6720 1	[$,]
+so	6722 2
+viel	6725 4
+in	6730 2
+der	6733 3
+Welt	6737 4
+sein	6742 4
+,	6746 1	[$,]
+auch	6748 4
+verstehen	6753 9
+.	6762 1	[$.]
+
+Ja	6764 2
+ich	6767 3
+war	6771 3
+so	6775 2
+perfekt	6778 7
+und	6786 3
+vollkommen	6790 10
+in	6801 2
+der	6804 3
+Unwissenheit	6808 12
+,	6820 1	[$,]
+dass	6822 4
+mir	6827 3
+unmüglich	6831 10
+war	6842 3
+zu	6846 2
+wissen	6849 6
+,	6855 1	[$,]
+dass	6857 4
+ich	6862 3
+so	6866 2
+gar	6869 3
+nichts	6873 6
+wusste	6880 6
+.	6886 1	[$.]
+
+Ich	6888 3
+sage	6892 4
+noch	6897 4
+einmal	6902 6
+:	6908 1	[$.]	[$(]
+o	6910 1
+edles	6912 5
+Leben	6918 5
+,	6923 1	[$,]
+das	6925 3
+ich	6929 3
+damals	6933 6
+führete	6940 8
+!	6948 1	[$.]
+
+Aber	6950 4
+mein	6955 4
+Knan	6960 4
+wollte	6965 6
+mich	6972 4
+solche	6977 6
+Glückseligkeit	6984 15
+nicht	7000 5
+länger	7006 7
+genießen	7014 9
+lassen	7024 6
+,	7030 1	[$,]
+sondern	7032 7
+schätzte	7040 9
+billich	7050 7
+sein	7058 4
+,	7062 1	[$,]
+dass	7064 4
+ich	7069 3
+meiner	7073 6
+adelichen	7080 9
+Geburt	7090 6
+gemäß	7097 7
+auch	7105 4
+adelich	7110 7
+tun	7118 3
+und	7122 3
+leben	7126 5
+sollte	7132 6
+,	7138 1	[$,]
+derowegen	7140 9
+finge	7150 5
+er	7156 2
+an	7159 2
+,	7161 1	[$,]
+mich	7163 4
+zu	7168 2
+höhern	7171 7
+Dingen	7179 6
+anzuziehen	7186 10
+und	7197 3
+mir	7201 3
+schwerere	7205 9
+Lectiones	7215 9
+aufzugeben	7225 10
+.	7235 1	[$.]
+
+Das	7239 3
+II	7243 2
+.	7245 1	[$.]
+
+Kapitel	7247 7
+Er	7256 2
+begabte	7259 7
+mich	7267 4
+mit	7272 3
+der	7276 3
+herrlichsten	7280 12
+Dignität	7293 9
+,	7302 1	[$,]
+so	7304 2
+sich	7307 4
+nicht	7312 5
+allein	7318 6
+bei	7325 3
+seiner	7329 6
+Hofhaltung	7336 10
+,	7346 1	[$,]
+sondern	7348 7
+auch	7356 4
+in	7361 2
+der	7364 3
+ganzen	7368 6
+Welt	7375 4
+befande	7380 7
+,	7387 1	[$,]
+nämlich	7389 8
+mit	7398 3
+dem	7402 3
+Hirtenamt	7406 9
+:	7415 1	[$.]	[$(]
+
+Er	7417 2
+vertraut	7420 8
+mir	7429 3
+erstlich	7433 8
+seine	7442 5
+Säu	7448 4
+,	7452 1	[$,]
+zweitens	7454 8
+seine	7463 5
+Ziegen	7469 6
+,	7475 1	[$,]
+und	7477 3
+zuletzt	7481 7
+seine	7489 5
+ganze	7495 5
+Herd	7501 4
+Schaf	7506 5
+,	7511 1	[$,]
+dass	7513 4
+ich	7518 3
+selbige	7522 7
+hüten	7530 6
+,	7536 1	[$,]
+weiden	7538 6
+,	7544 1	[$,]
+und	7546 3
+vermittelst	7550 11
+meiner	7562 6
+Sackpfeifen	7569 11
+(	7581 1	[$(]
+welcher	7582 7
+Klang	7590 5
+ohnedas	7596 7
+,	7603 1	[$,]
+wie	7605 3
+Strabo	7609 6
+schreibet	7616 9
+,	7625 1	[$,]
+die	7627 3
+Schaf	7631 5
+und	7637 3
+Lämmer	7641 7
+in	7649 2
+Arabia	7652 6
+fett	7659 4
+macht	7664 5
+)	7669 1	[$(]
+vor	7671 3
+dem	7675 3
+Wolf	7679 4
+beschützen	7684 11
+sollte	7696 6
+.	7702 1	[$.]
+
+Damal	7704 5
+gleichete	7710 9
+[	7720 1	[$(]
+9	7721 1	[CARD]
+]	7722 1	[$(]
+ich	7723 3
+wohl	7727 4
+dem	7732 3
+David	7736 5
+,	7741 1	[$,]
+außer	7743 6
+dass	7750 4
+jener	7755 5
+,	7760 1	[$,]
+anstatt	7762 7
+der	7770 3
+Sackpfeife	7774 10
+,	7784 1	[$,]
+nur	7786 3
+eine	7790 4
+Harpfe	7795 6
+hatte	7802 5
+,	7807 1	[$,]
+welches	7809 7
+kein	7817 4
+schlimmer	7822 9
+Anfang	7832 6
+,	7838 1	[$,]
+sondern	7840 7
+ein	7848 3
+gut	7852 3
+Omen	7856 4
+für	7861 4
+mich	7866 4
+war	7871 3
+,	7874 1	[$,]
+dass	7876 4
+ich	7881 3
+noch	7885 4
+mit	7890 3
+der	7894 3
+Zeit	7898 4
+,	7902 1	[$,]
+wann	7904 4
+ich	7909 3
+anders	7913 6
+das	7920 3
+Glück	7924 6
+darzu	7931 5
+hätte	7937 6
+,	7943 1	[$,]
+ein	7945 3
+weltberühmter	7949 14
+Mann	7964 4
+werden	7969 6
+sollte	7976 6
+;	7982 1	[$.]
+
+dann	7984 4
+von	7989 3
+Anbeginn	7993 8
+der	8002 3
+Welt	8006 4
+seind	8011 5
+jeweils	8017 7
+hohe	8025 4
+Personen	8030 8
+Hirten	8039 6
+gewesen	8046 7
+,	8053 1	[$,]
+wie	8055 3
+wir	8059 3
+dann	8063 4
+vom	8068 3
+Abel	8072 4
+,	8076 1	[$,]
+Abraham	8078 7
+,	8085 1	[$,]
+Isaak	8087 5
+,	8092 1	[$,]
+Jakob	8094 5
+,	8099 1	[$,]
+seinen	8101 6
+Söhnen	8108 7
+und	8116 3
+Moyse	8120 5
+selbst	8126 6
+in	8133 2
+H	8136 1
+.	8137 1	[$.]
+
+Schrift	8139 7
+lesen	8147 5
+,	8152 1	[$,]
+welcher	8154 7
+zuvor	8162 5
+seines	8168 6
+Schwähers	8175 10
+Schaf	8186 5
+hüten	8192 6
+musste	8199 6
+,	8205 1	[$,]
+ehe	8207 3
+er	8211 2
+Heerführer	8214 11
+und	8226 3
+Legislator	8230 10
+über	8241 5
+600000	8247 7	[CARD]
+Mann	8255 4
+in	8260 2
+Israel	8263 6
+ward	8270 4
+.	8274 1	[$.]
+[	8276 1	[$(]
+…	8277 3	[$(]
+]	8280 1	[$(]
+Aber	8283 4
+indessen	8288 8
+wieder	8297 6
+zu	8304 2
+meiner	8307 6
+Herd	8314 4
+zu	8319 2
+kommen	8322 6
+,	8328 1	[$,]
+so	8330 2
+wisset	8333 6
+,	8339 1	[$,]
+dass	8341 4
+ich	8346 3
+den	8350 3
+Wolf	8354 4
+ebenso	8359 6
+wenig	8366 5
+kennet	8372 6
+,	8378 1	[$,]
+als	8380 3
+meine	8384 5
+eigene	8390 6
+Unwissenheit	8397 12
+selbsten	8410 8
+;	8418 1	[$.]
+
+derowegen	8420 9
+war	8430 3
+mein	8434 4
+Knan	8439 4
+mit	8444 3
+seiner	8448 6
+Instruktion	8455 11
+desto	8467 5
+fleißiger	8473 10
+.	8483 1	[$.]
+
+Er	8485 2
+sagte	8488 5
+:	8493 1	[$.]	[$(]
+»	8495 2	[$(]
+Bub	8497 3
+,	8500 1	[$,]
+biss	8502 4
+fleißig	8507 8
+,	8515 1	[$,]
+loss	8517 4
+di	8522 2
+Schoff	8525 6
+nit	8532 3
+ze	8536 2
+weit	8539 4
+vunananger	8544 10
+laffen	8555 6
+,	8561 1	[$,]
+un	8563 2
+spill	8566 5
+wacker	8572 6
+uff	8579 3
+der	8583 3
+Sackpfeifa	8587 10
+,	8597 1	[$,]
+dass	8599 4
+der	8604 3
+Wolf	8608 4
+nit	8613 3
+kom	8617 3
+,	8620 1	[$,]
+und	8622 3
+Schada	8626 6
+dau	8633 3
+,	8636 1	[$,]
+dann	8638 4
+he	8643 2
+yss	8646 3
+a	8650 1
+solcher	8652 7
+feyerboinigter	8660 14
+Schelm	8675 6
+un	8682 2
+Dieb	8685 4
+,	8689 1	[$,]
+der	8691 3
+Menscha	8695 7
+und	8703 3
+Vieha	8707 5
+frisst	8713 6
+,	8719 1	[$,]
+un	8721 2
+wan	8724 3
+dau	8728 3
+awer	8732 4
+farlässj	8737 9
+bisst	8747 5
+,	8752 1	[$,]
+so	8754 2
+will	8757 4
+eich	8762 4
+dir	8767 3
+da	8771 2
+Buckel	8774 6
+arauma	8781 6
+.	8787 1	[$.]
+«	8788 2	[$(]
+
+Ich	8791 3
+antwortet	8795 9
+mit	8805 3
+gleicher	8809 8
+Holdseligkeit	8818 13
+:	8831 1	[$.]	[$(]
+
+»	8833 2	[$(]
+Knano	8835 5
+,	8840 1	[$,]
+sag	8842 3
+mir	8846 3
+aa	8850 2
+,	8852 1	[$,]
+wey	8854 3
+der	8858 3
+Wolf	8862 4
+seyhet	8867 6
+?	8873 1	[$.]
+
+Eich	8875 4
+huun	8880 4
+noch	8885 4
+kan	8890 3
+Wolf	8894 4
+gesien	8899 6
+.	8905 1	[$.]
+«	8906 2	[$(]
+
+»	8909 2	[$(]
+Ah	8911 2
+dau	8914 3
+grober	8918 6
+Eselkopp	8925 8
+,	8933 1	[$,]
+repliziert	8935 10
+er	8946 2
+hinwieder	8949 9
+,	8958 1	[$,]
+dau	8960 3
+bleiwest	8964 8
+dein	8973 4
+Lewelang	8978 8
+a	8987 1
+Narr	8989 4
+,	8993 1	[$,]
+geith	8995 5
+meich	9001 5
+wunner	9007 6
+,	9013 1	[$,]
+was	9015 3
+auß	9019 4
+dir	9024 3
+wera	9028 4
+wird	9033 4
+,	9037 1	[$,]
+bisst	9039 5
+schun	9045 5
+su	9051 2
+a	9054 1
+grusser	9056 7
+Dölpel	9064 7
+,	9071 1	[$,]
+un	9073 2
+waist	9076 5
+noch	9082 4
+neit	9087 4
+,	9091 1	[$,]
+was	9093 3
+der	9097 3
+Wolf	9101 4
+für	9106 4
+a	9111 1
+feyerfeussiger	9113 14
+Schelm	9128 6
+iss	9135 3
+.	9138 1	[$.]
+«	9139 2	[$(]
+
+Er	9142 2
+gab	9145 3
+mir	9149 3
+noch	9153 4
+mehr	9158 4
+Unterweisungen	9163 14
+und	9178 3
+wurde	9182 5
+zuletzt	9188 7
+unwillig	9196 8
+,	9204 1	[$,]
+maßen	9206 6
+er	9213 2
+mit	9216 3
+einem	9220 5
+Gebrümmel	9226 10
+fortging	9237 8
+,	9245 1	[$,]
+weil	9247 4
+er	9252 2
+sich	9255 4
+bedunken	9260 8
+ließe	9269 6
+,	9275 1	[$,]
+mein	9277 4
+grober	9282 6
+Verstand	9289 8
+könnte	9298 7
+seine	9306 5
+subtile	9312 7
+Unterweisungen	9320 14
+nicht	9335 5
+fassen	9341 6
+.	9347 1	[$.]
+
+Das	9351 3
+III	9355 3
+.	9358 1	[$.]
+
+Kapitel	9360 7
+Da	9369 2
+finge	9372 5
+ich	9378 3
+an	9382 2
+mit	9385 3
+meiner	9389 6
+Sackpfeifen	9396 11
+so	9408 2
+gut	9411 3
+Geschirr	9415 8
+zu	9424 2
+machen	9427 6
+,	9433 1	[$,]
+dass	9435 4
+man	9440 3
+den	9444 3
+Krotten	9448 7
+im	9456 2
+Krautgarten	9459 11
+damit	9471 5
+hätte	9477 6
+vergeben	9484 8
+mögen	9493 6
+,	9499 1	[$,]
+also	9501 4
+dass	9506 4
+ich	9511 3
+vor	9515 3
+dem	9519 3
+Wolf	9523 4
+,	9527 1	[$,]
+welcher	9529 7
+mir	9537 3
+[	9541 1	[$(]
+10	9542 2	[CARD]
+]stetig	9544 7
+im	9552 2
+Sinn	9555 4
+lag	9560 3
+,	9563 1	[$,]
+mich	9565 4
+sicher	9570 6
+genug	9577 5
+zu	9583 2
+sein	9586 4
+bedunkte	9591 8
+;	9599 1	[$.]
+und	9601 3
+weilen	9605 6
+ich	9612 3
+mich	9616 4
+meiner	9621 6
+Meuder	9628 6
+erinnert	9635 8
+(	9644 1	[$(]
+also	9645 4
+heißen	9650 7
+die	9658 3
+Mütter	9662 7
+im	9670 2
+Spessert	9673 8
+und	9682 3
+am	9686 2
+Vogelsberg	9689 10
+)	9699 1	[$(]
+dass	9701 4
+sie	9706 3
+oft	9710 3
+gesagt	9714 6
+,	9720 1	[$,]
+sie	9722 3
+besorge	9726 7
+,	9733 1	[$,]
+die	9735 3
+Hühner	9739 7
+würden	9747 7
+dermaleins	9755 10
+von	9766 3
+meinem	9770 6
+Gesang	9777 6
+sterben	9784 7
+,	9791 1	[$,]
+als	9793 3
+beliebte	9797 8
+mir	9806 3
+auch	9810 4
+zu	9815 2
+singen	9818 6
+,	9824 1	[$,]
+damit	9826 5
+das	9832 3
+Remedium	9836 8
+wider	9845 5
+den	9851 3
+Wolf	9855 4
+desto	9860 5
+kräftiger	9866 10
+wäre	9877 5
+,	9882 1	[$,]
+und	9884 3
+zwar	9888 4
+ein	9893 3
+solch	9897 5
+Lied	9903 4
+,	9907 1	[$,]
+das	9909 3
+ich	9913 3
+von	9917 3
+meiner	9921 6
+Meuder	9928 6
+selbst	9935 6
+gelernet	9942 8
+hatte	9951 5
+:	9956 1	[$.]	[$(]
+Du	9962 2
+sehr	9965 4
+verachter	9970 9
+Baurenstand	9980 11
+,	9991 1	[$,]
+Bist	9994 4
+doch	9999 4
+der	10004 3
+beste	10008 5
+in	10014 2
+dem	10017 3
+Land	10021 4
+,	10025 1	[$,]
+Kein	10028 4
+Mann	10033 4
+dich	10038 4
+gnugsam	10043 7
+preisen	10051 7
+kann	10059 4
+,	10063 1	[$,]
+Wann	10066 4
+er	10071 2
+dich	10074 4
+nur	10079 3
+recht	10083 5
+siehet	10089 6
+an	10096 2
+.	10098 1	[$.]
+
+Wie	10101 3
+stünd	10105 6
+es	10112 2
+jetzund	10115 7
+um	10123 2
+die	10126 3
+Welt	10130 4
+,	10134 1	[$,]
+Hätt	10137 5
+Adam	10143 4
+nicht	10148 5
+gebaut	10154 6
+das	10161 3
+Feld	10165 4
+,	10169 1	[$,]
+Mit	10172 3
+Hacken	10176 6
+nährt	10183 6
+sich	10190 4
+anfangs	10195 7
+der	10203 3
+,	10206 1	[$,]
+Von	10209 3
+dem	10213 3
+die	10217 3
+Fürsten	10221 8
+kommen	10230 6
+her	10237 3
+.	10240 1	[$.]
+
+Es	10243 2
+ist	10246 3
+fast	10250 4
+alles	10255 5
+unter	10261 5
+dir	10267 3
+,	10270 1	[$,]
+Ja	10273 2
+was	10276 3
+die	10280 3
+Erd	10284 3
+nur	10288 3
+bringt	10292 6
+herfür	10299 7
+,	10306 1	[$,]
+Worvon	10309 6
+ernähret	10316 9
+wird	10326 4
+das	10331 3
+Land	10335 4
+,	10339 1	[$,]
+Geht	10342 4
+dir	10347 3
+anfänglich	10351 11
+durch	10363 5
+die	10369 3
+Hand	10373 4
+.	10377 1	[$.]
+
+Der	10380 3
+Kaiser	10384 6
+,	10390 1	[$,]
+den	10392 3
+uns	10396 3
+Gott	10400 4
+gegeben	10405 7
+,	10412 1	[$,]
+Uns	10415 3
+zu	10419 2
+beschützen	10422 11
+,	10433 1	[$,]
+muss	10435 4
+doch	10440 4
+leben	10445 5
+Von	10452 3
+deiner	10456 6
+Hand	10463 4
+;	10467 1	[$.]
+auch	10469 4
+der	10474 3
+Soldat	10478 6
+,	10484 1	[$,]
+Der	10487 3
+dir	10491 3
+doch	10495 4
+zufügt	10500 7
+manchen	10508 7
+Schad	10516 5
+.	10521 1	[$.]
+
+Fleisch	10524 7
+zu	10532 2
+der	10535 3
+Speis	10539 5
+zeugst	10545 6
+auf	10552 3
+allein	10556 6
+,	10562 1	[$,]
+Von	10565 3
+dir	10569 3
+wird	10573 4
+auch	10578 4
+gebaut	10583 6
+der	10590 3
+Wein	10594 4
+,	10598 1	[$,]
+Dein	10601 4
+Pflug	10606 5
+der	10612 3
+Erden	10616 5
+tut	10622 3
+so	10626 2
+not	10629 3
+,	10632 1	[$,]
+Dass	10635 4
+sie	10640 3
+uns	10644 3
+gibt	10648 4
+genugsam	10653 8
+Brod	10662 4
+.	10666 1	[$.]
+
+Die	10669 3
+Erde	10673 4
+wär	10678 4
+ganz	10683 4
+wild	10688 4
+durchaus	10693 8
+,	10701 1	[$,]
+Wann	10704 4
+du	10709 2
+auf	10712 3
+ihr	10716 3
+nicht	10720 5
+hieltest	10726 8
+Haus	10735 4
+,	10739 1	[$,]
+Ganz	10742 4
+traurig	10747 7
+auf	10755 3
+der	10759 3
+Welt	10763 4
+es	10768 2
+stünd	10771 6
+,	10777 1	[$,]
+Wenn	10780 4
+man	10785 3
+kein	10789 4
+Bauersmann	10794 10
+mehr	10805 4
+fünd	10810 5
+.	10815 1	[$.]
+[	10818 1	[$(]
+11	10819 2	[CARD]
+]Drum	10821 5
+bist	10827 4
+du	10832 2
+billich	10835 7
+hoch	10843 4
+zu	10848 2
+ehrn	10851 4
+,	10855 1	[$,]
+Weil	10858 4
+du	10863 2
+uns	10866 3
+alle	10870 4
+tust	10875 4
+ernährn	10880 8
+.	10888 1	[$.]
+
+Die	10891 3
+Natur	10895 5
+liebt	10901 5
+dich	10907 4
+selber	10912 6
+auch	10919 4
+,	10923 1	[$,]
+Gott	10926 4
+segnet	10931 6
+deinen	10938 6
+Baurenbrauch	10945 12
+.	10957 1	[$.]
+
+Vom	10960 3
+bitterbösen	10964 12
+Podagram	10977 8
+Hört	10987 5
+man	10993 3
+nicht	10997 5
+,	11002 1	[$,]
+dass	11004 4
+an	11009 2
+Bauren	11012 6
+kam	11019 3
+,	11022 1	[$,]
+Das	11025 3
+doch	11029 4
+den	11034 3
+Adel	11038 4
+bringt	11043 6
+in	11050 2
+Not	11053 3
+,	11056 1	[$,]
+Und	11059 3
+manchen	11063 7
+Reichen	11071 7
+gar	11079 3
+in	11083 2
+Tod	11086 3
+.	11089 1	[$.]
+
+Der	11092 3
+Hoffart	11096 7
+bist	11104 4
+du	11109 2
+sehr	11112 4
+befreit	11117 7
+,	11124 1	[$,]
+Absonderlich	11127 12
+zu	11140 2
+dieser	11143 6
+Zeit	11150 4
+,	11154 1	[$,]
+Und	11157 3
+dass	11161 4
+sie	11166 3
+auch	11170 4
+nicht	11175 5
+sei	11181 3
+dein	11185 4
+Herr	11190 4
+,	11194 1	[$,]
+So	11197 2
+gibt	11200 4
+dir	11205 3
+Gott	11209 4
+des	11214 3
+Kreuzes	11218 7
+mehr	11226 4
+.	11230 1	[$.]
+
+Ja	11233 2
+der	11236 3
+Soldaten	11240 8
+böser	11249 6
+Brauch	11256 6
+Dient	11264 5
+gleichwohl	11270 10
+dir	11281 3
+zum	11285 3
+Besten	11289 6
+auch	11296 4
+,	11300 1	[$,]
+Dass	11303 4
+Hochmut	11308 7
+dich	11316 4
+nicht	11321 5
+nehme	11327 5
+ein	11333 3
+,	11336 1	[$,]
+Sagt	11339 4
+er	11344 2
+:	11346 1	[$.]	[$(]
+Dein	11348 4
+Hab	11353 3
+
+und	11357 3
+
+Gut	11361 3
+ist	11365 3
+mein	11369 4
+.	11373 1	[$.]
+
+Bis	11379 3
+hieher	11383 6
+und	11390 3
+nicht	11394 5
+weiter	11400 6
+kam	11407 3
+ich	11411 3
+mit	11415 3
+meinem	11419 6
+Gesang	11426 6
+,	11432 1	[$,]
+dann	11434 4
+ich	11439 3
+ward	11443 4
+gleichsam	11448 9
+in	11458 2
+einem	11461 5
+Augenblick	11467 10
+von	11478 3
+einem	11482 5
+Truppen	11488 7
+Courassierer	11496 12
+samt	11509 4
+meiner	11514 6
+Herd	11521 4
+Schaf	11526 5
+umgeben	11532 7
+,	11539 1	[$,]
+welche	11541 6
+im	11548 2
+großen	11551 7
+Wald	11559 4
+verirret	11564 8
+gewesen	11573 7
+und	11581 3
+durch	11585 5
+meine	11591 5
+Musik	11597 5
+und	11603 3
+Hirtengeschrei	11607 14
+wieder	11622 6
+zurecht	11629 7
+gebracht	11637 8
+worden	11646 6
+waren	11653 5
+.	11658 1	[$.]
+
+Hoho	11661 4
+,	11665 1	[$,]
+gedachte	11667 8
+ich	11676 3
+,	11679 1	[$,]
+dies	11681 4
+seind	11686 5
+die	11692 3
+rechte	11696 6
+Käuz	11703 5
+!	11708 1	[$.]
+dies	11710 4
+seind	11715 5
+die	11721 3
+vierbeinigte	11725 12
+Schelmen	11738 8
+und	11747 3
+Dieb	11751 4
+,	11755 1	[$,]
+darvon	11757 6
+dir	11764 3
+dein	11768 4
+Knan	11773 4
+sagte	11778 5
+,	11783 1	[$,]
+dann	11785 4
+ich	11790 3
+sahe	11794 4
+anfänglich	11799 11
+Ross	11811 4
+und	11816 3
+Mann	11820 4
+(	11825 1	[$(]
+wie	11826 3
+hiebevor	11830 8
+die	11839 3
+Amerikaner	11843 10
+die	11854 3
+spanische	11858 9
+Kavallerei	11868 10
+)	11878 1	[$(]
+vor	11880 3
+ein	11884 3
+einzige	11888 7
+Kreatur	11896 7
+an	11904 2
+,	11906 1	[$,]
+und	11908 3
+vermeinte	11912 9
+nicht	11922 5
+anders	11928 6
+,	11934 1	[$,]
+als	11936 3
+es	11940 2
+müssten	11943 8
+Wölfe	11952 6
+sein	11959 4
+,	11963 1	[$,]
+wollte	11965 6
+derowegen	11972 9
+diesen	11982 6
+schröcklichen	11989 14
+Centauris	12004 9
+den	12014 3
+Hundssprung	12018 11
+weisen	12030 6
+und	12037 3
+sie	12041 3
+wieder	12045 6
+abschaffen	12052 10
+;	12062 1	[$.]
+ich	12064 3
+hatte	12068 5
+aber	12074 4
+zu	12079 2
+solchem	12082 7
+End	12090 3
+meine	12094 5
+Sackpfeife	12100 10
+kaum	12111 4
+aufgeblasen	12116 11
+,	12127 1	[$,]
+da	12129 2
+erdappte	12132 8
+mich	12141 4
+einer	12146 5
+aus	12152 3
+ihnen	12156 5
+beim	12162 4
+Flügel	12167 7
+,	12174 1	[$,]
+und	12176 3
+schleudert	12180 10
+mich	12191 4
+so	12196 2
+ungestüm	12199 9
+auf	12209 3
+ein	12213 3
+leer	12217 4
+Baurenpferd	12222 11
+,	12233 1	[$,]
+so	12235 2
+sie	12238 3
+neben	12242 5
+andern	12248 6
+mehr	12255 4
+auch	12260 4
+erbeutet	12265 8
+hatten	12274 6
+,	12280 1	[$,]
+dass	12282 4
+ich	12287 3
+auf	12291 3
+der	12295 3
+andern	12299 6
+Seiten	12306 6
+wieder	12313 6
+herab	12320 5
+auf	12326 3
+meine	12330 5
+liebe	12336 5
+[	12342 1	[$(]
+12	12343 2	[CARD]
+]Sackpfeife	12345 11
+fallen	12357 6
+musste	12364 6
+,	12370 1	[$,]
+welche	12372 6
+so	12379 2
+erbärmlich	12382 11
+anfing	12394 6
+zu	12401 2
+schreien	12404 8
+,	12412 1	[$,]
+als	12414 3
+wann	12418 4
+sie	12423 3
+alle	12427 4
+Welt	12432 4
+zu	12437 2
+Barmherzigkeit	12440 14
+bewegen	12455 7
+hätte	12463 6
+wollen	12470 6
+:	12476 1	[$.]	[$(]
+aber	12478 4
+es	12483 2
+half	12486 4
+nichts	12491 6
+,	12497 1	[$,]
+wiewohl	12499 7
+sie	12507 3
+den	12511 3
+letzten	12515 7
+Atem	12523 4
+nicht	12528 5
+sparete	12534 7
+,	12541 1	[$,]
+mein	12543 4
+Ungefäll	12548 9
+zu	12558 2
+beklagen	12561 8
+,	12569 1	[$,]
+ich	12571 3
+musste	12575 6
+einmal	12582 6
+wieder	12589 6
+zu	12596 2
+Pferd	12599 5
+,	12604 1	[$,]
+Gott	12606 4
+geb	12611 3
+was	12615 3
+meine	12619 5
+Sackpfeife	12625 10
+sang	12636 4
+oder	12641 4
+sagte	12646 5
+;	12651 1	[$.]
+und	12653 3
+was	12657 3
+mich	12661 4
+zum	12666 3
+meisten	12670 7
+verdross	12678 8
+,	12686 1	[$,]
+war	12688 3
+dieses	12692 6
+,	12698 1	[$,]
+dass	12700 4
+die	12705 3
+Reuter	12709 6
+vorgaben	12716 8
+,	12724 1	[$,]
+ich	12726 3
+hätte	12730 6
+der	12737 3
+Sackpfeif	12741 9
+im	12751 2
+Fallen	12754 6
+wehe	12761 4
+getan	12766 5
+,	12771 1	[$,]
+darum	12773 5
+sie	12779 3
+dann	12783 4
+so	12788 2
+ketzerlich	12791 10
+geschrieen	12802 10
+hätte	12813 6
+;	12819 1	[$.]
+
+also	12821 4
+ging	12826 4
+meine	12831 5
+Mähr	12837 5
+mit	12843 3
+mir	12847 3
+dahin	12851 5
+,	12856 1	[$,]
+in	12858 2
+einem	12861 5
+stetigen	12867 8
+Trab	12876 4
+,	12880 1	[$,]
+wie	12882 3
+das	12886 3
+primum	12890 6
+mobile	12897 6
+,	12903 1	[$,]
+bis	12905 3
+in	12909 2
+meines	12912 6
+Knans	12919 5
+Hof	12925 3
+.	12928 1	[$.]
+
+Wunderseltsame	12930 14
+Dauben	12945 6
+stiegen	12952 7
+mir	12960 3
+damals	12964 6
+ins	12971 3
+Hirn	12975 4
+,	12979 1	[$,]
+dann	12981 4
+ich	12986 3
+bildete	12990 7
+mir	12998 3
+ein	13002 3
+,	13005 1	[$,]
+weil	13007 4
+ich	13012 3
+auf	13016 3
+einem	13020 5
+solchen	13026 7
+Tier	13034 4
+säße	13039 6
+,	13045 1	[$,]
+dergleichen	13047 11
+ich	13059 3
+niemals	13063 7
+gesehen	13071 7
+hatte	13079 5
+,	13084 1	[$,]
+so	13086 2
+würde	13089 6
+ich	13096 3
+auch	13100 4
+in	13105 2
+einen	13108 5
+eisernen	13114 8
+Kerl	13123 4
+verändert	13128 10
+werden	13139 6
+;	13145 1	[$.]
+
+weil	13147 4
+aber	13152 4
+solche	13157 6
+Verwandlung	13164 11
+nicht	13176 5
+folgte	13182 6
+,	13188 1	[$,]
+kamen	13190 5
+mir	13196 3
+andere	13200 6
+Grillen	13207 7
+in	13215 2
+Kopf	13218 4
+;	13222 1	[$.]
+ich	13224 3
+gedachte	13228 8
+,	13236 1	[$,]
+diese	13238 5
+fremde	13244 6
+Dinger	13251 6
+wären	13258 6
+nur	13265 3
+zu	13269 2
+dem	13272 3
+Ende	13276 4
+da	13281 2
+,	13283 1	[$,]
+mir	13285 3
+die	13289 3
+Schafe	13293 6
+helfen	13300 6
+heimzutreiben	13307 13
+,	13320 1	[$,]
+sintemal	13322 8
+keiner	13331 6
+von	13338 3
+ihnen	13342 5
+keines	13348 6
+hinwegfraß	13355 11
+,	13366 1	[$,]
+sondern	13368 7
+alle	13376 4
+so	13381 2
+einhellig	13384 9
+,	13393 1	[$,]
+und	13395 3
+zwar	13399 4
+des	13404 3
+geraden	13408 7
+Wegs	13416 4
+,	13420 1	[$,]
+meines	13422 6
+Knans	13429 5
+Hof	13435 3
+zueileten	13439 9
+:	13448 1	[$.]	[$(]
+Derowegen	13450 9
+sahe	13460 4
+ich	13465 3
+mich	13469 4
+fleißig	13474 8
+nach	13483 4
+meinem	13488 6
+Knan	13495 4
+um	13500 2
+,	13502 1	[$,]
+ob	13504 2
+er	13507 2
+und	13510 3
+mein	13514 4
+Meuder	13519 6
+uns	13526 3
+nicht	13530 5
+bald	13536 4
+entgegengehen	13541 13
+und	13555 3
+uns	13559 3
+willkomm	13563 8
+sein	13572 4
+heißen	13577 7
+wollten	13585 7
+;	13592 1	[$.]
+
+aber	13594 4
+vergebens	13599 9
+,	13608 1	[$,]
+er	13610 2
+und	13613 3
+meine	13617 5
+Meuder	13623 6
+,	13629 1	[$,]
+samt	13631 4
+unserm	13636 6
+Ursele	13643 6
+,	13649 1	[$,]
+welches	13651 7
+meines	13659 6
+Knans	13666 5
+einige	13672 6
+Tochter	13679 7
+war	13687 3
+,	13690 1	[$,]
+hatten	13692 6
+die	13699 3
+Hindertür	13703 10
+troffen	13714 7
+,	13721 1	[$,]
+und	13723 3
+wollten	13727 7
+dieser	13735 6
+Gäst	13742 5
+nicht	13748 5
+erwarten	13754 8
+.	13762 1	[$.]
+
+Das	13767 3
+IV	13771 2
+.	13773 1	[$.]
+
+Kapitel	13775 7
+Wiewohl	13784 7
+ich	13792 3
+nicht	13796 5
+bin	13802 3
+gesinnet	13806 8
+gewesen	13815 7
+,	13822 1	[$,]
+den	13824 3
+friedliebenden	13828 14
+Leser	13843 5
+mit	13849 3
+diesen	13853 6
+Reutern	13860 7
+in	13868 2
+meines	13871 6
+Knans	13878 5
+Haus	13884 4
+und	13889 3
+Hof	13893 3
+zu	13897 2
+führen	13900 7
+,	13907 1	[$,]
+weil	13909 4
+es	13914 2
+schlimm	13917 7
+genug	13925 5
+darin	13931 5
+hergehen	13937 8
+wird	13946 4
+:	13950 1	[$.]	[$(]
+
+So	13952 2
+erfordert	13955 9
+jedoch	13965 6
+die	13972 3
+Folge	13976 5
+meiner	13982 6
+Histori	13989 7
+,	13996 1	[$,]
+dass	13998 4
+ich	14003 3
+der	14007 3
+lieben	14011 6
+Posterität	14018 11
+hinderlasse	14030 11
+,	14041 1	[$,]
+was	14043 3
+vor	14047 3
+Grausamkeiten	14051 13
+in	14065 2
+diesem	14068 6
+unserm	14075 6
+Teutschen	14082 9
+Krieg	14092 5
+hin	14098 3
+und	14102 3
+wieder	14106 6
+verübet	14113 8
+worden	14122 6
+,	14128 1	[$,]
+zumalen	14130 7
+mit	14138 3
+meinem	14142 6
+eigenen	14149 7
+Exempel	14157 7
+zu	14165 2
+[	14168 1	[$(]
+13	14169 2	[CARD]
+]	14171 1	[$(]
+bezeugen	14172 8
+,	14180 1	[$,]
+dass	14182 4
+alle	14187 4
+solche	14192 6
+Übel	14199 5
+von	14205 3
+der	14209 3
+Güte	14213 5
+des	14219 3
+Allerhöchsten	14223 14
+,	14237 1	[$,]
+zu	14239 2
+unserm	14242 6
+Nutz	14249 4
+,	14253 1	[$,]
+oft	14255 3
+notwendig	14259 9
+haben	14269 5
+verhängt	14275 9
+werden	14285 6
+müssen	14292 7
+:	14299 1	[$.]	[$(]
+
+Dann	14301 4
+lieber	14306 6
+Leser	14313 5
+,	14318 1	[$,]
+wer	14320 3
+hätte	14324 6
+mir	14331 3
+gesagt	14335 6
+,	14341 1	[$,]
+dass	14343 4
+ein	14348 3
+Gott	14352 4
+im	14357 2
+Himmel	14360 6
+wäre	14367 5
+,	14372 1	[$,]
+wann	14374 4
+keine	14379 5
+Krieger	14385 7
+meines	14393 6
+Knans	14400 5
+Haus	14406 4
+zernichtet	14411 10
+und	14422 3
+mich	14426 4
+durch	14431 5
+solche	14437 6
+Fahung	14444 6
+unter	14451 5
+die	14457 3
+Leut	14461 4
+gezwungen	14466 9
+hätten	14476 7
+,	14483 1	[$,]
+von	14485 3
+denen	14489 5
+ich	14495 3
+genugsamen	14499 10
+Bericht	14510 7
+empfangen	14518 9
+?	14527 1	[$.]
+
+Kurz	14529 4
+zuvor	14534 5
+konnte	14540 6
+ich	14547 3
+nichts	14551 6
+anders	14558 6
+wissen	14565 6
+noch	14572 4
+mir	14577 3
+einbilden	14581 9
+,	14590 1	[$,]
+als	14592 3
+dass	14596 4
+mein	14601 4
+Knan	14606 4
+,	14610 1	[$,]
+Meuder	14612 6
+,	14618 1	[$,]
+ich	14620 3
+und	14624 3
+das	14628 3
+übrige	14632 7
+Hausgesind	14640 10
+allein	14651 6
+auf	14658 3
+Erden	14662 5
+seie	14668 4
+,	14672 1	[$,]
+weil	14674 4
+mir	14679 3
+sonst	14683 5
+kein	14689 4
+Mensch	14694 6
+,	14700 1	[$,]
+noch	14702 4
+einige	14707 6
+andere	14714 6
+menschliche	14721 11
+Wohnung	14733 7
+bekannt	14741 7
+war	14749 3
+,	14752 1	[$,]
+als	14754 3
+diejenige	14758 9
+,	14767 1	[$,]
+darin	14769 5
+ich	14775 3
+täglich	14779 8
+aus	14788 3
+und	14792 3
+ein	14796 3
+ging	14800 4
+:	14804 1	[$.]	[$(]
+Aber	14806 4
+bald	14811 4
+hernach	14816 7
+erfuhr	14824 6
+ich	14831 3
+die	14835 3
+Herkunft	14839 8
+der	14848 3
+Menschen	14852 8
+in	14861 2
+diese	14864 5
+Welt	14870 4
+,	14874 1	[$,]
+und	14876 3
+dass	14880 4
+sie	14885 3
+wieder	14889 6
+daraus	14896 6
+müssten	14903 8
+;	14911 1	[$.]
+
+ich	14913 3
+war	14917 3
+nur	14921 3
+mit	14925 3
+der	14929 3
+Gestalt	14933 7
+ein	14941 3
+Mensch	14945 6
+,	14951 1	[$,]
+und	14953 3
+mit	14957 3
+dem	14961 3
+Namen	14965 5
+ein	14971 3
+Christenkind	14975 12
+,	14987 1	[$,]
+im	14989 2
+Übrigen	14992 8
+aber	15001 4
+nur	15006 3
+ein	15010 3
+Bestia	15014 6
+!	15020 1	[$.]
+
+Aber	15022 4
+der	15027 3
+Allerhöchste	15031 13
+sahe	15045 4
+meine	15050 5
+Unschuld	15056 8
+mit	15065 3
+barmherzigen	15069 12
+Augen	15082 5
+an	15088 2
+und	15091 3
+wollte	15095 6
+mich	15102 4
+beides	15107 6
+,	15113 1	[$,]
+zu	15115 2
+seiner	15118 6
+und	15125 3
+meiner	15129 6
+Erkantnus	15136 9
+bringen	15146 7
+:	15153 1	[$.]	[$(]
+
+Und	15155 3
+wiewohl	15159 7
+er	15167 2
+tausenderlei	15170 12
+Weg	15183 3
+hierzu	15187 6
+hatte	15194 5
+,	15199 1	[$,]
+wollte	15201 6
+er	15208 2
+sich	15211 4
+doch	15216 4
+ohn	15221 3
+Zweifel	15225 7
+nur	15233 3
+desjenigen	15237 10
+bedienen	15248 8
+,	15256 1	[$,]
+in	15258 2
+welchem	15261 7
+mein	15269 4
+Knan	15274 4
+und	15279 3
+Meuder	15283 6
+,	15289 1	[$,]
+andern	15291 6
+zum	15298 3
+Exempel	15302 7
+,	15309 1	[$,]
+wegen	15311 5
+ihrer	15317 5
+liederlichen	15323 12
+Auferziehung	15336 12
+gestraft	15349 8
+würden	15358 7
+.	15365 1	[$.]
+
+Das	15368 3
+Erste	15372 5
+,	15377 1	[$,]
+das	15379 3
+diese	15383 5
+Reuter	15389 6
+täten	15396 6
+,	15402 1	[$,]
+war	15404 3
+,	15407 1	[$,]
+dass	15409 4
+sie	15414 3
+ihre	15418 4
+Pferd	15423 5
+einstelleten	15429 12
+,	15441 1	[$,]
+hernach	15443 7
+hatte	15451 5
+jeglicher	15457 9
+seine	15467 5
+sonderbare	15473 10
+Arbeit	15484 6
+zu	15491 2
+verrichten	15494 10
+,	15504 1	[$,]
+deren	15506 5
+jede	15512 4
+lauter	15517 6
+Untergang	15524 9
+und	15534 3
+Verderben	15538 9
+anzeigte	15548 8
+;	15556 1	[$.]
+
+dann	15558 4
+ob	15563 2
+zwar	15566 4
+etliche	15571 7
+anfingen	15579 8
+zu	15588 2
+metzgen	15591 7
+,	15598 1	[$,]
+zu	15600 2
+sieden	15603 6
+und	15610 3
+zu	15614 2
+braten	15617 6
+,	15623 1	[$,]
+dass	15625 4
+es	15630 2
+sahe	15633 4
+,	15637 1	[$,]
+als	15639 3
+sollte	15643 6
+ein	15650 3
+lustig	15654 6
+Pankett	15661 7
+gehalten	15669 8
+werden	15678 6
+,	15684 1	[$,]
+so	15686 2
+waren	15689 5
+hingegen	15695 8
+andere	15704 6
+,	15710 1	[$,]
+die	15712 3
+durchstürmten	15716 14
+das	15731 3
+Haus	15735 4
+unden	15740 5
+und	15746 3
+oben	15750 4
+,	15754 1	[$,]
+ja	15756 2
+das	15759 3
+heimlich	15763 8
+Gemach	15772 6
+war	15779 3
+nicht	15783 5
+sicher	15789 6
+,	15795 1	[$,]
+gleichsam	15797 9
+ob	15807 2
+wäre	15810 5
+das	15816 3
+gülden	15820 7
+Fell	15828 4
+von	15833 3
+Kolchis	15837 7
+darinnen	15845 8
+verborgen	15854 9
+;	15863 1	[$.]
+
+andere	15865 6
+machten	15872 7
+von	15880 3
+Tuch	15884 4
+,	15888 1	[$,]
+Kleidungen	15890 10
+und	15901 3
+allerlei	15905 8
+Hausrat	15914 7
+große	15922 6
+Päck	15929 5
+zusammen	15935 8
+,	15943 1	[$,]
+als	15945 3
+ob	15949 2
+sie	15952 3
+irgends	15956 7
+ein	15964 3
+Krempelmarkt	15968 12
+anrichten	15981 9
+wollten	15991 7
+,	15998 1	[$,]
+was	16000 3
+sie	16004 3
+aber	16008 4
+nicht	16013 5
+mitzunehmen	16019 11
+gedachten	16031 9
+,	16040 1	[$,]
+wurde	16042 5
+zerschlagen	16048 11
+;	16059 1	[$.]
+
+etliche	16061 7
+durchstachen	16069 12
+Heu	16082 3
+und	16086 3
+Stroh	16090 5
+mit	16096 3
+ihren	16100 5
+Degen	16106 5
+,	16111 1	[$,]
+als	16113 3
+ob	16117 2
+sie	16120 3
+nicht	16124 5
+Schaf	16130 5
+und	16136 3
+Schwein	16140 7
+genug	16148 5
+zu	16154 2
+stechen	16157 7
+[	16165 1	[$(]
+14	16166 2	[CARD]
+]	16168 1	[$(]
+gehabt	16169 6
+hätten	16176 7
+,	16183 1	[$,]
+etliche	16185 7
+schütteten	16193 11
+die	16205 3
+Federn	16209 6
+aus	16216 3
+den	16220 3
+Betten	16224 6
+und	16231 3
+fülleten	16235 9
+hingegen	16245 8
+Speck	16254 5
+,	16259 1	[$,]
+andere	16261 6
+dürr	16268 5
+Fleisch	16274 7
+und	16282 3
+sonst	16286 5
+Gerät	16292 6
+hinein	16299 6
+,	16305 1	[$,]
+als	16307 3
+ob	16311 2
+alsdann	16314 7
+besser	16322 6
+darauf	16329 6
+zu	16336 2
+schlafen	16339 8
+gewest	16348 6
+wäre	16355 5
+;	16360 1	[$.]
+
+andere	16362 6
+schlugen	16369 8
+Ofen	16378 4
+und	16383 3
+Fenster	16387 7
+ein	16395 3
+,	16398 1	[$,]
+gleichsam	16400 9
+als	16410 3
+hätten	16414 7
+sie	16422 3
+ein	16426 3
+ewigen	16430 6
+Sommer	16437 6
+zu	16444 2
+verkündigen	16447 12
+,	16459 1	[$,]
+Kupfer	16461 6
+und	16468 3
+Zinnengeschirr	16472 14
+schlugen	16487 8
+sie	16496 3
+zusammen	16500 8
+und	16509 3
+packten	16513 7
+die	16521 3
+gebogene	16525 8
+und	16534 3
+verderbte	16538 9
+Stuck	16548 5
+ein	16554 3
+,	16557 1	[$,]
+Bettladen	16559 9
+,	16568 1	[$,]
+Tisch	16570 5
+,	16575 1	[$,]
+Stühl	16577 6
+und	16584 3
+Bänk	16588 5
+verbrannten	16594 11
+sie	16606 3
+,	16609 1	[$,]
+da	16611 2
+doch	16614 4
+viel	16619 4
+Klafter	16624 7
+dürr	16632 5
+Holz	16638 4
+im	16643 2
+Hof	16646 3
+lag	16650 3
+,	16653 1	[$,]
+Häfen	16655 6
+und	16662 3
+Schüsseln	16666 10
+musste	16677 6
+endlich	16684 7
+alles	16692 5
+entzwei	16698 7
+,	16705 1	[$,]
+entweder	16707 8
+weil	16716 4
+sie	16721 3
+lieber	16725 6
+Gebraten	16732 8
+aßen	16741 5
+,	16746 1	[$,]
+oder	16748 4
+weil	16753 4
+sie	16758 3
+bedacht	16762 7
+waren	16770 5
+,	16775 1	[$,]
+nur	16777 3
+ein	16781 3
+einzige	16785 7
+Mahlzeit	16793 8
+allda	16802 5
+zu	16808 2
+halten	16811 6
+;	16817 1	[$.]
+
+unser	16819 5
+Magd	16825 4
+ward	16830 4
+im	16835 2
+Stall	16838 5
+dermaßen	16844 9
+traktiert	16854 9
+,	16863 1	[$,]
+dass	16865 4
+sie	16870 3
+nicht	16874 5
+mehr	16880 4
+daraus	16885 6
+gehen	16892 5
+konnte	16898 6
+,	16904 1	[$,]
+welches	16906 7
+zwar	16914 4
+eine	16919 4
+Schand	16924 6
+ist	16931 3
+zu	16935 2
+melden	16938 6
+!	16944 1	[$.]
+
+Den	16946 3
+Knecht	16950 6
+legten	16957 6
+sie	16964 3
+gebunden	16968 8
+auf	16977 3
+die	16981 3
+Erd	16985 3
+,	16988 1	[$,]
+stecketen	16990 9
+ihm	17000 3
+ein	17004 3
+Sperrholz	17008 9
+ins	17018 3
+Maul	17022 4
+und	17027 3
+schütteten	17031 11
+ihm	17043 3
+einen	17047 5
+Melkkübel	17053 10
+voll	17064 4
+garstig	17069 7
+Mistlachenwasser	17077 16
+in	17094 2
+Leib	17097 4
+;	17101 1	[$.]
+das	17103 3
+nenneten	17107 8
+sie	17116 3
+ein	17120 3
+Schwedischen	17124 12
+Trunk	17137 5
+,	17142 1	[$,]
+wordurch	17144 8
+sie	17153 3
+ihn	17157 3
+zwungen	17161 7
+,	17168 1	[$,]
+eine	17170 4
+Partei	17175 6
+anderwärts	17182 11
+zu	17194 2
+führen	17197 7
+,	17204 1	[$,]
+allda	17206 5
+sie	17212 3
+Menschen	17216 8
+und	17225 3
+Viehe	17229 5
+hinwegnahmen	17235 12
+und	17248 3
+in	17252 2
+unsern	17255 6
+Hof	17262 3
+brachten	17266 8
+,	17274 1	[$,]
+unter	17276 5
+welchen	17282 7
+mein	17290 4
+Knan	17295 4
+,	17299 1	[$,]
+mein	17301 4
+Meuder	17306 6
+,	17312 1	[$,]
+und	17314 3
+unser	17318 5
+Ursele	17324 6
+auch	17331 4
+waren	17336 5
+.	17341 1	[$.]
+
+Da	17344 2
+fing	17347 4
+man	17352 3
+erst	17356 4
+an	17361 2
+,	17363 1	[$,]
+die	17365 3
+Stein	17369 5
+von	17375 3
+den	17379 3
+Pistolen	17383 8
+,	17391 1	[$,]
+und	17393 3
+hingegen	17397 8
+an	17406 2
+deren	17409 5
+Statt	17415 5
+der	17421 3
+Bauren	17425 6
+Daumen	17432 6
+aufzuschrauben	17439 14
+,	17453 1	[$,]
+und	17455 3
+die	17459 3
+arme	17463 4
+Schelmen	17468 8
+so	17477 2
+zu	17480 2
+foltern	17483 7
+,	17490 1	[$,]
+als	17492 3
+wann	17496 4
+man	17501 3
+hätt	17505 5
+Hexen	17511 5
+brennen	17517 7
+wollen	17525 6
+,	17531 1	[$,]
+maßen	17533 6
+sie	17540 3
+auch	17544 4
+einen	17549 5
+von	17555 3
+den	17559 3
+gefangenen	17563 10
+Bauren	17574 6
+bereits	17581 7
+in	17589 2
+Bachofen	17592 8
+steckten	17601 8
+und	17610 3
+mit	17614 3
+Feuer	17618 5
+hinder	17624 6
+ihm	17631 3
+her	17635 3
+warn	17639 4
+,	17643 1	[$,]
+ohnangesehen	17645 12
+er	17658 2
+noch	17661 4
+nichts	17666 6
+bekennt	17673 7
+hatte	17681 5
+;	17686 1	[$.]
+
+einem	17688 5
+andern	17694 6
+machten	17701 7
+sie	17709 3
+ein	17713 3
+Seil	17717 4
+um	17722 2
+den	17725 3
+Kopf	17729 4
+und	17734 3
+raitelten	17738 9
+es	17748 2
+mit	17751 3
+einem	17755 5
+Bengel	17761 6
+zusammen	17768 8
+,	17776 1	[$,]
+dass	17778 4
+ihm	17783 3
+das	17787 3
+Blut	17791 4
+zu	17796 2
+Mund	17799 4
+,	17803 1	[$,]
+Nas	17805 3
+und	17809 3
+Ohren	17813 5
+heraussprang	17819 12
+.	17831 1	[$.]
+
+In	17833 2
+Summa	17836 5
+,	17841 1	[$,]
+es	17843 2
+hatte	17846 5
+jeder	17852 5
+sein	17858 4
+eigene	17863 6
+Invention	17870 9
+,	17879 1	[$,]
+die	17881 3
+Bauren	17885 6
+zu	17892 2
+peinigen	17895 8
+,	17903 1	[$,]
+und	17905 3
+also	17909 4
+auch	17914 4
+jeder	17919 5
+Bauer	17925 5
+eine	17931 4
+sonderbare	17936 10
+Marter	17947 6
+:	17953 1	[$.]	[$(]
+
+Allein	17955 6
+mein	17962 4
+Knan	17967 4
+war	17972 3
+meinem	17976 6
+damaligen	17983 9
+Bedunken	17993 8
+nach	18002 4
+der	18007 3
+Glückseligste	18011 14
+,	18025 1	[$,]
+weil	18027 4
+er	18032 2
+mit	18035 3
+lachendem	18039 9
+Mund	18049 4
+bekennete	18054 9
+,	18063 1	[$,]
+was	18065 3
+andere	18069 6
+mit	18076 3
+Schmerzen	18080 9
+und	18090 3
+jämmerlicher	18094 13
+Weheklag	18108 8
+sagen	18117 5
+mussten	18123 7
+,	18130 1	[$,]
+und	18132 3
+solche	18136 6
+Ehre	18143 4
+widerfuhr	18148 9
+ihm	18158 3
+ohne	18162 4
+[	18167 1	[$(]
+15	18168 2	[CARD]
+]Zweifel	18170 8
+darum	18179 5
+,	18184 1	[$,]
+weil	18186 4
+er	18191 2
+der	18194 3
+Hausvatter	18198 10
+war	18209 3
+,	18212 1	[$,]
+dann	18214 4
+sie	18219 3
+setzten	18223 7
+ihn	18231 3
+zu	18235 2
+einem	18238 5
+Feuer	18244 5
+,	18249 1	[$,]
+banden	18251 6
+ihn	18258 3
+,	18261 1	[$,]
+dass	18263 4
+er	18268 2
+weder	18271 5
+Händ	18277 5
+noch	18283 4
+Füß	18288 5
+regen	18294 5
+konnte	18300 6
+,	18306 1	[$,]
+und	18308 3
+rieben	18312 6
+seine	18319 5
+Fußsohlen	18325 10
+mit	18336 3
+angefeuchtem	18340 12
+Salz	18353 4
+,	18357 1	[$,]
+welches	18359 7
+ihm	18367 3
+unser	18371 5
+alte	18377 4
+Geiß	18382 5
+wieder	18388 6
+ablecken	18395 8
+und	18404 3
+dadurch	18408 7
+also	18416 4
+kützeln	18421 8
+musste	18430 6
+,	18436 1	[$,]
+dass	18438 4
+er	18443 2
+vor	18446 3
+Lachen	18450 6
+hätte	18457 6
+zerbersten	18464 10
+mögen	18475 6
+;	18481 1	[$.]
+
+das	18483 3
+kam	18487 3
+so	18491 2
+artlich	18494 7
+,	18501 1	[$,]
+dass	18503 4
+ich	18508 3
+Gesellschaft	18512 12
+halber	18525 6
+,	18531 1	[$,]
+oder	18533 4
+weil	18538 4
+ich’	18543 6
+s	18549 1
+nicht	18551 5
+besser	18557 6
+verstunde	18564 9
+,	18573 1	[$,]
+von	18575 3
+Herzen	18579 6
+mitlachen	18586 9
+musste	18596 6
+:	18602 1	[$.]	[$(]
+
+In	18604 2
+solchem	18607 7
+Gelächter	18615 10
+bekannte	18626 8
+er	18635 2
+seine	18638 5
+Schuldigkeit	18644 12
+und	18657 3
+öffnet	18661 7
+den	18669 3
+verborgenen	18673 11
+Schatz	18685 6
+,	18691 1	[$,]
+welcher	18693 7
+von	18701 3
+Gold	18705 4
+,	18709 1	[$,]
+Perlen	18711 6
+und	18718 3
+Kleinodien	18722 10
+viel	18733 4
+reicher	18738 7
+war	18746 3
+,	18749 1	[$,]
+als	18751 3
+man	18755 3
+hinder	18759 6
+Bauren	18766 6
+hätte	18773 6
+suchen	18780 6
+mögen	18787 6
+.	18793 1	[$.]
+
+Von	18795 3
+den	18799 3
+gefangenen	18803 10
+Weibern	18814 7
+,	18821 1	[$,]
+Mägden	18823 7
+und	18831 3
+Töchtern	18835 9
+weiß	18845 5
+ich	18851 3
+sonderlich	18855 10
+nichts	18866 6
+zu	18873 2
+sagen	18876 5
+,	18881 1	[$,]
+weil	18883 4
+mich	18888 4
+die	18893 3
+Krieger	18897 7
+nicht	18905 5
+zusehen	18911 7
+ließen	18919 7
+,	18926 1	[$,]
+wie	18928 3
+sie	18932 3
+mit	18936 3
+ihnen	18940 5
+umgingen	18946 8
+:	18954 1	[$.]	[$(]
+Das	18956 3
+weiß	18960 5
+ich	18966 3
+noch	18970 4
+wohl	18975 4
+,	18979 1	[$,]
+dass	18981 4
+man	18986 3
+teils	18990 5
+hin	18996 3
+und	19000 3
+wieder	19004 6
+in	19011 2
+den	19014 3
+Winkeln	19018 7
+erbärmlich	19026 11
+schreien	19038 8
+hörte	19047 6
+;	19053 1	[$.]
+
+schätze	19055 8
+wohl	19064 4
+,	19068 1	[$,]
+es	19070 2
+sei	19073 3
+meiner	19077 6
+Meuder	19084 6
+und	19091 3
+unserm	19095 6
+Ursele	19102 6
+nit	19109 3
+besser	19113 6
+gangen	19120 6
+,	19126 1	[$,]
+als	19128 3
+den	19132 3
+andern	19136 6
+.	19142 1	[$.]
+
+Mitten	19144 6
+in	19151 2
+diesem	19154 6
+Elend	19161 5
+wendet	19167 6
+ich	19174 3
+Braten	19178 6
+und	19185 3
+half	19189 4
+Nachmittag	19194 10
+die	19205 3
+Pferd	19209 5
+tränken	19215 8
+,	19223 1	[$,]
+durch	19225 5
+welches	19231 7
+Mittel	19239 6
+ich	19246 3
+zu	19250 2
+unserer	19253 7
+Magd	19261 4
+in	19266 2
+Stall	19269 5
+kam	19275 3
+,	19278 1	[$,]
+welche	19280 6
+wunderwerklich	19287 14
+zerstrobelt	19302 11
+aussahe	19314 7
+;	19321 1	[$.]
+ich	19323 3
+kennete	19327 7
+sie	19335 3
+nicht	19339 5
+,	19344 1	[$,]
+sie	19346 3
+aber	19350 4
+sprach	19355 6
+zu	19362 2
+mir	19365 3
+mit	19369 3
+kränklichter	19373 13
+Stimm	19387 5
+:	19392 1	[$.]	[$(]
+
+»	19394 2	[$(]
+O	19396 1
+Bub	19398 3
+lauf	19402 4
+weg	19407 3
+,	19410 1	[$,]
+sonst	19412 5
+werden	19418 6
+dich	19425 4
+die	19430 3
+Reuter	19434 6
+mitnemmen	19441 9
+,	19450 1	[$,]
+guck	19452 4
+dass	19457 4
+du	19462 2
+davonkommst	19465 11
+,	19476 1	[$,]
+du	19478 2
+siehest	19481 7
+wohl	19489 4
+,	19493 1	[$,]
+wie	19495 3
+es	19499 2
+so	19502 2
+übel	19505 5
+«	19510 2	[$(]
+:	19512 1	[$.]	[$(]
+mehrers	19514 7
+konnte	19522 6
+sie	19529 3
+nicht	19533 5
+sagen	19539 5
+.	19544 1	[$.]
+
+Das	19549 3
+V.	19553 2	[ADJA]	[$ABBREV]	[$ORD]
+Kapitel	19556 7
+Da	19565 2
+machte	19568 6
+ich	19575 3
+gleich	19579 6
+den	19586 3
+Anfang	19590 6
+,	19596 1	[$,]
+meinen	19598 6
+unglücklichen	19605 14
+Zustand	19620 7
+,	19627 1	[$,]
+den	19629 3
+ich	19633 3
+vor	19637 3
+Augen	19641 5
+sahe	19647 4
+,	19651 1	[$,]
+zu	19653 2
+betrachten	19656 10
+und	19667 3
+zu	19671 2
+gedenken	19674 8
+,	19682 1	[$,]
+wie	19684 3
+ich	19688 3
+mich	19692 4
+förderlichst	19697 13
+ausdrehen	19711 9
+möchte	19721 7
+:	19728 1	[$.]	[$(]
+wohin	19730 5
+aber	19736 4
+?	19740 1	[$.]
+darzu	19742 5
+war	19748 3
+mein	19752 4
+Verstand	19757 8
+viel	19766 4
+zu	19771 2
+gering	19774 6
+,	19780 1	[$,]
+einen	19782 5
+Vorschlag	19788 9
+zu	19798 2
+tun	19801 3
+;	19804 1	[$.]
+doch	19806 4
+hat	19811 3
+es	19815 2
+mir	19818 3
+so	19822 2
+weit	19825 4
+gelungen	19830 8
+,	19838 1	[$,]
+dass	19840 4
+ich	19845 3
+gegen	19849 5
+Abend	19855 5
+in	19861 2
+Wald	19864 4
+bin	19869 3
+entsprungen	19873 11
+.	19884 1	[$.]
+
+Wo	19886 2
+nun	19889 3
+aber	19893 4
+weiters	19898 7
+hinaus	19906 6
+?	19912 1	[$.]
+sintemal	19914 8
+mir	19923 3
+die	19927 3
+Wege	19931 4
+und	19936 3
+der	19940 3
+Wald	19944 4
+so	19949 2
+wenig	19952 5
+bekannt	19958 7
+waren	19966 5
+,	19971 1	[$,]
+als	19973 3
+die	19977 3
+Straß	19981 6
+durch	19988 5
+das	19994 3
+gefrorne	19998 8
+Meer	20007 4
+,	20011 1	[$,]
+[	20013 1	[$(]
+16	20014 2	[CARD]
+]hinter	20016 7
+Nova	20024 4
+Zembla	20029 6
+,	20035 1	[$,]
+bis	20037 3
+gen	20041 3
+China	20045 5
+hinein	20051 6
+:	20057 1	[$.]	[$(]
+die	20059 3
+stockfinstere	20063 13
+Nacht	20077 5
+bedeckte	20083 8
+mich	20092 4
+zwar	20097 4
+zu	20102 2
+meiner	20105 6
+Versicherung	20112 12
+,	20124 1	[$,]
+jedoch	20126 6
+bedauchte	20133 9
+sie	20143 3
+meinen	20147 6
+finstern	20154 8
+Verstand	20163 8
+nicht	20172 5
+finster	20178 7
+genug	20186 5
+;	20191 1	[$.]
+
+dahero	20193 6
+verbarg	20200 7
+ich	20208 3
+mich	20212 4
+in	20217 2
+ein	20220 3
+dickes	20224 6
+Gesträuch	20231 10
+,	20241 1	[$,]
+da	20243 2
+ich	20246 3
+sowohl	20250 6
+das	20257 3
+Geschrei	20261 8
+der	20270 3
+getrillten	20274 10
+Bauren	20285 6
+,	20291 1	[$,]
+als	20293 3
+das	20297 3
+Gesang	20301 6
+der	20308 3
+Nachtigallen	20312 12
+hören	20325 6
+konnte	20332 6
+,	20338 1	[$,]
+welche	20340 6
+Vögelein	20347 9
+sie	20357 3
+,	20360 1	[$,]
+die	20362 3
+Bauren	20366 6
+,	20372 1	[$,]
+von	20374 3
+welchen	20378 7
+man	20386 3
+teils	20390 5
+auch	20396 4
+Vögel	20401 6
+zu	20408 2
+nennen	20411 6
+pflegt	20418 6
+,	20424 1	[$,]
+nicht	20426 5
+angesehen	20432 9
+hatten	20442 6
+,	20448 1	[$,]
+mit	20450 3
+ihnen	20454 5
+Mitleiden	20460 9
+zu	20470 2
+tragen	20473 6
+oder	20480 4
+ihres	20485 5
+Unglücks	20491 9
+halber	20501 6
+das	20508 3
+liebliche	20512 9
+Gesang	20522 6
+einzustellen	20529 12
+;	20541 1	[$.]
+
+darum	20543 5
+legte	20549 5
+ich	20555 3
+mich	20559 4
+auch	20564 4
+ohn	20569 3
+alle	20573 4
+Sorge	20578 5
+auf	20584 3
+ein	20588 3
+Ohr	20592 3
+und	20596 3
+entschlief	20600 10
+.	20610 1	[$.]
+
+Als	20612 3
+aber	20616 4
+der	20621 3
+Morgenstern	20625 11
+im	20637 2
+Osten	20640 5
+herfürflackerte	20646 16
+,	20662 1	[$,]
+sahe	20664 4
+ich	20669 3
+meines	20673 6
+Knans	20680 5
+Haus	20686 4
+in	20691 2
+voller	20694 6
+Flamme	20701 6
+stehen	20708 6
+,	20714 1	[$,]
+aber	20716 4
+niemand	20721 7
+der	20729 3
+zu	20733 2
+leschen	20736 7
+begehrte	20744 8
+;	20752 1	[$.]
+ich	20754 3
+begab	20758 5
+mich	20764 4
+herfür	20769 7
+,	20776 1	[$,]
+in	20778 2
+Hoffnung	20781 8
+,	20789 1	[$,]
+jemand	20791 6
+von	20798 3
+meinem	20802 6
+Knan	20809 4
+anzutreffen	20814 11
+,	20825 1	[$,]
+wurde	20827 5
+aber	20833 4
+gleich	20838 6
+von	20845 3
+fünf	20849 5
+Reutern	20855 7
+erblickt	20863 8
+und	20872 3
+angeschrieen	20876 12
+:	20888 1	[$.]	[$(]
+
+»	20890 2	[$(]
+Junge	20892 5
+,	20897 1	[$,]
+kom	20899 3
+heröfer	20903 8
+,	20911 1	[$,]
+oder	20913 4
+schall	20918 6
+my	20925 2
+de	20928 2
+Tüfel	20931 6
+halen	20938 5
+,	20943 1	[$,]
+ick	20945 3
+schiedte	20949 8
+dick	20958 4
+,	20962 1	[$,]
+dat	20964 3
+di	20968 2
+de	20971 2
+Dampff	20974 6
+zum	20981 3
+Hals	20985 4
+utgaht	20990 6
+!	20996 1	[$.]
+«	20997 2	[$(]
+
+Ich	21000 3
+hingegen	21004 8
+blieb	21013 5
+ganz	21019 4
+stockstill	21024 10
+stehen	21035 6
+und	21042 3
+hatte	21046 5
+das	21052 3
+Maul	21056 4
+offen	21061 5
+,	21066 1	[$,]
+weil	21068 4
+ich	21073 3
+nicht	21077 5
+wusste	21083 6
+,	21089 1	[$,]
+was	21091 3
+der	21095 3
+Reuter	21099 6
+wollte	21106 6
+oder	21113 4
+meinte	21118 6
+,	21124 1	[$,]
+und	21126 3
+indem	21130 5
+ich	21136 3
+sie	21140 3
+so	21144 2
+ansahe	21147 6
+,	21153 1	[$,]
+wie	21155 3
+ein	21159 3
+Katz	21163 4
+ein	21168 3
+neu	21172 3
+Scheurtor	21176 9
+,	21185 1	[$,]
+sie	21187 3
+aber	21191 4
+wegen	21196 5
+eines	21202 5
+Morastes	21208 8
+nicht	21217 5
+zu	21223 2
+mir	21226 3
+kommen	21230 6
+konnten	21237 7
+,	21244 1	[$,]
+welches	21246 7
+sie	21254 3
+ohn	21258 3
+Zweifel	21262 7
+rechtschaffen	21270 13
+vexierte	21284 8
+,	21292 1	[$,]
+lösete	21294 7
+der	21302 3
+eine	21306 4
+seinen	21311 6
+Karbiner	21318 8
+auf	21327 3
+mich	21331 4
+,	21335 1	[$,]
+von	21337 3
+welchem	21341 7
+urplötzlichen	21349 14
+Feuer	21364 5
+und	21370 3
+unversehnlichem	21374 15
+Klapf	21390 5
+,	21395 1	[$,]
+den	21397 3
+mir	21401 3
+Echo	21405 4
+durch	21410 5
+vielfältige	21416 12
+Verdoppelung	21429 12
+grausamer	21442 9
+machte	21452 6
+,	21458 1	[$,]
+ich	21460 3
+dermaßen	21464 9
+erschreckt	21474 10
+ward	21485 4
+,	21489 1	[$,]
+weil	21491 4
+ich	21496 3
+dergleichen	21500 11
+niemals	21512 7
+gehöret	21520 8
+oder	21529 4
+gesehen	21534 7
+hatte	21542 5
+,	21547 1	[$,]
+dass	21549 4
+ich	21554 3
+alsobald	21558 8
+zur	21567 3
+Erden	21571 5
+niederfiele	21577 11
+;	21588 1	[$.]
+ich	21590 3
+regete	21594 6
+vor	21601 3
+Angst	21605 5
+keine	21611 5
+Ader	21617 4
+mehr	21622 4
+,	21626 1	[$,]
+und	21628 3
+wiewohl	21632 7
+die	21640 3
+Reuter	21644 6
+ihres	21651 5
+Wegs	21657 4
+fortritten	21662 10
+,	21672 1	[$,]
+und	21674 3
+mich	21678 4
+ohn	21683 3
+Zweifel	21687 7
+vor	21695 3
+tot	21699 3
+liegen	21703 6
+ließen	21710 7
+,	21717 1	[$,]
+so	21719 2
+hatte	21722 5
+ich	21728 3
+jedoch	21732 6
+denselbigen	21739 11
+ganzen	21751 6
+Tag	21758 3
+das	21762 3
+Herz	21766 4
+nicht	21771 5
+,	21776 1	[$,]
+mich	21778 4
+aufzurichten	21783 12
+;	21795 1	[$.]
+als	21797 3
+mich	21801 4
+aber	21806 4
+die	21811 3
+Nacht	21815 5
+wieder	21821 6
+ergriffe	21828 8
+,	21836 1	[$,]
+stunde	21838 6
+ich	21845 3
+auf	21849 3
+,	21852 1	[$,]
+und	21854 3
+wanderte	21858 8
+so	21867 2
+lang	21870 4
+im	21875 2
+Wald	21878 4
+fort	21883 4
+,	21887 1	[$,]
+bis	21889 3
+ich	21893 3
+von	21897 3
+fern	21901 4
+einen	21906 5
+faulen	21912 6
+Baum	21919 4
+schimmern	21924 9
+sahe	21934 4
+,	21938 1	[$,]
+welcher	21940 7
+mir	21948 3
+ein	21952 3
+neue	21956 4
+Forcht	21961 6
+einjagte	21968 8
+,	21976 1	[$,]
+kehrete	21978 7
+derowegen	21986 9
+sporenstreichs	21996 14
+wieder	22011 6
+um	22018 2
+,	22020 1	[$,]
+und	22022 3
+ging	22026 4
+so	22031 2
+lang	22034 4
+,	22038 1	[$,]
+bis	22040 3
+ich	22044 3
+wieder	22048 6
+einen	22055 5
+andern	22061 6
+dergleichen	22068 11
+Baum	22080 4
+[	22085 1	[$(]
+17	22086 2	[CARD]
+]	22088 1	[$(]
+erblickte	22089 9
+,	22098 1	[$,]
+von	22100 3
+dem	22104 3
+ich	22108 3
+mich	22112 4
+gleichfalls	22117 11
+wieder	22129 6
+fortmachte	22136 10
+und	22147 3
+auf	22151 3
+diese	22155 5
+Weise	22161 5
+die	22167 3
+Nacht	22171 5
+mit	22177 3
+Hin-	22181 4	[TRUNC]
+und	22186 3
+Widerrennen	22190 11
+,	22201 1	[$,]
+von	22203 3
+einem	22207 5
+faulen	22213 6
+Baum	22220 4
+zum	22225 3
+andern	22229 6
+,	22235 1	[$,]
+vertriebe	22237 9
+;	22246 1	[$.]
+
+zuletzt	22248 7
+kam	22256 3
+mir	22260 3
+der	22264 3
+liebe	22268 5
+Tag	22274 3
+zu	22278 2
+Hülf	22281 5
+,	22286 1	[$,]
+welcher	22288 7
+den	22296 3
+Bäumen	22300 7
+gebotte	22308 7
+,	22315 1	[$,]
+mich	22317 4
+in	22322 2
+seiner	22325 6
+Gegenwart	22332 9
+ohnbetrübt	22342 11
+zu	22354 2
+lassen	22357 6
+,	22363 1	[$,]
+aber	22365 4
+hiermit	22370 7
+war	22378 3
+mir	22382 3
+noch	22386 4
+nichts	22391 6
+geholfen	22398 8
+,	22406 1	[$,]
+dann	22408 4
+mein	22413 4
+Herz	22418 4
+steckte	22423 7
+voll	22431 4
+Angst	22436 5
+und	22442 3
+Forcht	22446 6
+,	22452 1	[$,]
+die	22454 3
+Schenkel	22458 8
+voll	22467 4
+Müdigkeit	22472 10
+,	22482 1	[$,]
+der	22484 3
+leere	22488 5
+Magen	22494 5
+voll	22500 4
+Hunger	22505 6
+,	22511 1	[$,]
+das	22513 3
+Maul	22517 4
+voll	22522 4
+Durst	22527 5
+,	22532 1	[$,]
+das	22534 3
+Hirn	22538 4
+voll	22543 4
+närrischer	22548 11
+Einbildung	22560 10
+,	22570 1	[$,]
+und	22572 3
+die	22576 3
+Augen	22580 5
+voller	22586 6
+Schlaf	22593 6
+:	22599 1	[$.]	[$(]
+
+Ich	22601 3
+ging	22605 4
+dannoch	22610 7
+fürter	22618 7
+,	22625 1	[$,]
+wusste	22627 6
+aber	22634 4
+nicht	22639 5
+wohin	22645 5
+,	22650 1	[$,]
+je	22652 2
+weiter	22655 6
+ich	22662 3
+aber	22666 4
+ging	22671 4
+,	22675 1	[$,]
+je	22677 2
+tiefer	22680 6
+ich	22687 3
+von	22691 3
+den	22695 3
+Leuten	22699 6
+hinweg	22706 6
+in	22713 2
+Wald	22716 4
+kam	22721 3
+:	22724 1	[$.]	[$(]
+
+Damals	22726 6
+stunde	22733 6
+ich	22740 3
+aus	22744 3
+und	22748 3
+empfande	22752 8
+(	22761 1	[$(]
+jedoch	22762 6
+ganz	22769 4
+unvermerkt	22774 10
+)	22784 1	[$(]
+die	22786 3
+Würkung	22790 8
+des	22799 3
+Unverstands	22803 11
+und	22815 3
+der	22819 3
+Unwissenheit	22823 12
+;	22835 1	[$.]
+wann	22837 4
+ein	22842 3
+unvernünftig	22846 13
+Tier	22860 4
+an	22865 2
+meiner	22868 6
+Stell	22875 5
+gewesen	22881 7
+wäre	22889 5
+,	22894 1	[$,]
+so	22896 2
+hätte	22899 6
+es	22906 2
+besser	22909 6
+gewusst	22916 7
+,	22923 1	[$,]
+was	22925 3
+es	22929 2
+zu	22932 2
+seiner	22935 6
+Erhaltung	22942 9
+hätte	22952 6
+tun	22959 3
+sollen	22963 6
+,	22969 1	[$,]
+als	22971 3
+ich	22975 3
+;	22978 1	[$.]
+doch	22980 4
+war	22985 3
+ich	22989 3
+noch	22993 4
+so	22998 2
+witzig	23001 6
+,	23007 1	[$,]
+als	23009 3
+mich	23013 4
+abermal	23018 7
+die	23026 3
+Nacht	23030 5
+ereilte	23036 7
+,	23043 1	[$,]
+dass	23045 4
+ich	23050 3
+in	23054 2
+einen	23057 5
+hohlen	23063 6
+Baum	23070 4
+kroche	23075 6
+,	23081 1	[$,]
+mein	23083 4
+Nachtläger	23088 11
+darinnen	23100 8
+zu	23109 2
+halten	23112 6
+.	23118 1	[$.]
+
+Das	23121 3
+VI	23125 2
+.	23127 1	[$.]
+
+Kapitel	23129 7
+Kaum	23138 4
+hatte	23143 5
+ich	23149 3
+mich	23153 4
+zum	23158 3
+Schlaf	23162 6
+akkommodieret	23169 13
+,	23182 1	[$,]
+da	23184 2
+hörete	23187 7
+ich	23195 3
+folgende	23199 8
+Stimme	23208 6
+:	23214 1	[$.]	[$(]
+
+»	23216 2	[$(]
+O	23218 1
+große	23220 6
+Liebe	23227 5
+,	23232 1	[$,]
+gegen	23234 5
+uns	23240 3
+undankbarn	23244 10
+Menschen	23255 8
+!	23263 1	[$.]
+
+Ach	23265 3
+mein	23269 4
+einiger	23274 7
+Trost	23282 5
+!	23287 1	[$.]
+mein	23289 4
+Hoffnung	23294 8
+,	23302 1	[$,]
+mein	23304 4
+Reichtum	23309 8
+,	23317 1	[$,]
+mein	23319 4
+Gott	23324 4
+!	23328 1	[$.]
+«	23329 2	[$(]
+und	23332 3
+so	23336 2
+dergleichen	23339 11
+mehr	23351 4
+,	23355 1	[$,]
+das	23357 3
+ich	23361 3
+nicht	23365 5
+alles	23371 5
+merken	23377 6
+noch	23384 4
+verstehen	23389 9
+können	23399 7
+.	23406 1	[$.]
+
+Dieses	23409 6
+waren	23416 5
+wohl	23422 4
+Wort	23427 4
+,	23431 1	[$,]
+die	23433 3
+einen	23437 5
+Christenmenschen	23443 16
+,	23459 1	[$,]
+der	23461 3
+sich	23465 4
+in	23470 2
+einem	23473 5
+solchen	23479 7
+Stand	23487 5
+,	23492 1	[$,]
+wie	23494 3
+ich	23498 3
+mich	23502 4
+dazumal	23507 7
+befunden	23515 8
+,	23523 1	[$,]
+billich	23525 7
+aufmuntern	23533 10
+,	23543 1	[$,]
+trösten	23545 8
+und	23554 3
+erfreuen	23558 8
+hätten	23567 7
+sollen	23575 6
+:	23581 1	[$.]	[$(]
+Aber	23583 4
+,	23587 1	[$,]
+o	23589 1
+Einfalt	23591 7
+und	23599 3
+Unwissenheit	23603 12
+!	23615 1	[$.]
+es	23617 2
+waren	23620 5
+mir	23626 3
+nur	23630 3
+Böhmische	23634 10
+Dörfer	23645 7
+,	23652 1	[$,]
+und	23654 3
+alles	23658 5
+ein	23664 3
+ganz	23668 4
+unverständliche	23673 16
+Sprach	23690 6
+,	23696 1	[$,]
+aus	23698 3
+deren	23702 5
+ich	23708 3
+nicht	23712 5
+allein	23718 6
+nichts	23725 6
+fassen	23732 6
+konnte	23739 6
+,	23745 1	[$,]
+sondern	23747 7
+auch	23755 4
+ein	23760 3
+solche	23764 6
+,	23770 1	[$,]
+vor	23772 3
+deren	23776 5
+Seltsamkeit	23782 11
+ich	23794 3
+mich	23798 4
+entsetzte	23803 9
+;	23812 1	[$.]
+
+da	23814 2
+ich	23817 3
+aber	23821 4
+hörete	23826 7
+,	23833 1	[$,]
+dass	23835 4
+dessen	23840 6
+,	23846 1	[$,]
+der	23848 3
+sie	23852 3
+redete	23856 6
+,	23862 1	[$,]
+Hunger	23864 6
+und	23871 3
+Durst	23875 5
+gestillt	23881 8
+werden	23890 6
+sollte	23897 6
+,	23903 1	[$,]
+riete	23905 5
+mir	23911 3
+mein	23915 4
+[	23920 1	[$(]
+18	23921 2	[CARD]
+]ohnerträglicher	23923 17
+Hunger	23941 6
+,	23947 1	[$,]
+mich	23949 4
+auch	23954 4
+zu	23959 2
+Gast	23962 4
+zu	23967 2
+laden	23970 5
+,	23975 1	[$,]
+derowegen	23977 9
+fasste	23987 6
+ich	23994 3
+das	23998 3
+Herz	24002 4
+,	24006 1	[$,]
+wieder	24008 6
+aus	24015 3
+meinem	24019 6
+hohlen	24026 6
+Baum	24033 4
+zu	24038 2
+gehen	24041 5
+und	24047 3
+mich	24051 4
+der	24056 3
+gehörten	24060 9
+Stimm	24070 5
+zu	24076 2
+nähern	24079 7
+;	24086 1	[$.]
+da	24088 2
+wurde	24091 5
+ich	24097 3
+eines	24101 5
+großen	24107 7
+Manns	24115 5
+gewahr	24121 6
+,	24127 1	[$,]
+in	24129 2
+langen	24132 6
+schwarzgrauen	24139 13
+Haaren	24153 6
+,	24159 1	[$,]
+die	24161 3
+ihm	24165 3
+ganz	24169 4
+verworren	24174 9
+auf	24184 3
+den	24188 3
+Achseln	24192 7
+herumlagen	24200 10
+,	24210 1	[$,]
+er	24212 2
+hatte	24215 5
+einen	24221 5
+wilden	24227 6
+Bart	24234 4
+,	24238 1	[$,]
+fast	24240 4
+formiert	24245 8
+wie	24254 3
+ein	24258 3
+Schweizerkäs	24262 13
+,	24275 1	[$,]
+sein	24277 4
+Angesicht	24282 9
+war	24292 3
+zwar	24296 4
+bleichgelb	24301 10
+und	24312 3
+mager	24316 5
+,	24321 1	[$,]
+aber	24323 4
+doch	24328 4
+ziemlich	24333 8
+lieblich	24342 8
+,	24350 1	[$,]
+und	24352 3
+sein	24356 4
+langer	24361 6
+Rock	24368 4
+mit	24373 3
+mehr	24377 4
+als	24382 3
+1000	24386 4	[CARD]
+Stückern	24391 9
+von	24401 3
+allerhand	24405 9
+Tuch	24415 4
+überflickt	24420 11
+und	24432 3
+aufeinander	24436 11
+gesetzt	24448 7
+,	24455 1	[$,]
+um	24457 2
+Hals	24460 4
+und	24465 3
+Leib	24469 4
+hatte	24474 5
+er	24480 2
+ein	24483 3
+schwere	24487 7
+eiserne	24495 7
+Ketten	24503 6
+gewunden	24510 8
+wie	24519 3
+S	24523 1
+.	24524 1	[$.]
+
+Wilhelmus	24526 9
+,	24535 1	[$,]
+und	24537 3
+sahe	24541 4
+sonst	24546 5
+in	24552 2
+meinen	24555 6
+Augen	24562 5
+so	24568 2
+scheußlich	24571 11
+und	24583 3
+förchterlich	24587 13
+aus	24601 3
+,	24604 1	[$,]
+dass	24606 4
+ich	24611 3
+anfinge	24615 7
+zu	24623 2
+zittern	24626 7
+,	24633 1	[$,]
+wie	24635 3
+ein	24639 3
+nasser	24643 6
+Hund	24650 4
+;	24654 1	[$.]
+was	24656 3
+aber	24660 4
+meine	24665 5
+Angst	24671 5
+mehret	24677 6
+,	24683 1	[$,]
+war	24685 3
+,	24688 1	[$,]
+dass	24690 4
+er	24695 2
+ein	24698 3
+Kruzifix	24702 8
+,	24710 1	[$,]
+ungefähr	24712 9
+6	24722 1	[CARD]
+Schuh	24724 5
+lang	24730 4
+,	24734 1	[$,]
+an	24736 2
+seine	24739 5
+Brust	24745 5
+druckte	24751 7
+,	24758 1	[$,]
+und	24760 3
+weil	24764 4
+ich	24769 3
+ihn	24773 3
+nicht	24777 5
+kennete	24783 7
+,	24790 1	[$,]
+konnte	24792 6
+ich	24799 3
+nichts	24803 6
+anders	24810 6
+ersinnen	24817 8
+,	24825 1	[$,]
+als	24827 3
+dieser	24831 6
+alte	24838 4
+Greis	24843 5
+müsste	24849 7
+ohn	24857 3
+Zweifel	24861 7
+der	24869 3
+Wolf	24873 4
+sein	24878 4
+,	24882 1	[$,]
+davon	24884 5
+mir	24890 3
+mein	24894 4
+Knan	24899 4
+kurz	24904 4
+zuvor	24909 5
+gesagt	24915 6
+hatte	24922 5
+:	24927 1	[$.]	[$(]
+
+In	24929 2
+solcher	24932 7
+Angst	24940 5
+wischte	24946 7
+ich	24954 3
+mit	24958 3
+meiner	24962 6
+Sackpfeif	24969 9
+herfür	24979 7
+,	24986 1	[$,]
+welche	24988 6
+ich	24995 3
+als	24999 3
+meinen	25003 6
+einigen	25010 7
+Schatz	25018 6
+noch	25025 4
+vor	25030 3
+den	25034 3
+Reutern	25038 7
+salviert	25046 8
+hatte	25055 5
+;	25060 1	[$.]
+ich	25062 3
+blies	25066 5
+zu	25072 2
+,	25074 1	[$,]
+stimmte	25076 7
+an	25084 2
+,	25086 1	[$,]
+und	25088 3
+ließe	25092 6
+mich	25099 4
+gewaltig	25104 8
+hören	25113 6
+,	25119 1	[$,]
+diesen	25121 6
+greulichen	25128 10
+Wolf	25139 4
+zu	25144 2
+vertreiben	25147 10
+,	25157 1	[$,]
+über	25159 5
+welcher	25165 7
+gählingen	25173 10
+und	25184 3
+ohngewöhnlichen	25188 16
+Musik	25205 5
+,	25210 1	[$,]
+an	25212 2
+einem	25215 5
+so	25221 2
+wilden	25224 6
+Ort	25231 3
+,	25234 1	[$,]
+der	25236 3
+Einsiedel	25240 9
+anfänglich	25250 11
+nicht	25262 5
+wenig	25268 5
+stutzte	25274 7
+,	25281 1	[$,]
+ohn	25283 3
+Zweifel	25287 7
+vermeinende	25295 11
+,	25306 1	[$,]
+es	25308 2
+seie	25311 4
+etwan	25316 5
+ein	25322 3
+teuflisch	25326 9
+Gespenst	25336 8
+hinkommen	25345 9
+,	25354 1	[$,]
+ihne	25356 4
+,	25360 1	[$,]
+wie	25362 3
+etwan	25366 5
+dem	25372 3
+großen	25376 7
+Antonio	25384 7
+widerfahren	25392 11
+,	25403 1	[$,]
+zu	25405 2
+tribulieren	25408 11
+,	25419 1	[$,]
+und	25421 3
+seine	25425 5
+Andacht	25431 7
+zu	25439 2
+zerstören	25442 10
+:	25452 1	[$.]	[$(]
+
+Sobald	25454 6
+er	25461 2
+sich	25464 4
+aber	25469 4
+wieder	25474 6
+erholete	25481 8
+,	25489 1	[$,]
+spottet	25491 7
+er	25499 2
+meiner	25502 6
+,	25508 1	[$,]
+als	25510 3
+seines	25514 6
+Versuchers	25521 10
+im	25532 2
+hohlen	25535 6
+Baum	25542 4
+,	25546 1	[$,]
+wo	25548 2
+hinein	25551 6
+ich	25558 3
+mich	25562 4
+wieder	25567 6
+retiriert	25574 9
+hatte	25584 5
+,	25589 1	[$,]
+ja	25591 2
+er	25594 2
+war	25597 3
+so	25601 2
+getrost	25604 7
+,	25611 1	[$,]
+dass	25613 4
+er	25618 2
+gegen	25621 5
+mir	25627 3
+ging	25631 4
+,	25635 1	[$,]
+den	25637 3
+Feind	25641 5
+des	25647 3
+menschlichen	25651 12
+Geschlechts	25664 11
+genugsam	25676 8
+auszuhöhnen	25685 12
+.	25697 1	[$.]
+
+»	25699 2	[$(]
+Ha	25701 2
+«	25703 2	[$(]
+,	25705 1	[$,]
+sagte	25707 5
+er	25713 2
+,	25715 1	[$,]
+»	25717 2	[$(]
+du	25719 2
+bist	25722 4
+ein	25727 3
+Gesell	25731 6
+darzu	25738 5
+,	25743 1	[$,]
+die	25745 3
+Heiligen	25749 8
+ohne	25758 4
+göttliche	25763 10
+Verhängnus	25774 11
+«	25785 2	[$(]
+,	25787 1	[$,]
+etc	25789 3
+.	25792 1	[$.]
+
+Mehrers	25794 7
+habe	25802 4
+ich	25807 3
+nicht	25811 5
+verstanden	25817 10
+,	25827 1	[$,]
+dann	25829 4
+seine	25834 5
+Näherung	25840 9
+ein	25850 3
+solch	25854 5
+Grausen	25860 7
+und	25868 3
+Schrecken	25872 9
+in	25882 2
+mir	25885 3
+erregte	25889 7
+,	25896 1	[$,]
+dass	25898 4
+ich	25903 3
+des	25907 3
+Amts	25911 4
+meiner	25916 6
+Sinne	25923 5
+beraubt	25929 7
+wurde	25937 5
+,	25942 1	[$,]
+und	25944 3
+dorthin	25948 7
+in	25956 2
+Ohnmacht	25959 8
+niedersank	25968 10
+.	25978 1	[$.]
+[	25981 1	[$(]
+19	25982 2	[CARD]
+]	25984 1	[$(]
+Das	25985 3
+VII	25989 3
+.	25992 1	[$.]
+
+Kapitel	25994 7
+Wasgestalten	26003 12
+mir	26016 3
+wieder	26020 6
+zu	26027 2
+mir	26030 3
+selbst	26034 6
+geholfen	26041 8
+worden	26050 6
+,	26056 1	[$,]
+weiß	26058 5
+ich	26064 3
+nicht	26068 5
+,	26073 1	[$,]
+aber	26075 4
+dieses	26080 6
+wohl	26087 4
+,	26091 1	[$,]
+dass	26093 4
+der	26098 3
+Alte	26102 4
+meinen	26107 6
+Kopf	26114 4
+in	26119 2
+seinem	26122 6
+Schoß	26129 6
+,	26135 1	[$,]
+und	26137 3
+vornen	26141 6
+meine	26148 5
+Juppen	26154 6
+geöffnet	26161 9
+gehabt	26171 6
+,	26177 1	[$,]
+als	26179 3
+ich	26183 3
+mich	26187 4
+wieder	26192 6
+erholete	26199 8
+;	26207 1	[$.]
+
+da	26209 2
+ich	26212 3
+den	26216 3
+
+Einsiedler	26220 10
+so	26231 2
+nahe	26234 4
+bei	26239 3
+mir	26243 3
+sahe	26247 4
+,	26251 1	[$,]
+fing	26253 4
+ich	26258 3
+ein	26262 3
+solch	26266 5
+grausam	26272 7
+Geschrei	26280 8
+an	26289 2
+,	26291 1	[$,]
+als	26293 3
+ob	26297 2
+er	26300 2
+mir	26303 3
+im	26307 2
+selben	26310 6
+Augenblick	26317 10
+das	26328 3
+Herz	26332 4
+aus	26337 3
+dem	26341 3
+Leib	26345 4
+hätte	26350 6
+reißen	26357 7
+wollen	26365 6
+.	26371 1	[$.]
+
+Er	26373 2
+aber	26376 4
+sagte	26381 5
+:	26386 1	[$.]	[$(]
+»	26388 2	[$(]
+Mein	26390 4
+Sohn	26395 4
+,	26399 1	[$,]
+schweig	26401 7
+,	26408 1	[$,]
+ich	26410 3
+tue	26414 3
+dir	26418 3
+nichts	26422 6
+,	26428 1	[$,]
+sei	26430 3
+zufrieden	26434 9
+«	26443 2	[$(]
+,	26445 1	[$,]
+etc	26447 3
+.	26450 1	[$.]
+
+Je	26452 2
+mehr	26455 4
+er	26460 2
+mich	26463 4
+aber	26468 4
+tröstete	26473 9
+und	26483 3
+mir	26487 3
+liebkoste	26491 9
+:	26500 1	[$.]	[$(]
+
+Je	26502 2
+mehr	26505 4
+ich	26510 3
+schriee	26514 7
+:	26521 1	[$.]	[$(]
+
+»	26523 2	[$(]
+O	26525 1
+du	26527 2
+frisst	26530 6
+mich	26537 4
+!	26541 1	[$.]
+
+O	26543 1
+du	26545 2
+frisst	26548 6
+mich	26555 4
+!	26559 1	[$.]
+du	26561 2
+bist	26564 4
+der	26569 3
+Wol	26573 3

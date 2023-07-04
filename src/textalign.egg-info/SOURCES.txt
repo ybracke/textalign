@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/aligner.py
+src/textalign.egg-info/PKG-INFO
+src/textalign.egg-info/SOURCES.txt
+src/textalign.egg-info/dependency_links.txt
+src/textalign.egg-info/requires.txt
+src/textalign.egg-info/top_level.txt
+tests/test_aligner.py

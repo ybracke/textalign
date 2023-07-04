@@ -1,0 +1,28 @@
+[project]
+name = "textalign"
+version = "0.1.0"
+description = "Package for aligning two (similar) tokenized versions of a text." 
+authors = [
+  { name = "Yannic Bracke (BBAW)", email = "yannic.bracke@bbaw.de" },
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3.10+",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.25.0",
+    "Levenshtein>=0.21.1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ybracke/textalign"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+ignore_missing_imports = true

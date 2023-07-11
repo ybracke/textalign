@@ -1,26 +1,66 @@
-from typing import List, Union, Tuple
+from typing import Callable, List, Union, Tuple
+
 import Levenshtein as lev
 import numpy as np
 
+from textalign.translit import unidecode_ger
+from textalign import util
+
+
+def monotonic_cost(cost=1):
+    return cost
+
+
+def decreasing_gap_cost(current_cost, pointer, initial_cost=1):
+    # Did I come here via a gap? If yes: decrease gap costs by a # percentage of the current costs
+    if pointer in [3, 4, 7]:
+        current_cost -= current_cost / 100
+    # if no: restore gap costs
+    return initial_cost
+
+
+def jaro_rescored(a: str, b: str):
+    # Compute and rescore similarity
+    sim = lev.jaro(a, b)
+    if sim < 0.33:
+        sim = -1
+    elif sim < 0.66:
+        sim = 0
+    else:
+        sim = 1
+    return sim
+
 
 class Aligner:
-    def __init__(self, tokens_a, tokens_b, tok_alignments=None):
+    def __init__(self, tokens_a, tokens_b):
+        """ """
         self.tokens_a: List[str] = tokens_a
         self.tokens_b: List[str] = tokens_b
-        # self.tok_alignments : List[Tuple[Union[int,None],Union[int,None]]] = tok_alignments
-        # self.a, self.b = zip(*self.tok_alignments) # part 1 and 2 of tok_alignments # : List[Union[int,None]]
+        self._tokens_a: List[str]  # modified version of tokens
+        self._tokens_b: List[str]
         self.a: List[Union[int, None]]
         self.b: List[Union[int, None]]
 
-    def nw_align(self, x, y, gap=1):
-        gap_orig = gap
+    def nw_align(
+        self,
+        x,
+        y,
+        similarity_func: Callable = jaro_rescored,
+        gap_cost_func: Callable = decreasing_gap_cost,
+        gap_cost_initial: float = 0.5,
+    ):
+        """
+        Needleman-Wunsch algorithm
+        """
+
+        gap_cost = gap_cost_initial
 
         nx = len(x)
         ny = len(y)
-        # Optimal score at each possible pair of characters
+        # Optimal score at each possible pair
         F = np.zeros((nx + 1, ny + 1))
-        F[:, 0] = np.linspace(0, -nx * gap, nx + 1)
-        F[0, :] = np.linspace(0, -ny * gap, ny + 1)
+        F[:, 0] = np.linspace(0, -nx * gap_cost_initial, nx + 1)
+        F[0, :] = np.linspace(0, -ny * gap_cost_initial, ny + 1)
 
         # Pointers to trace through an optimal aligment
         P = np.zeros((nx + 1, ny + 1))
@@ -31,30 +71,26 @@ class Aligner:
         t = np.zeros(3)
         for i in range(nx):
             for j in range(ny):
-                sim = lev.jaro(x[i], y[j])
+                sim = similarity_func(x[i], y[j])
 
-                if sim < 0.33:
-                    sim = -1
-                elif sim < 0.66:
-                    sim = 0
-                else:
-                    sim = 1
-
+                # Similarity as score for moving down-right in the matrix
                 t[0] = F[i, j] + sim
 
                 # Set costs
-                # Did I come here via a gap? If yes: decrease gap costs by a # percentage of the current costs
-                if P[i, j] in [3, 4, 7]:
-                    gap -= gap / 100
-                # if no: restore gap costs
-                else:
-                    gap = gap_orig
+                gap_cost_func_args = {
+                    "current_cost": gap_cost,
+                    "pointer": P[i, j],
+                    "initial_cost": gap_cost_initial,
+                }
+                gap_cost = gap_cost_func(**gap_cost_func_args)
 
-                t[1] = F[i, j + 1] - gap
-                t[2] = F[i + 1, j] - gap
+                # Enter best score
+                t[1] = F[i, j + 1] - gap_cost
+                t[2] = F[i + 1, j] - gap_cost
                 tmax = np.max(t)
                 F[i + 1, j + 1] = tmax
-                # Pointers anpassen
+
+                # Adjust pointer
                 if t[0] == tmax:
                     P[i + 1, j + 1] += 2
                 if t[1] == tmax:
@@ -62,27 +98,23 @@ class Aligner:
                 if t[2] == tmax:
                     P[i + 1, j + 1] += 4
 
-        # Trace through an optimal alignment
+        # Trace through an optimal alignment from bottom-right to top-left
         i = nx
         j = ny
         rx = []
         ry = []
         while i > 0 or j > 0:
             if P[i, j] in [2, 5, 6, 9]:
-                # rx.append(x[i-1])
                 rx.append(i - 1)
-                # ry.append(y[j-1])
                 ry.append(j - 1)
                 i -= 1
                 j -= 1
             elif P[i, j] in [3, 5, 7, 9]:
-                # rx.append(x[i-1])
                 rx.append(i - 1)
                 ry.append(None)
                 i -= 1
             elif P[i, j] in [4, 6, 7, 9]:
                 rx.append(None)
-                # ry.append(y[j-1])
                 ry.append(j - 1)
                 j -= 1
 
@@ -96,8 +128,15 @@ class Aligner:
 
         return rx, ry
 
+    def translit_tokens(self, function: Callable = unidecode_ger):
+        self._tokens_a = [function(t) for t in self.tokens_a]
+        self._tokens_b = [function(t) for t in self.tokens_b]
+
     def clean_alignments(self):
-        """TODO"""
+        """
+        TODO
+        """
+
         cleaned_alignments = []
         for i in range(len(self.a)):
             # Add all alignments, where neither side is None, to cleaned alignments
@@ -128,6 +167,7 @@ class Aligner:
                     if dist_to_next <= dist_to_prev:
                         try:
                             cleaned_alignments.append((self.a[i], self.b[i + 1]))
+                        # FIXME
                         except IndexError:
                             print(dist_to_next, dist_to_prev)
                             print(i)
@@ -149,17 +189,14 @@ class Aligner:
         if i < len(self.b) - 1:  # not the last element
             if self.b[i + 1] is not None:
                 if self.a[i + 1] is not None:
-                    # TODO
-                    # hier noch ein if, ob wir a oder b korrigieren
-                    # aktuell b
-                    # wenn a, müsste alles umgekehrt sein
-
-                    candidate = self.tokens_a[self.a[i]] + self.tokens_a[self.a[i + 1]]
-                    dist = lev.distance(candidate, self.tokens_b[self.b[i + 1]])
+                    candidate = (
+                        self._tokens_a[self.a[i]] + self._tokens_a[self.a[i + 1]]
+                    )
+                    dist = lev.distance(candidate, self._tokens_b[self.b[i + 1]])
                     # is it better than the current alignment?
                     # TODO: should the distance be normalized? by what token?
                     if dist < lev.distance(
-                        self.tokens_a[self.a[i + 1]], self.tokens_b[self.b[i + 1]]
+                        self._tokens_a[self.a[i + 1]], self._tokens_b[self.b[i + 1]]
                     ):
                         return dist
         return float("inf")
@@ -169,24 +206,28 @@ class Aligner:
         if i > 0:  # not the first element
             if self.b[i - 1] is not None:
                 if self.a[i - 1] is not None:
-                    # TODO
-                    # hier noch ein if, ob wir a oder b korrigieren
-                    # aktuell b
-                    # wenn a, müsste alles umgekehrt sein
-
-                    candidate = self.tokens_a[self.a[i - 1]] + self.tokens_a[self.a[i]]
-                    dist = lev.distance(candidate, self.tokens_b[self.b[i - 1]])
+                    candidate = (
+                        self._tokens_a[self.a[i - 1]] + self._tokens_a[self.a[i]]
+                    )
+                    dist = lev.distance(candidate, self._tokens_b[self.b[i - 1]])
                     # is it better than the current alignment?
                     # TODO: should the distance be normalized? by what token?
                     if dist < lev.distance(
-                        self.tokens_a[self.a[i - 1]], self.tokens_b[self.b[i - 1]]
+                        self._tokens_a[self.a[i - 1]], self._tokens_b[self.b[i - 1]]
                     ):
                         return dist
         return float("inf")
 
-    def do_all(self):
+    def get_bidirectional_alignments(self, **kwargs) -> None:
+        """
+        Computes an alignment stored in (self.a, self.b) and the tokens (self.tokens_a and self.tokens_b) by applying sequence alignment followed by a two-sided refinement of the alignment.
+
+        """
+        # 0. transliterate tokens for distance metric
+        self.translit_tokens(function=unidecode_ger)  # TODO customizable function
+
         # 1. Compute the initial 1:1 alignments
-        self.nw_align(self.tokens_a, self.tokens_b)
+        self.nw_align(self._tokens_a, self._tokens_b, **kwargs)
 
         assert len(self.a) == len(self.b)
 
@@ -199,9 +240,9 @@ class Aligner:
         tmp = self.a
         self.a = self.b
         self.b = tmp
-        tmp = self.tokens_a
-        self.tokens_a = self.tokens_b
-        self.tokens_b = tmp
+        tmp = self._tokens_a
+        self._tokens_a = self._tokens_b
+        self._tokens_b = tmp
         del tmp
 
         # 3. Clean alignments b->a
@@ -213,10 +254,24 @@ class Aligner:
         tmp = self.a
         self.a = self.b
         self.b = tmp
-        tmp = self.tokens_a
-        self.tokens_a = self.tokens_b
-        self.tokens_b = tmp
+        tmp = self._tokens_a
+        self._tokens_a = self._tokens_b
+        self._tokens_b = tmp
         del tmp
+
+        return
+
+    # TODO
+    # Übergangslösung bis das alignment gleich als List[AlignedPair] erstellt wird
+    def get_aligned_pairs(self) -> List[util.AlignedPair]:
+        aligned_pairs = [util.AlignedPair(a, b) for (a, b) in zip(self.a, self.b)]
+        return aligned_pairs
+
+    # TODO Function to add the aligned pairs from another aligner to this one's
+    # aligned pairs.
+    # Should be used before applying clean_alignments to for the entire doc
+    def append_aligned_pairs() -> None:
+        return
 
     # deprecated
     def _should_next_a_also_be_mapped_to_b(self, i) -> bool:

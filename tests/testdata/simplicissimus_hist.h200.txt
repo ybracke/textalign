@@ -1,0 +1,200 @@
+Das	0 3
+Erſte	4 6
+Capitel	11 7
+.	18 1	[$.]
+
+ES	20 2
+eroͤffnet	23 10
+ſich	34 5
+zu	40 2
+dieſer	43 7
+unſerer	51 8
+Zeit	60 4
+(	65 1	[$(]
+von	66 3
+welcher	70 7
+man	78 3
+glaubt	82 6
+/	88 1	[$(]
+daß	90 4
+es	95 2
+die	98 3
+letzte	102 6
+ſeye	109 5
+)	114 1	[$(]
+unter	116 5
+geringen	122 8
+Leuten	131 6
+eine	138 4
+Sucht	143 5
+/	148 1	[$(]
+in	150 2
+deren	153 5
+die	159 3
+Patienten	163 9
+/	172 1	[$(]
+wann	174 4
+ſie	179 4
+daran	184 5
+kranck	190 6
+ligen	197 5
+/	202 1	[$(]
+und	204 3
+ſo	208 3
+viel	212 4
+zuſammen	217 9
+geraſpelt	227 10
+und	238 3
+erſchachert	242 12
+haben	255 5
+/	260 1	[$(]
+daß	262 4
+ſie	267 4
+neben	272 5
+ein	278 3
+paar	282 4
+Hellern	287 7
+im	295 2
+Beutel	298 6
+/	304 1	[$(]
+ein	306 3
+naͤrꝛiſches	310 15
+Kleid	326 5
+auff	332 4
+die	337 3
+neue	341 4
+Mode	346 4
+/	350 1	[$(]
+mit	352 3
+tauſenderley	356 13
+ſeidenen	370 9
+Banden	380 6
+/	386 1	[$(]
+antragen	388 8
+koͤnnen	397 8
+/	405 1	[$(]
+oder	407 4
+ſonſt	412 7
+etwan	420 5
+durch	426 5
+Gluͤcksfall	432 12
+mannhafft	445 9
+und	455 3
+bekant	459 6
+worden	466 6
+/	472 1	[$(]
+gleich	474 6
+Rittermaͤſſige	481 17
+Herꝛen	499 8
+/	507 1	[$(]
+und	509 3
+Adeliche	513 8
+Perſonen	522 9
+von	532 3
+uhraltem	536 8
+Geſchlecht	545 11
+/	556 1	[$(]
+ſeyn	558 5
+wollen	564 6
+;	570 1	[$.]
+da	572 2
+ſich	575 5
+doch	581 4
+offt	586 4
+befindet	591 8
+/	599 1	[$(]
+daß	601 4
+ihre	606 4
+Vor-Eltern	611 10
+Tagloͤhner	622 11
+/	633 1	[$(]
+Karchelzieher	635 13
+und	649 3
+Laſttraͤger	653 13
+:	666 1	[$.]	[$(]
+
+ihre	668 4
+Vettern	673 7
+Eſeltreiber	681 12
+:	693 1	[$.]	[$(]
+ihre	695 4
+Bruͤder	700 8
+Buͤttel	709 8
+und	718 3
+Schergen	722 8
+:	730 1	[$.]	[$(]
+ihre	732 4
+Schweſtern	737 11
+Huren	749 5
+:	754 1	[$.]	[$(]
+ihre	756 4
+Muͤtter	761 8
+Kupplerin	770 9
+/	779 1	[$(]
+oder	781 4
+gar	786 3
+Hexen	790 5
+:	795 1	[$.]	[$(]
+und	797 3
+in	801 2
+Summa	804 5
+/	809 1	[$(]
+ihr	811 3
+gantzes	815 7
+Geſchlecht	823 11
+von	835 3
+allen	839 5
+32.	845 3	[ADJA]	[$ORD]
+Anichen	849 7
+her	857 3
+/	860 1	[$(]
+alſo	862 5
+beſudelt	868 9
+und	878 3
+befleckt	882 8
+geweſen	891 8
+/	899 1	[$(]
+als	901 3
+deß	905 4
+Zuckerbaſtels	910 14
+Zunfft	925 6
+zu	932 2
+Prag	935 4
+immer	940 5
+ſeyn	946 5
+moͤgen	952 7
+;	959 1	[$.]
+ja	961 2
+ſie	964 4
+/	968 1	[$(]
+dieſe	970 6
+neue	977 4
+Nobiliſten	982 11
+/	993 1	[$(]
+ſeynd	995 6
+offt	1002 4
+ſelbſt	1007 8
+ſo	1016 3
+ſchwartz	1020 9
+/	1029 1	[$(]
+als	1031 3
+wann	1035 4
+ſie	1040 4
+in	1045 2
+Guinea	1048 6
+geboren	1055 7
+und	1063 3
+erzogen	1067 7
+waͤren	1075 7
+worden	1083 6
+.	1089 1	[$.]
+
+Solchen	1091 7
+naͤrꝛiſchen	1099 15
+Leuten	1115 6
+nun	1122 3
+/	1125 1	[$(]
+mag	1127 3
+ich	1131 3
+mich	1135 4
+nicht	1140 5

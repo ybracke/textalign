@@ -107,9 +107,9 @@ def get_sentence_start_idxs(doc: List[List[Token]]) -> List[int]:
 #     return sentence_start_idxs
 
 
-def get_offset2tokidx(path: str) -> Dict[int, Tuple[int, int, int]]:
+def get_offset2tokidx_from_wastefile(path: str) -> Dict[int, int]:
     """
-    Create a mapping: character offset -> token index (plus: offset before and after)
+    Create a mapping: character offset -> token index
 
     TODO: currently we assume path is a WASTE-tokenized file
     """
@@ -123,14 +123,30 @@ def get_offset2tokidx(path: str) -> Dict[int, Tuple[int, int, int]]:
     mapping = {}
     idx = 0
     offset = 0
-    # prev = None # TODO
     for line in doc:
         line = line.strip().split()
         # non-empty lines
         if len(line) >= 3:
             token = line[0]
-            mapping[offset] = (idx, token)
-            offset += int(len(line[0]))  # len(token)
+            mapping[offset] = idx
+            offset += len(line[0])  # len(token)
+        idx += 1
+
+    return mapping
+
+
+def get_offset2tokidx_from_strlist(doc: List[str]) -> Dict[int, int]:
+    """
+    Create a mapping: character offset -> token index
+
+    """
+    # create mapping
+    mapping = {}
+    idx = 0
+    offset = 0
+    for token in doc:
+        mapping[offset] = idx
+        offset += len(token)
         idx += 1
 
     return mapping

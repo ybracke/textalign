@@ -1,13 +1,15 @@
 from typing import Any, Dict, List, Tuple, Union
 
-from . import util
+# from . import aligner
+from textalign import AlignedPair
+from textalign import util
 
 
 def split_alignment_into_sentences(
-    aligned_tokens: List[util.AlignedPair],
+    aligned_tokens: List[AlignedPair],
     start_idxs: List[int],
     keep_none: str = "both",  # none|a|b|both
-) -> List[List[util.AlignedPair]]:
+) -> List[List[AlignedPair]]:
     """
     TODO
 
@@ -162,7 +164,7 @@ def serialize_sentence_alignments_OLD(
 
 # New on 6.7.
 def serialize_sentence_alignments(
-    sents_aligned_tokidxs: List[List[util.AlignedPair]],
+    sents_aligned_tokidxs: List[List[AlignedPair]],
     a_doc: List[util.Token],
     b_doc: List[util.Token],
     drop_unaligned: bool = False,

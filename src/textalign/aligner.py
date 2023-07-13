@@ -1,10 +1,10 @@
 from typing import Callable, List, Union
+from dataclasses import dataclass
 
 import Levenshtein as lev
 import numpy as np
 
 from textalign.translit import unidecode_ger
-from textalign import util
 
 
 def monotonic_cost(cost=1):
@@ -32,6 +32,18 @@ def jaro_rescored(a: str, b: str) -> int:
     return sim
 
 
+@dataclass
+class AlignedPair:
+    """ 
+    Pair of aligned token indices 
+    
+    `a` is None if token at `b` aligns best with a gap (and vice versa) 
+    
+    """
+    a: Union[int, None]
+    b: Union[int, None]
+
+
 class Aligner:
     def __init__(self, tokens_a, tokens_b):
         """ """
@@ -51,7 +63,7 @@ class Aligner:
         gap_cost_initial: float = 0.5,
     ) -> None:
         """
-        Needleman-Wunsch algorithm
+        Needleman-Wunsch algorithm for global alignment
         """
 
         gap_cost = gap_cost_initial
@@ -288,8 +300,8 @@ class Aligner:
 
     # TODO
     # Übergangslösung bis das alignment gleich als List[AlignedPair] erstellt wird
-    def get_aligned_pairs(self) -> List[util.AlignedPair]:
-        aligned_pairs = [util.AlignedPair(a, b) for (a, b) in zip(self.a, self.b)]
+    def get_aligned_pairs(self) -> List[AlignedPair]:
+        aligned_pairs = [AlignedPair(a, b) for (a, b) in zip(self.a, self.b)]
         return aligned_pairs
 
     # TODO Function to add the aligned pairs from another aligner to this one's

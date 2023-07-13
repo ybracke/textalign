@@ -12,12 +12,6 @@ class Token:
     initial_ws: bool = False
 
 
-@dataclass
-class AlignedPair:
-    a: Union[int, None]
-    b: Union[int, None]
-
-
 def parse_waste_output(file_or_str: str) -> List[List[Token]]:
     """
     Parse the output of the WASTE tokenizer into sentences with tokens and whitespace information: List[List[Token]]

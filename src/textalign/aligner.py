@@ -11,7 +11,7 @@ def monotonic_cost(cost=1):
     return cost
 
 
-def decreasing_gap_cost(current_cost: float, pointer: int, initial_cost: float=1):
+def decreasing_gap_cost(current_cost: float, pointer: int, initial_cost: float = 1):
     # Did I come here via a gap? If yes: decrease gap costs by a percentage of
     # the current costs
     if pointer in [3, 4, 7]:
@@ -102,8 +102,8 @@ class Aligner:
         # Trace through an optimal alignment from bottom-right to top-left
         i = nx
         j = ny
-        rx : List[Union[int, None]] = []
-        ry : List[Union[int, None]] = []
+        rx: List[Union[int, None]] = []
+        ry: List[Union[int, None]] = []
         while i > 0 or j > 0:
             if P[i, j] in [2, 5, 6, 9]:
                 rx.append(i - 1)
@@ -133,7 +133,7 @@ class Aligner:
         self._tokens_a = [function(t) for t in self.tokens_a]
         self._tokens_b = [function(t) for t in self.tokens_b]
 
-    def clean_alignments(self) -> List[Union[int,None]]:
+    def clean_alignments(self) -> List[Union[int, None]]:
         """
         TODO
         """
@@ -191,11 +191,9 @@ class Aligner:
             if self.b[i + 1] is not None:
                 if self.a[i + 1] is not None:
                     this = self.a[i]
-                    next = self.a[i + 1] 
+                    next = self.a[i + 1]
                     if this is not None and next is not None:
-                        candidate = (
-                            self._tokens_a[this] + self._tokens_a[next]
-                        )
+                        candidate = self._tokens_a[this] + self._tokens_a[next]
                         # candidate = (
                         #     self._tokens_a[self.a[i]] + self._tokens_a[self.a[i + 1]]
                         # )
@@ -207,7 +205,6 @@ class Aligner:
                         ):
                             return dist
         return float("inf")
-
 
     def distance_to_next_old(self, i: int) -> float:
         """Does a_i fit to b_i+1 better than a_i+1 to b_i+1"""
@@ -228,7 +225,6 @@ class Aligner:
                     ):
                         return dist
         return float("inf")
-
 
     def distance_to_prev(self, i: int) -> float:
         """Does a_i fit to b_i-1 better than a_i-1 to b_i-1"""

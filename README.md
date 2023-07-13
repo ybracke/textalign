@@ -12,8 +12,8 @@ The package provides the following functionality:
 
 The alignment of longer texts is achieved by, first, (1) splitting the documents at
 positions where they align well. (2) Next the resulting shorter text sequences are
-aligned token-wise. (3) After that the prelimenary alignments are joined back
-togehter and cleaned. (4) Optionally, the text can then be serialized back to
+aligned token-wise. (3) After that, the prelimenary alignments are joined back
+together and cleaned. (4) Optionally, the text can then be serialized back to
 sentence strings, giving us aligned sentence pairs.
 
 

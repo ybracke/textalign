@@ -1,35 +1,79 @@
-# Needs a pip install of package (called `foo` here)
-
+from textalign import AlignedPair
 import textalign
 
 
-def test_clean_alignments():
-    tok_alignments = [(0, 0), (1, 1), (2, None), (None, 2), (3, 3), (4, 4), (5, None)]
+def test_alignedpair() -> None:
+    pair = AlignedPair(a=1, b=2)
+    assert None not in pair
+    pair = AlignedPair(a=None, b=2)
+    assert None in pair
+    # pair = AlignedPair(a=1,b=2)
 
+
+def test_nw_align() -> None:
     tokens_a = ["Eyn", "Haus", "mann", "riefs", "ſo", "FOO"]
-
     tokens_b = ["Ein", "Hausmann", "rief", "es", "so"]
 
-    aligner = textalign.Aligner(tokens_a, tokens_b)
-    aligner.a, aligner.b = list(zip(*tok_alignments))
-    aligner.translit_tokens()
+    target_alignments = [
+        AlignedPair(0, 0),  # Eyn   <-> ein
+        AlignedPair(1, 1),  # Haus  <-> Hausmann
+        AlignedPair(2, None),  # mann  <-> [GAP]
+        AlignedPair(3, 2),  # riefs <-> rief
+        AlignedPair(None, 3),  # [GAP] <-> es
+        AlignedPair(4, 4),  # ſo    <-> so
+        AlignedPair(5, None),  # FOO   <-> [GAP]
+    ]
 
-    cleaned_alignments = aligner.clean_alignments()
+    kwargs = {
+        "similarity_func": textalign.aligner.jaro_rescored,
+        "gap_cost_func": textalign.aligner.decreasing_gap_cost,
+        "gap_cost_initial": 1,
+    }
+    aligner = textalign.Aligner(tokens_a, tokens_b)
+    aligner.translit_tokens()
+    aligner.nw_align(**kwargs)
+    output = aligner.aligned_tokidxs
+
+    assert output == target_alignments
+
+
+def test_clean_alignments() -> None:
+    # Checks whether gaps in b (a aligns to None) can be removed
+    # (note: not the other way around)
+
+    tokens_a = ["Eyn", "Haus", "mann", "rief's", "ſo", "FOO"]
+    tokens_b = ["Ein", "Hausmann", "rief", "es", "so"]
+
+    nw_alignments = [
+        AlignedPair(0, 0),  # Eyn   <-> ein
+        AlignedPair(1, 1),  # Haus  <-> Hausmann
+        AlignedPair(2, None),  # mann  <-> [GAP]
+        AlignedPair(3, 2),  # riefs <-> rief
+        AlignedPair(None, 3),  # [GAP] <-> es
+        AlignedPair(4, 4),  # ſo    <-> so
+        AlignedPair(5, None),  # FOO   <-> [GAP]
+    ]
+
+    aligner = textalign.Aligner(tokens_a, tokens_b)
+    aligner.translit_tokens()
+    aligner.aligned_tokidxs = nw_alignments
+    aligner.clean_alignments()
+    output = aligner.aligned_tokidxs
 
     target_alignments = [
-        (0, 0),
-        (1, 1),
-        (2, 1),
-        (3, 2),  # riefs -> rief
-        (3, 3),  # riefs -> es
-        (4, 4),
-        (5, None),
+        AlignedPair(0, 0),  # Eyn    <-> ein
+        AlignedPair(1, 1),  # Haus   <-> Hausmann
+        AlignedPair(2, 1),  # mann   <-> Hausmann
+        AlignedPair(3, 2),  # rief's <-> rief
+        AlignedPair(None, 3),  # rief's <-> es
+        AlignedPair(4, 4),  # ſo     <-> so
+        AlignedPair(5, None),  # FOO    <-> [GAP]
     ]
-    assert cleaned_alignments == target_alignments
-    # print(cleaned_alignments)
+
+    assert output == target_alignments
 
 
-def test_get_bidirectional_alignments():
+def test_get_bidirectional_alignments() -> None:
     f_hist = "tests/testdata/simplicissimus_hist.txt"
     f_norm = "tests/testdata/simplicissimus_norm.txt"
     with open(f_hist, "r", encoding="utf-8") as f:
@@ -37,14 +81,10 @@ def test_get_bidirectional_alignments():
     with open(f_norm, "r", encoding="utf-8") as f:
         norm = f.read()
 
-    hist = [line.split()[0] for line in hist.split("\n")[:200] if len(line.split())][:]
-    norm = [line.split()[0] for line in norm.split("\n")[:200] if len(line.split())][:]
+    hist_tok = [line.split()[0] for line in hist.split("\n")[:200] if len(line.split())]
+    norm_tok = [line.split()[0] for line in norm.split("\n")[:200] if len(line.split())]
 
-    # remove punctuation (billo)
-    # hist = [token for token in hist if token not in ".,/;()"]
-    # norm = [token for token in norm if token not in ".,/;()"]
-
-    aligner = textalign.Aligner(hist, norm)
+    aligner = textalign.Aligner(hist_tok, norm_tok)
     kwargs = {
         "similarity_func": textalign.aligner.jaro_rescored,
         "gap_cost_func": textalign.aligner.decreasing_gap_cost,
@@ -54,7 +94,7 @@ def test_get_bidirectional_alignments():
 
     outfile = "tests/testdata/out/test01.out"
     with open(outfile, "w", encoding="utf-8") as fout:
-        for i_a, i_b in zip(aligner.a, aligner.b):
+        for i_a, i_b in aligner.aligned_tokidxs:
             try:
                 token_a = aligner.tokens_a[i_a]
             except TypeError:
@@ -66,38 +106,5 @@ def test_get_bidirectional_alignments():
             for token in (token_a, token_b):
                 fout.write(token.ljust(20))
             fout.write("\n")
-
-
-# fake test
-def test_get_aligned_pairs() -> None:
-    f_hist = "tests/testdata/simplicissimus_hist.txt"
-    f_norm = "tests/testdata/simplicissimus_norm.txt"
-    with open(f_hist, "r", encoding="utf-8") as f:
-        hist = f.read()
-    with open(f_norm, "r", encoding="utf-8") as f:
-        norm = f.read()
-
-    hist = [line.split()[0] for line in hist.split("\n")[:] if len(line.split())][
-        4754:4760
-    ]  # take short sequence from hist
-    # print(hist[4754:4760])
-    norm = [line.split()[0] for line in norm.split("\n")[:] if len(line.split())][:]
-
-    aligner = textalign.Aligner(hist, norm)
-    kwargs = {
-        "similarity_func": textalign.aligner.jaro_rescored,
-        "gap_cost_func": textalign.aligner.decreasing_gap_cost,
-        "gap_cost_initial": 1,
-    }
-    aligner.get_bidirectional_alignments(**kwargs)
-
-    aligned_pairs = aligner.get_aligned_pairs()
-
-    for i, pair in enumerate(aligned_pairs):
-        if pair.a is not None:
-            break
-    print(aligned_pairs[i - 10 : i + 10])
-
-    # print(aligned_pairs)
 
     assert True

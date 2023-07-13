@@ -1,4 +1,4 @@
-from typing import Callable, List, Union, Tuple
+from typing import Callable, List, Union
 
 import Levenshtein as lev
 import numpy as np
@@ -11,15 +11,16 @@ def monotonic_cost(cost=1):
     return cost
 
 
-def decreasing_gap_cost(current_cost, pointer, initial_cost=1):
-    # Did I come here via a gap? If yes: decrease gap costs by a # percentage of the current costs
+def decreasing_gap_cost(current_cost: float, pointer: int, initial_cost: float=1):
+    # Did I come here via a gap? If yes: decrease gap costs by a percentage of
+    # the current costs
     if pointer in [3, 4, 7]:
         current_cost -= current_cost / 100
     # if no: restore gap costs
     return initial_cost
 
 
-def jaro_rescored(a: str, b: str):
+def jaro_rescored(a: str, b: str) -> int:
     # Compute and rescore similarity
     sim = lev.jaro(a, b)
     if sim < 0.33:
@@ -43,12 +44,12 @@ class Aligner:
 
     def nw_align(
         self,
-        x,
-        y,
+        x: List[str],
+        y: List[str],
         similarity_func: Callable = jaro_rescored,
         gap_cost_func: Callable = decreasing_gap_cost,
         gap_cost_initial: float = 0.5,
-    ):
+    ) -> None:
         """
         Needleman-Wunsch algorithm
         """
@@ -101,8 +102,8 @@ class Aligner:
         # Trace through an optimal alignment from bottom-right to top-left
         i = nx
         j = ny
-        rx = []
-        ry = []
+        rx : List[Union[int, None]] = []
+        ry : List[Union[int, None]] = []
         while i > 0 or j > 0:
             if P[i, j] in [2, 5, 6, 9]:
                 rx.append(i - 1)
@@ -126,13 +127,13 @@ class Aligner:
         self.a = rx
         self.b = ry
 
-        return rx, ry
+        # return rx, ry
 
-    def translit_tokens(self, function: Callable = unidecode_ger):
+    def translit_tokens(self, function: Callable = unidecode_ger) -> None:
         self._tokens_a = [function(t) for t in self.tokens_a]
         self._tokens_b = [function(t) for t in self.tokens_b]
 
-    def clean_alignments(self):
+    def clean_alignments(self) -> List[Union[int,None]]:
         """
         TODO
         """
@@ -184,7 +185,31 @@ class Aligner:
 
         return cleaned_alignments
 
-    def distance_to_next(self, i):
+    def distance_to_next(self, i: int) -> float:
+        """Does a_i fit to b_i+1 better than a_i+1 to b_i+1"""
+        if i < len(self.b) - 1:  # not the last element
+            if self.b[i + 1] is not None:
+                if self.a[i + 1] is not None:
+                    this = self.a[i]
+                    next = self.a[i + 1] 
+                    if this is not None and next is not None:
+                        candidate = (
+                            self._tokens_a[this] + self._tokens_a[next]
+                        )
+                        # candidate = (
+                        #     self._tokens_a[self.a[i]] + self._tokens_a[self.a[i + 1]]
+                        # )
+                        dist = lev.distance(candidate, self._tokens_b[self.b[i + 1]])
+                        # is it better than the current alignment?
+                        # TODO: should the distance be normalized? by what token?
+                        if dist < lev.distance(
+                            self._tokens_a[self.a[i + 1]], self._tokens_b[self.b[i + 1]]
+                        ):
+                            return dist
+        return float("inf")
+
+
+    def distance_to_next_old(self, i: int) -> float:
         """Does a_i fit to b_i+1 better than a_i+1 to b_i+1"""
         if i < len(self.b) - 1:  # not the last element
             if self.b[i + 1] is not None:
@@ -192,6 +217,9 @@ class Aligner:
                     candidate = (
                         self._tokens_a[self.a[i]] + self._tokens_a[self.a[i + 1]]
                     )
+                    # candidate = (
+                    #     self._tokens_a[self.a[i]] + self._tokens_a[self.a[i + 1]]
+                    # )
                     dist = lev.distance(candidate, self._tokens_b[self.b[i + 1]])
                     # is it better than the current alignment?
                     # TODO: should the distance be normalized? by what token?
@@ -201,7 +229,8 @@ class Aligner:
                         return dist
         return float("inf")
 
-    def distance_to_prev(self, i):
+
+    def distance_to_prev(self, i: int) -> float:
         """Does a_i fit to b_i-1 better than a_i-1 to b_i-1"""
         if i > 0:  # not the first element
             if self.b[i - 1] is not None:
@@ -270,99 +299,5 @@ class Aligner:
     # TODO Function to add the aligned pairs from another aligner to this one's
     # aligned pairs.
     # Should be used before applying clean_alignments to for the entire doc
-    def append_aligned_pairs() -> None:
+    def append_aligned_pairs(self) -> None:
         return
-
-    # deprecated
-    def _should_next_a_also_be_mapped_to_b(self, i) -> bool:
-        """
-        Checks whether multiple tokens from `tokens_a`, following index `idx_a = tok_alignments[i][0]` should be mapped to the same token from tokens_b (at position `idx_b = tok_alignments[i][1]`)
-
-        We use edit distance to check this: Is the edit distance of (token_a(i)+token_a(i+1)+... and token_b(j) lower than that of only token_a(i) and token_b(j).
-
-        i : int
-            points to current pair in self.tok_alignments
-
-        # TODO
-        a : int; options={0,1}, default=0
-            which side of the pair are we looking at, i.e. which one is token_a and which one token_b
-
-        ------------------------------------------------------------------
-
-        Background:
-
-        Our initial alignment algorithm maps tokens 1:1 where a token can also be a pseudo-token (None). Therefore, we likely need post-correction to catch cases where tokens are split or joined in either of the columns.
-
-        -------------------------------------------------------------------
-
-        TODO:
-
-        currently this function only works for side a, but when everything works out, it should be easy to swap it
-
-        this function is not super-helpful yet
-        it shouldn't return a bool but tell you directly which modifications to make in tok_alignments_cleaned
-        it might be reasonable to the token directly
-
-        This function is supposed to be called when iterating over the alignment pairs to find possible cases of joining.
-
-        Note: A join on the one side is a merge on the other.
-
-        """
-
-        idx_a, idx_b = self.tok_alignments[i]
-        a = 0
-        b = 1
-        tokens_a = self.tokens_a
-        tokens_b = self.tokens_b
-
-        # Don't continue if the current b_token is a None token
-        if idx_b is None:
-            return False
-
-        n = len(self.tok_alignments)
-        j = i + 1
-        # Don't continue if we already reached the end of the mapping
-        if j == n:
-            return False
-        # Only continue if the next b_token is a None-token
-        if self.tok_alignments[j][b] is not None:
-            return False
-
-        # Move until we see a b_token_idx that is not None anymore
-        n = len(self.tok_alignments)
-        while j < n - 1:
-            j += 1
-            if self.tok_alignments[j][b] is not None:
-                break
-
-        # end := First a_token_idx where b_token_idx is not None anymore
-        end = self.tok_alignments[j][a]
-
-        # Join all a_tokens between the two points
-        joined_tokens = "".join(tokens_a[idx_a:end])
-
-        # Compute edit distances
-        ld_single = lev.distance(
-            tokens_a[idx_a], tokens_b[idx_b]
-        )  # TODO LD muss normalisiert sein
-        ld_joined = lev.distance(
-            joined_tokens, tokens_b[idx_b]
-        )  # TODO LD muss normalisiert sein
-        if ld_joined < ld_single:
-            print(joined_tokens)
-            return True
-        return False
-
-    # deprecated
-    def clean_alignments_old(self, both_sides=True):
-        """ """
-
-        cleaned_alignments: List[Tuple[Union[int, None], Union[int, None]]] = []
-
-        for i, (idx_a, idx_b) in enumerate(self.tok_alignments):
-            # idx_a point to elements in self.tokens_a, e.g. the first token in
-            # self.tokens_a is pointed to by idx_a=0
-            if self._joinable_with_next(i):
-                pass
-
-        return cleaned_alignments

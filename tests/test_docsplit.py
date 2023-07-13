@@ -1,4 +1,39 @@
+import pytest
+
 from textalign import docsplit
+
+# TODO
+def test_get_search_pattern() -> None:
+
+    tokens_a = ['Um', 'den', 'Vorrath', 'grüner', 'Olivenäſte', '.', 'Den', 'er', 
+              'ſich', 'zur', 'Seite', 'hatte', 'hinlegen', 'laſſen', '.', 'Allmählig', 
+              'in', 'die', 'Flamme', 'zu', 'ſchieben', '.']
+    tokens_b = ['Um', 'den', 'Vorrat', 'grüner', 'Olivenäste', '.', 'Den', 'er', 
+              'sich', 'zur', 'Seite', 'hatte', 'hinlegen', 'lassen', '.', 'Allmählich', 
+              'in', 'die', 'Flamme', 'zu', 'schieben', '.']
+
+    docsplitter = docsplit.DocSplitter(tokens_a, 
+                                       tokens_b, 
+                                       subseq_len=4, # 4 tokens per pattern
+                                       apply_translit=False
+                                       )
+
+    # Without translit
+    target = "grünerOlivenäſte.Den"
+    pattern = docsplitter._get_search_pattern(3)
+    assert pattern == target
+
+    # With translit
+    docsplitter.apply_translit = True
+    target = "grünerOlivenäste.Den"
+    pattern = docsplitter._get_search_pattern(3)
+    assert pattern == target
+
+    # If pattern length exceeds the end it contains less than 4 tokens
+    # In practice this does not happen because we wont iterate that far 
+    target = "schieben."
+    pattern = docsplitter._get_search_pattern(20)
+    assert pattern == target
 
 
 def test_docsplit_iterfind_split_positions() -> None:
@@ -44,9 +79,6 @@ def test_docsplit_iterfind_split_positions_realdoc() -> None:
         print(f"Matching:\n{a}\n{b}\n")
 
     assert True
-
-    
-
 
 
 def test_find_closest() -> None:

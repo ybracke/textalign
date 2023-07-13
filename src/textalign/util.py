@@ -4,6 +4,7 @@ import os
 
 from dataclasses import dataclass
 
+# utils for sentences.py, aligner.py
 
 @dataclass
 class Token:
@@ -107,6 +108,67 @@ def get_sentence_start_idxs(doc: List[List[Token]]) -> List[int]:
 #     return sentence_start_idxs
 
 
+# utils for docsplit.py
+
+def find_closest(arr, target):
+    """
+    Find value in `arr` closest to given `target` using binary search
+    """
+
+    n = len(arr)
+
+    # Corner cases
+    if target <= arr[0]:
+        return arr[0]
+    if target >= arr[n - 1]:
+        return arr[n - 1]
+
+    # Doing binary search
+    i = 0
+    j = n
+    mid = 0
+    while i < j:
+        mid = (i + j) // 2
+
+        if arr[mid] == target:
+            return arr[mid]
+
+        # If target is less than array
+        # element, then search in left
+        if target < arr[mid]:
+            # If target is greater than previous
+            # to mid, return closest of two
+            if mid > 0 and target > arr[mid - 1]:
+                return get_closest(arr[mid - 1], arr[mid], target)
+
+            # Repeat for left half
+            j = mid
+
+        # If target is greater than mid
+        else:
+            if mid < n - 1 and target < arr[mid + 1]:
+                return get_closest(arr[mid], arr[mid + 1], target)
+
+            # update i
+            i = mid + 1
+
+    # Only index of single element left after search
+    return arr[mid]
+
+def get_closest(val1, val2, target):
+    """
+    Which of the two values `val1` and `val2` is closer to `target`?
+    
+    Favors `val2` in case of tie.
+    """
+    if target - val1 >= val2 - target:
+        return val2
+    else:
+        return val1
+
+
+
+# deprecated
 def get_offset2tokidx_from_wastefile(path: str) -> Dict[int, int]:
     """
     Create a mapping: character offset -> token index
@@ -130,23 +192,6 @@ def get_offset2tokidx_from_wastefile(path: str) -> Dict[int, int]:
             token = line[0]
             mapping[offset] = idx
             offset += len(line[0])  # len(token)
-        idx += 1
-
-    return mapping
-
-
-def get_offset2tokidx_from_strlist(doc: List[str]) -> Dict[int, int]:
-    """
-    Create a mapping: character offset -> token index
-
-    """
-    # create mapping
-    mapping = {}
-    idx = 0
-    offset = 0
-    for token in doc:
-        mapping[offset] = idx
-        offset += len(token)
         idx += 1
 
     return mapping

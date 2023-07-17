@@ -267,8 +267,8 @@ class Aligner:
                 next_b = self._tokens_b[self.aligned_tokidxs[i + 1].b]
                 dist = lev.distance(candidate, next_b)
                 # Is it better than the current alignment?
-                # TODO: should the distance be normalized? by what token?
-                if dist < lev.distance(next_a, next_b):
+                dist = levdistance_normal(candidate, next_b)
+                if dist < levdistance_normal(next_a, next_b):
                     return dist
 
         return float("inf")
@@ -287,8 +287,8 @@ class Aligner:
                 prev_b = self._tokens_b[self.aligned_tokidxs[i - 1].b]
                 dist = lev.distance(candidate, prev_b)
                 # Is it better than the current alignment?
-                # TODO: should the distance be normalized? by what token?
-                if dist < lev.distance(prev_a, prev_b):
+                dist = levdistance_normal(candidate, prev_b)
+                if dist < levdistance_normal(prev_a, prev_b):
                     return dist
 
         return float("inf")

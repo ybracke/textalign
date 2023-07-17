@@ -11,7 +11,7 @@ def test_alignedpair() -> None:
 
 
 def test_nw_align() -> None:
-    tokens_a = ["Eyn", "Haus", "mann", "riefs", "ſo", "FOO"]
+    tokens_a = ["Eyn", "Haus", "mann", "riefs", "ſo", "."]
     tokens_b = ["Ein", "Hausmann", "rief", "es", "so"]
 
     target_alignments = [
@@ -21,7 +21,7 @@ def test_nw_align() -> None:
         AlignedPair(3, 2),  # riefs <-> rief
         AlignedPair(None, 3),  # [GAP] <-> es
         AlignedPair(4, 4),  # ſo    <-> so
-        AlignedPair(5, None),  # FOO   <-> [GAP]
+        AlignedPair(5, None),  # .   <-> [GAP]
     ]
 
     kwargs = {
@@ -37,11 +37,11 @@ def test_nw_align() -> None:
     assert output == target_alignments
 
 
-def test_clean_alignments() -> None:
+def test_clean_alignments_old2new() -> None:
     # Checks whether gaps in b (a aligns to None) can be removed
     # (note: not the other way around)
 
-    tokens_a = ["Eyn", "Haus", "mann", "rief's", "ſo", "FOO"]
+    tokens_a = ["Eyn", "Haus", "mann", "rief's", "ſo", "."]
     tokens_b = ["Ein", "Hausmann", "rief", "es", "so"]
 
     nw_alignments = [
@@ -51,7 +51,7 @@ def test_clean_alignments() -> None:
         AlignedPair(3, 2),  # riefs <-> rief
         AlignedPair(None, 3),  # [GAP] <-> es
         AlignedPair(4, 4),  # ſo    <-> so
-        AlignedPair(5, None),  # FOO   <-> [GAP]
+        AlignedPair(5, None),  # .   <-> [GAP]
     ]
 
     aligner = textalign.Aligner(tokens_a, tokens_b)
@@ -65,9 +65,45 @@ def test_clean_alignments() -> None:
         AlignedPair(1, 1),  # Haus   <-> Hausmann
         AlignedPair(2, 1),  # mann   <-> Hausmann
         AlignedPair(3, 2),  # rief's <-> rief
-        AlignedPair(None, 3),  # rief's <-> es
+        AlignedPair(None, 3),  # [GAP] <-> es
         AlignedPair(4, 4),  # ſo     <-> so
-        AlignedPair(5, None),  # FOO    <-> [GAP]
+        AlignedPair(5, None),  # .    <-> [GAP]
+    ]
+
+    assert output == target_alignments
+
+
+def test_clean_alignments_new2old() -> None:
+    # Checks whether gaps in b (a aligns to None) can be removed
+    # (note: not the other way around)
+
+    tokens_a = ["Ein", "Hausmann", "rief", "es", "so"]
+    tokens_b = ["Eyn", "Haus", "mann", "riefs", "ſo", "."]
+
+    nw_alignments = [
+        AlignedPair(0, 0),  # Ein   <-> Eyn
+        AlignedPair(1, 1),  # Hausmann  <-> Haus
+        AlignedPair(None, 2),  # [GAP]  <-> mann
+        AlignedPair(2, 3),  # riefs <-> riefs
+        AlignedPair(3, None),  # es <-> [GAP]
+        AlignedPair(4, 4),  # so    <-> ſo
+        AlignedPair(None, 5),  # [GAP]   <-> .
+    ]
+
+    aligner = textalign.Aligner(tokens_a, tokens_b)
+    aligner.translit_tokens()
+    aligner.aligned_tokidxs = nw_alignments
+    aligner.clean_alignments()
+    output = aligner.aligned_tokidxs
+
+    target_alignments = [
+        AlignedPair(0, 0),  # Ein    <-> Eyn
+        AlignedPair(1, 1),  # Hausmann   <-> Haus
+        AlignedPair(None, 2),  # [GAP]   <-> mann
+        AlignedPair(2, 3),  # rief <-> riefs
+        AlignedPair(3, 3),  # es <-> riefs
+        AlignedPair(4, 4),  # ſo     <-> so
+        AlignedPair(None, 5),  # .    <-> [GAP]
     ]
 
     assert output == target_alignments
@@ -90,8 +126,7 @@ def test_get_bidirectional_alignments() -> None:
         "similarity_func": textalign.aligner.levsim_rescored,
         "gap_cost_func": textalign.aligner.decreasing_gap_cost,
         "gap_cost_length_discount": textalign.aligner.length_discount,
-        "gap_cost_initial": .5,
-
+        "gap_cost_initial": 0.5,
     }
     aligner.get_bidirectional_alignments(**kwargs)
 
@@ -114,12 +149,10 @@ def test_get_bidirectional_alignments() -> None:
 
 
 def test_levsim() -> None:
-
-    for (a, b, target) in [
+    for a, b, target in [
         ("Haus", "Maus", 0.75),
         ("ich", "nichtnichtnichtnichtnicht", 0.12),
         ("nichtnichtnichtnichtnicht", "ich", 0.12),
     ]:
-        output = textalign.aligner.levsim(a,b)
+        output = textalign.aligner.levsim(a, b)
         assert target == output
-

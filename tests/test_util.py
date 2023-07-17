@@ -1,10 +1,10 @@
-from typing import Any, Dict, List, Tuple, Union
+from typing import List
 
 from textalign import util
 
 
 # fake test
-def test_parse_waste():
+def test_parse_waste() -> None:
     waste_output = """\
 Dies	0 4
 iſt	5 4
@@ -57,7 +57,7 @@ Sattz	39 5
     assert True
 
 
-def test_get_sentence_start_idxs():
+def test_get_sentence_start_idxs() -> None:
     waste_output = """\
 Dies	0 4
 iſt	5 4
@@ -95,3 +95,14 @@ iſt	154 4
     output: List[int] = util.get_sentence_start_idxs(doc)
     target = [0, 7]
     assert output == target
+
+
+def test_find_closest() -> None:
+    # Driver code
+    arr = [1, 2, 4, 5, 6, 7, 8, 9]
+    target = 11
+    closest = util.find_closest(arr, target)
+    assert closest == 9
+    target = 7
+    closest = util.find_closest(arr, target)
+    assert closest == 7

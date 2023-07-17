@@ -1,5 +1,3 @@
-import pytest
-
 from textalign import docsplit
 
 
@@ -163,14 +161,3 @@ def test_docsplit_iterfind_split_positions_realdoc() -> None:
         print(f"Matching:\n{a}\n{b}\n")
 
     assert True
-
-
-def test_find_closest() -> None:
-    # Driver code
-    arr = [1, 2, 4, 5, 6, 7, 8, 9]
-    target = 11
-    closest = docsplit.find_closest(arr, target)
-    assert closest == 9
-    target = 7
-    closest = docsplit.find_closest(arr, target)
-    assert closest == 7

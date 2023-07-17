@@ -14,18 +14,35 @@ class DocSplitter:
         self,
         tokens_a: List[str],
         tokens_b: List[str],
-        max_lev_dist: int = 7,
-        subseq_len: int = 7,
         max_len_split: int = 2000,
+        subseq_len: int = 7,
+        max_lev_dist: int = 7,
         step_size: int = 20,  # TODO: maybe change dynamically (e.g. increase after each step)?
         apply_translit: bool = True,
     ):
         """
         A class for splitting documents at positions where they match well
 
-        TODO: Either change the name, the description or the behavior - because
-        currently the class does not acutally split the documents, it only gives
-        you indices (= the positions where to split the docs).
+        A good split position is understood as the beginning of a sequence of
+        tokens from the source document, that have a single (that, is neither
+        zero, nor multiple) near matching sequence of tokens in the target
+        document, i.e. a good local alignment.
+
+        The instance variables specify the behavior of the algorithm to find good
+        split positions:
+
+        `max_len_split` : Maximum split length (in tokens) for splitting the
+        documents
+
+        `subseq_len` : Number of tokens from text A to fuzzy search in text B. Shorter search patterns lead to more multiple matches. Make sure the value of this parameter fits to the value of `max_lev_dist`
+
+        `max_lev_dist` : Maximum Levenshtein distance for fuzzy search. What is
+        a reasonable setting here largely depends on how (dis)similar source and
+        target text are and on the length of the search pattern (`subseq_len`). Use a large distance for less similar texts and longer search patterns.
+
+        `step_size` : Step size for setting a new index during the search for a pattern_a
+
+        `apply_translit` : Whether to apply transliteration before fuzzy search
 
         """
         # Texts, tokenized
@@ -42,12 +59,12 @@ class DocSplitter:
         self.offset2tokidx_b_keys: List[int] = list(self.offset2tokidx_b.keys())
 
         # Parameters
-        # Maximum Levenshtein distance for fuzzy search
-        self.max_lev_dist: int = max_lev_dist
-        # Number of tokens from text A to fuzzy search in text B
-        self.subseq_len: int = subseq_len
         # Maximum split length (in tokens) for splitting the documents
         self.max_len_split: int = max_len_split
+        # Number of tokens from text A to fuzzy search in text B
+        self.subseq_len: int = subseq_len
+        # Maximum Levenshtein distance for fuzzy search
+        self.max_lev_dist: int = max_lev_dist
         # Step size for setting a new index during the search for a pattern_a
         self.step_size: int = step_size
         # Apply transliteration before fuzzy search

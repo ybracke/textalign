@@ -86,9 +86,12 @@ def test_get_bidirectional_alignments() -> None:
 
     aligner = textalign.Aligner(hist_tok, norm_tok)
     kwargs = {
-        "similarity_func": textalign.aligner.jaro_rescored,
+        # "similarity_func": textalign.aligner.jaro_rescored,
+        "similarity_func": textalign.aligner.levsim_rescored,
         "gap_cost_func": textalign.aligner.decreasing_gap_cost,
-        "gap_cost_initial": 1,
+        "gap_cost_length_discount": textalign.aligner.length_discount,
+        "gap_cost_initial": .5,
+
     }
     aligner.get_bidirectional_alignments(**kwargs)
 
@@ -108,3 +111,15 @@ def test_get_bidirectional_alignments() -> None:
             fout.write("\n")
 
     assert True
+
+
+def test_levsim() -> None:
+
+    for (a, b, target) in [
+        ("Haus", "Maus", 0.75),
+        ("ich", "nichtnichtnichtnichtnicht", 0.12),
+        ("nichtnichtnichtnichtnicht", "ich", 0.12),
+    ]:
+        output = textalign.aligner.levsim(a,b)
+        assert target == output
+

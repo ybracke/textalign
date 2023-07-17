@@ -32,6 +32,29 @@ def jaro_rescored(a: str, b: str) -> int:
     return sim
 
 
+def levdistance_normal(a: str, b: str) -> float:
+    """ Normalized Levenshtein distance """
+    return lev.distance(a,b)/max(len(a),len(b))
+
+
+def levsim(a: str, b: str) -> float:
+    return 1-levdistance_normal(a,b)
+
+def levsim_rescored(a: str, b: str) -> int:
+    sim = levsim(a, b)
+    if sim < 0.33:
+        sim = -1
+    # elif sim < 0.66:
+    #     sim = 0
+    # else:
+    #     sim = 1
+    return sim
+
+def length_discount(gap_cost, token):
+    # decrease gap cost for short items (len<=2)
+    return gap_cost if len(token) > 2 else gap_cost/2 
+
+
 @dataclass
 class AlignedPair:
     """
@@ -71,6 +94,7 @@ class Aligner:
         b: Optional[List[str]] = None,
         similarity_func: Callable = jaro_rescored,
         gap_cost_func: Callable = decreasing_gap_cost,
+        gap_cost_length_discount: Callable = length_discount,
         gap_cost_initial: float = 0.5,
     ) -> None:
         """
@@ -102,7 +126,7 @@ class Aligner:
             for j in range(n_b):
                 sim = similarity_func(a[i], b[j])
 
-                # Similarity as score for moving down-right in the matrix
+                # Similarity as score for moving down right in the matrix
                 t[0] = scores[i, j] + sim
 
                 # Set costs
@@ -114,8 +138,15 @@ class Aligner:
                 gap_cost = gap_cost_func(**gap_cost_func_args)
 
                 # Enter best score
-                t[1] = scores[i, j + 1] - gap_cost
-                t[2] = scores[i + 1, j] - gap_cost
+                # Optional: cost discount for short elements
+                # i.e. penalize dropping a short token less than dropping a longer one
+                if gap_cost_length_discount is not None:
+                    gap_cost_1 = gap_cost_length_discount(gap_cost, a[i])
+                    gap_cost_2 = gap_cost_length_discount(gap_cost, b[j])
+                else:
+                    gap_cost_1, gap_cost_2 = gap_cost
+                t[1] = scores[i, j + 1] - gap_cost_1
+                t[2] = scores[i + 1, j] - gap_cost_2
                 tmax = np.max(t)
                 scores[i + 1, j + 1] = tmax
 

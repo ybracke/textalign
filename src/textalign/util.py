@@ -1,10 +1,11 @@
-from typing import Dict, List, Tuple, Union
+from typing import Dict, List
 
 import os
 
 from dataclasses import dataclass
 
 # utils for sentences.py, aligner.py
+
 
 @dataclass
 class Token:
@@ -104,6 +105,7 @@ def get_sentence_start_idxs(doc: List[List[Token]]) -> List[int]:
 
 # utils for docsplit.py
 
+
 def find_closest(arr, target):
     """
     Find value in `arr` closest to given `target` using binary search
@@ -149,17 +151,17 @@ def find_closest(arr, target):
     # Only index of single element left after search
     return arr[mid]
 
+
 def get_closest(val1, val2, target):
     """
     Which of the two values `val1` and `val2` is closer to `target`?
-    
+
     Favors `val2` in case of tie.
     """
     if target - val1 >= val2 - target:
         return val2
     else:
         return val1
-
 
 
 # deprecated
@@ -183,7 +185,6 @@ def get_offset2tokidx_from_wastefile(path: str) -> Dict[int, int]:
         line = line.strip().split()
         # non-empty lines
         if len(line) >= 3:
-            token = line[0]
             mapping[offset] = idx
             offset += len(line[0])  # len(token)
         idx += 1

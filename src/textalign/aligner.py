@@ -33,12 +33,13 @@ def jaro_rescored(a: str, b: str) -> int:
 
 
 def levdistance_normal(a: str, b: str) -> float:
-    """ Normalized Levenshtein distance """
-    return lev.distance(a,b)/max(len(a),len(b))
+    """Normalized Levenshtein distance"""
+    return lev.distance(a, b) / max(len(a), len(b))
 
 
 def levsim(a: str, b: str) -> float:
-    return 1-levdistance_normal(a,b)
+    return 1 - levdistance_normal(a, b)
+
 
 def levsim_rescored(a: str, b: str) -> int:
     sim = levsim(a, b)
@@ -50,9 +51,10 @@ def levsim_rescored(a: str, b: str) -> int:
     #     sim = 1
     return sim
 
+
 def length_discount(gap_cost, token):
     # decrease gap cost for short items (len<=2)
-    return gap_cost if len(token) > 2 else gap_cost/2 
+    return gap_cost if len(token) > 2 else gap_cost / 2
 
 
 @dataclass
@@ -77,16 +79,16 @@ class Aligner:
         """
 
         # String representation of tokens
-        self.tokens_a: List[str] = tokens_a 
+        self.tokens_a: List[str] = tokens_a
         self.tokens_b: List[str] = tokens_b
         # Modified version of tokens
-        self._tokens_a: List[str]  
+        self._tokens_a: List[str]
         self._tokens_b: List[str]
-        # Alignment of token indices 
+        # Alignment of token indices
         # e.g. [(0,0), (1,None), (2,1), (None,2)]
         # where token at index 1 in a is aligned to a gap in b
         # and the token at index 2 in b is aligned to a gap in a
-        self.aligned_tokidxs: List[AlignedPair]  
+        self.aligned_tokidxs: List[AlignedPair]
 
     def nw_align(
         self,

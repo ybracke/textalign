@@ -2,6 +2,7 @@ from typing import Any, Dict, List, Tuple, Union
 
 from textalign import sentences
 from textalign import util
+from textalign import AlignedPair
 
 
 ##### 6.7.2023
@@ -9,43 +10,43 @@ from textalign import util
 
 def test_split_alignment_into_sentences() -> None:
     sentence_boundaries = [0, 6, 9]
-    aligned_tokens: List[util.AlignedPair] = [
-        util.AlignedPair(0, 0),
-        util.AlignedPair(1, 1),
-        util.AlignedPair(2, 2),
-        util.AlignedPair(3, 2),
-        util.AlignedPair(4, None),
-        util.AlignedPair(5, 3),
-        util.AlignedPair(6, 4),
-        util.AlignedPair(6, 5),
-        util.AlignedPair(7, 6),
-        util.AlignedPair(None, 7),
-        util.AlignedPair(8, 8),
-        util.AlignedPair(9, 9),
+    aligned_tokens: List[AlignedPair] = [
+        AlignedPair(0, 0),
+        AlignedPair(1, 1),
+        AlignedPair(2, 2),
+        AlignedPair(3, 2),
+        AlignedPair(4, None),
+        AlignedPair(5, 3),
+        AlignedPair(6, 4),
+        AlignedPair(6, 5),
+        AlignedPair(7, 6),
+        AlignedPair(None, 7),
+        AlignedPair(8, 8),
+        AlignedPair(9, 9),
     ]
 
-    output: List[List[util.AlignedPair]] = sentences.split_alignment_into_sentences(
+    output: List[List[AlignedPair]] = sentences.split_alignment_into_sentences(
         aligned_tokens, sentence_boundaries
     )
 
-    target: List[List[util.AlignedPair]] = [
+    target: List[List[AlignedPair]] = [
         [
-            util.AlignedPair(0, 0),
-            util.AlignedPair(1, 1),
-            util.AlignedPair(2, 2),
-            util.AlignedPair(3, 2),
-            util.AlignedPair(4, None),
-            util.AlignedPair(5, 3),
+            AlignedPair(0, 0),
+            AlignedPair(1, 1),
+            AlignedPair(2, 2),
+            AlignedPair(3, 2),
+            AlignedPair(4, None),
+            AlignedPair(5, 3),
         ],
         [
-            util.AlignedPair(6, 4),
-            util.AlignedPair(6, 5),
-            util.AlignedPair(7, 6),
-            util.AlignedPair(None, 7),
-            util.AlignedPair(8, 8),
+            AlignedPair(6, 4),
+            AlignedPair(6, 5),
+            AlignedPair(7, 6),
+            AlignedPair(None, 7),
+            AlignedPair(8, 8),
         ],
         [
-            util.AlignedPair(9, 9),
+            AlignedPair(9, 9),
         ],
     ]
 
@@ -80,17 +81,17 @@ def test_serialize_sentence_alignments() -> None:
     # Sentence-wise alignment as list of lists of `AlignedPair`s
     sents_aligned_tokidxs = [
         [
-            util.AlignedPair(0, 0),
-            util.AlignedPair(1, 1),
-            util.AlignedPair(2, 2),
-            util.AlignedPair(3, 2),
-            util.AlignedPair(4, 3),
+            AlignedPair(0, 0),
+            AlignedPair(1, 1),
+            AlignedPair(2, 2),
+            AlignedPair(3, 2),
+            AlignedPair(4, 3),
         ],
         [
-            util.AlignedPair(5, 4),
-            util.AlignedPair(5, 5),
-            util.AlignedPair(6, 6),
-            util.AlignedPair(7, 7),
+            AlignedPair(5, 4),
+            AlignedPair(5, 5),
+            AlignedPair(6, 6),
+            AlignedPair(7, 7),
         ],
     ]
 
@@ -136,19 +137,19 @@ def test_serialize_sentence_alignments_with_unmapped_tokens_and_gaps() -> None:
     # Sentence-wise alignment as list of lists of `AlignedPair`s
     sents_aligned_tokidxs = [
         [
-            util.AlignedPair(0, 0),
-            util.AlignedPair(1, 1),
-            util.AlignedPair(2, 2),
-            util.AlignedPair(3, 2),
-            util.AlignedPair(4, None),
-            util.AlignedPair(5, 3),
+            AlignedPair(0, 0),
+            AlignedPair(1, 1),
+            AlignedPair(2, 2),
+            AlignedPair(3, 2),
+            AlignedPair(4, None),
+            AlignedPair(5, 3),
         ],
         [
-            util.AlignedPair(6, 4),
-            util.AlignedPair(6, 5),
-            util.AlignedPair(7, 6),
-            util.AlignedPair(None, 7),
-            util.AlignedPair(8, 8),
+            AlignedPair(6, 4),
+            AlignedPair(6, 5),
+            AlignedPair(7, 6),
+            AlignedPair(None, 7),
+            AlignedPair(8, 8),
         ],
     ]
 
@@ -194,19 +195,19 @@ def test_serialize_sentence_alignments_without_unmapped_tokens_and_gaps() -> Non
     # Sentence-wise alignment as list of lists of `AlignedPair`s
     sents_aligned_tokidxs = [
         [
-            util.AlignedPair(0, 0),
-            util.AlignedPair(1, 1),
-            util.AlignedPair(2, 2),
-            util.AlignedPair(3, 2),
-            util.AlignedPair(4, None),
-            util.AlignedPair(5, 3),
+            AlignedPair(0, 0),
+            AlignedPair(1, 1),
+            AlignedPair(2, 2),
+            AlignedPair(3, 2),
+            AlignedPair(4, None),
+            AlignedPair(5, 3),
         ],
         [
-            util.AlignedPair(6, 4),
-            util.AlignedPair(6, 5),
-            util.AlignedPair(7, 6),
-            util.AlignedPair(None, 7),
-            util.AlignedPair(8, 8),
+            AlignedPair(6, 4),
+            AlignedPair(6, 5),
+            AlignedPair(7, 6),
+            AlignedPair(None, 7),
+            AlignedPair(8, 8),
         ],
     ]
 
@@ -255,19 +256,19 @@ def test_serialize_sentence_alignments_without_unmapped_tokens_but_without_gaps(
     # Sentence-wise alignment as list of lists of `AlignedPair`s
     sents_aligned_tokidxs = [
         [
-            util.AlignedPair(0, 0),
-            util.AlignedPair(1, 1),
-            util.AlignedPair(2, 2),
-            util.AlignedPair(3, 2),
-            util.AlignedPair(4, None),
-            util.AlignedPair(5, 3),
+            AlignedPair(0, 0),
+            AlignedPair(1, 1),
+            AlignedPair(2, 2),
+            AlignedPair(3, 2),
+            AlignedPair(4, None),
+            AlignedPair(5, 3),
         ],
         [
-            util.AlignedPair(6, 4),
-            util.AlignedPair(6, 5),
-            util.AlignedPair(7, 6),
-            util.AlignedPair(None, 7),
-            util.AlignedPair(8, 8),
+            AlignedPair(6, 4),
+            AlignedPair(6, 5),
+            AlignedPair(7, 6),
+            AlignedPair(None, 7),
+            AlignedPair(8, 8),
         ],
     ]
 

@@ -11,6 +11,7 @@ GERMAN_MAP = {
     "ü\u0364": "ü",
     "æ": "ä",
     "ꝛ": "r",
+    "/" : ",", # / is often replaced by comma in modern version
 }
 
 ESCAPE = {

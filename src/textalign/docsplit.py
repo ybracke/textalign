@@ -142,3 +142,10 @@ class DocSplitter:
                 tokidx_b = self.offset2tokidx_b[closest_offset_b]
 
             yield tokidx_a, tokidx_b
+
+    def split(self) -> Generator[Tuple[List[str], List[str]], None, None]:
+        """Generates document splits"""
+        for idx_a, idx_b in self.iterfind_split_positions():
+            split_a = self.tokens_a[idx_a : (idx_a + self.subseq_len)]
+            split_b = self.tokens_b[idx_b : (idx_b + self.subseq_len)]
+            yield split_a, split_b

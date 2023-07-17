@@ -50,12 +50,10 @@ class DocSplitter:
         self.tokens_b: List[str] = tokens_b
 
         # Text B, serialized
-        self.b_joined = "".join(self.tokens_b)  # TODO apply directly here or elsewhere?
+        self.b_joined = "".join(self.tokens_b)
 
         # For text B: mapping of offsets to token index
-        self.offset2tokidx_b: Dict[int, int] = self._get_offset2tokidx(
-            self.tokens_b
-        )  # TODO apply directly here or elsewhere?
+        self.offset2tokidx_b: Dict[int, int] = self._get_offset2tokidx(self.tokens_b)
         self.offset2tokidx_b_keys: List[int] = list(self.offset2tokidx_b.keys())
 
         # Parameters

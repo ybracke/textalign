@@ -119,7 +119,25 @@ def get_aligned_sentences(
 
         # (4) Optional: Convert indices in token alignments to start at 0
         if reset_tok_idxs:
-            end_a, end_b = s_alignment[-1]
+            # Catch edge-cases: empty alignments and None in last pair
+            if len(s_alignment) == 0:
+                end_a, end_b = -1, -1
+            else:
+                # Get the highest index of the current aligned_tokidxs (not None)
+                k = len(s_alignment) - 1
+                end_a, end_b = None, None
+                while ((end_a is None) or (end_b is None)) and (k > -1):
+                    a, b = s_alignment[k]
+                    if end_a is None:
+                        end_a = a
+                    if end_b is None:
+                        end_b = b
+                    # move one step away from the end of the alignment
+                    k -= 1
+                if end_a is None:
+                    end_a = -1
+                if end_b is None:
+                    end_b = -1
             s_alignment = let_idxs_start_at_zero(s_alignment, end_a_prev, end_b_prev)
             # Get the last indices in the previous sentence to normalize next one
             end_a_prev = end_a

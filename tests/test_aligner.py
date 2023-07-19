@@ -156,3 +156,46 @@ def test_levsim() -> None:
     ]:
         output = textalign.aligner.levsim(a, b)
         assert target == output
+
+
+def test_aligner_extend_no_text() -> None:
+    nw_alignments_01 = [
+        AlignedPair(0, 0),  # Ein   <-> Eyn
+        AlignedPair(1, 1),  # Hausmann  <-> Haus
+        AlignedPair(None, 2),  # [GAP]  <-> mann
+        AlignedPair(2, 3),  # riefs <-> riefs
+        AlignedPair(3, None),  # es <-> [GAP]
+        AlignedPair(4, 4),  # so    <-> ſo
+        AlignedPair(None, 5),  # [GAP]   <-> .
+    ]
+
+    nw_alignments_02 = [
+        AlignedPair(0, 0),  # Ein   <-> Eyn
+        AlignedPair(1, 1),  # Hausmann  <-> Haus
+    ]
+
+    aligner = textalign.Aligner()
+    aligner.aligned_tokidxs = nw_alignments_01
+    aligner2 = textalign.Aligner()
+    aligner2.aligned_tokidxs = nw_alignments_02
+    aligner.extend(aligner2)
+    # aligner.append_alignment(nw_alignments_02)
+    output = aligner.aligned_tokidxs
+
+    target_alignments = [
+        AlignedPair(0, 0),  # Ein    <-> Eyn
+        AlignedPair(1, 1),  # Hausmann   <-> Haus
+        AlignedPair(None, 2),  # [GAP]   <-> mann
+        AlignedPair(2, 3),  # rief <-> riefs
+        AlignedPair(3, None),  # es <-> riefs
+        AlignedPair(4, 4),  # ſo     <-> so
+        AlignedPair(None, 5),  # .    <-> [GAP]
+        AlignedPair(5, 6),  # Ein   <-> Eyn
+        AlignedPair(6, 7),  # Hausmann  <-> Haus
+    ]
+
+    assert output == target_alignments
+
+# TODO
+def test_aligner_extend_with_text() -> None:
+    pass

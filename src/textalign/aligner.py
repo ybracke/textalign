@@ -327,8 +327,40 @@ class Aligner:
 
         return
 
-    # TODO Function to add the aligned pairs from another aligner to this one's
-    # aligned pairs.
-    # Should be used before applying clean_alignments to for the entire doc
-    def append_aligned_pairs(self) -> None:
-        return
+    # TODO can't do typing other: Aligner
+    def extend(self, other) -> None:
+        """
+        Extend this aligner by another aligner.
+
+
+        * Add aligned pairs (from another aligner) to this `self`'s aligned pairs
+        * Add token lists (and transformed token list) to `self`s lists
+
+        Should be used before applying clean_alignments to for the entire doc
+        """
+        # Get the highest index of the current aligned_tokidxs (not None)
+        k = len(self.aligned_tokidxs) - 1
+        final_a, final_b = None, None
+        while (final_a is None) or (final_b is None):
+            a, b = self.aligned_tokidxs[k]
+            if final_a is None:
+                final_a = a
+            if final_b is None:
+                final_b = b
+            # move one step away from the end of the alignment
+            k -= 1
+
+        increased_tokidxs = [
+            AlignedPair(
+                a=pair.a + final_a + 1 if pair.a is not None else None,
+                b=pair.b + final_b + 1 if pair.b is not None else None,
+            )
+            for pair in other.aligned_tokidxs
+        ]
+        self.aligned_tokidxs.extend(increased_tokidxs)
+        self.tokens_a.extend(other.tokens_a)
+        self.tokens_b.extend(other.tokens_b)
+        if hasattr(self, "_tokens_a") and hasattr(other, "_tokens_a"):
+            self._tokens_a.extend(other._tokens_a)
+        if hasattr(self, "_tokens_b") and hasattr(other, "_tokens_b"):
+            self._tokens_b.extend(other._tokens_b)

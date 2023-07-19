@@ -73,7 +73,12 @@ class AlignedPair:
 
 
 class Aligner:
-    def __init__(self, tokens_a: List[str] = [], tokens_b: List[str] = []):
+    def __init__(
+        self,
+        tokens_a: List[str] = [],
+        tokens_b: List[str] = [],
+        aligned_tokidxs: List[AlignedPair] = [],
+    ):
         """
         Class for creating alignments of two tokenized texts
         """
@@ -88,7 +93,7 @@ class Aligner:
         # e.g. [(0,0), (1,None), (2,1), (None,2)]
         # where token at index 1 in a is aligned to a gap in b
         # and the token at index 2 in b is aligned to a gap in a
-        self.aligned_tokidxs: List[AlignedPair]
+        self.aligned_tokidxs: List[AlignedPair] = aligned_tokidxs
 
     def nw_align(
         self,
@@ -338,17 +343,20 @@ class Aligner:
 
         Should be used before applying clean_alignments to for the entire doc
         """
-        # Get the highest index of the current aligned_tokidxs (not None)
-        k = len(self.aligned_tokidxs) - 1
-        final_a, final_b = None, None
-        while (final_a is None) or (final_b is None):
-            a, b = self.aligned_tokidxs[k]
-            if final_a is None:
-                final_a = a
-            if final_b is None:
-                final_b = b
-            # move one step away from the end of the alignment
-            k -= 1
+        if len(self.aligned_tokidxs) == 0:
+            final_a, final_b = -1, -1
+        else:
+            # Get the highest index of the current aligned_tokidxs (not None)
+            k = len(self.aligned_tokidxs) - 1
+            final_a, final_b = None, None
+            while ((final_a is None) or (final_b is None)) and (k > -1):
+                a, b = self.aligned_tokidxs[k]
+                if final_a is None:
+                    final_a = a
+                if final_b is None:
+                    final_b = b
+                # move one step away from the end of the alignment
+                k -= 1
 
         increased_tokidxs = [
             AlignedPair(

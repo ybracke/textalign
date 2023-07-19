@@ -4,8 +4,6 @@ from textalign import sentences
 from textalign import util
 from textalign import AlignedPair
 
-##### 18.7.2023
-
 
 def test_aligned_sentence() -> None:
     tokens_a = [
@@ -227,3 +225,24 @@ def test_get_aligned_sentences() -> None:
     # AlignedPair(8, 8),  -> (2,4)
 
     assert aligned_sents == target
+
+
+def test_let_idxs_start_at_zero() -> None:
+    s_alignment = [
+        AlignedPair(6, 4),
+        AlignedPair(6, 5),
+        AlignedPair(7, 6),
+        AlignedPair(None, 7),
+        AlignedPair(8, 8),
+        AlignedPair(9, 9),
+    ]
+    end_a_prev = 5
+    end_b_prev = 3
+    s_alignment = sentences.let_idxs_start_at_zero(s_alignment, end_a_prev, end_b_prev)
+    assert s_alignment[0].a == 0 and s_alignment[0].b == 0
+
+    # None throws an error
+    # end_a_prev = None
+    # end_b_prev = 3
+    # s_alignment = sentences.let_idxs_start_at_zero(s_alignment, end_a_prev, end_b_prev)
+    # assert s_alignment[0].a == 0 and s_alignment[0].b == 0

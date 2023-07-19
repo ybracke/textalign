@@ -196,6 +196,29 @@ def test_aligner_extend_no_text() -> None:
 
     assert output == target_alignments
 
+
+def test_aligner_extend_empty() -> None:
+    nw_alignments_02 = [
+        AlignedPair(0, 0),  # Ein   <-> Eyn
+        AlignedPair(1, 1),  # Hausmann  <-> Haus
+    ]
+
+    aligner = textalign.Aligner()
+    # aligner.aligned_tokidxs = nw_alignments_01
+    aligner2 = textalign.Aligner()
+    aligner2.aligned_tokidxs = nw_alignments_02
+    aligner.extend(aligner2)
+    # aligner.append_alignment(nw_alignments_02)
+    output = aligner.aligned_tokidxs
+
+    target_alignments = [
+        AlignedPair(0, 0),
+        AlignedPair(1, 1),
+    ]
+
+    assert output == target_alignments
+
+
 # TODO
 def test_aligner_extend_with_text() -> None:
     pass

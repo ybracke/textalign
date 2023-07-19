@@ -1,206 +1,176 @@
-from typing import Any, Dict, List, Tuple, Union
+from typing import List, Tuple
+from dataclasses import dataclass
 
-# from . import aligner
 from textalign import AlignedPair
 from textalign import util
 
 
-def split_alignment_into_sentences(
-    aligned_tokens: List[AlignedPair],
-    start_idxs: List[int],
-    keep_none: str = "both",  # none|a|b|both
-) -> List[List[AlignedPair]]:
-    """
-    TODO
+@dataclass
+class AlignedSentence:
+    tokens_a: List[util.Token]
+    tokens_b: List[util.Token]
+    alignment: List[AlignedPair]
+    # scores: List[float]
 
-    Currently it is assumed that sentences are aligned based on `a` (TODO: allow customization)
-    """
+    def __init__(self, tokens_a=[], tokens_b=[], alignment=[]):
+        self.tokens_a = tokens_a
+        self.tokens_b = tokens_b
+        self.alignment = alignment
 
-    aligned_sents = []
-    i = 0
-    for next_start_idx in sorted(start_idxs)[1:]:
-        aligned_sent = []
-        # Check whether the current index of AlginedPair.a is None or still
-        # smaller than the next sentence start
-        # If so: put this token alignment in the sentence and increase iterator
-        while aligned_tokens[i].a is None or aligned_tokens[i].a < next_start_idx:
-            aligned_sent.append(aligned_tokens[i])
-            i += 1
-        aligned_sents.append(aligned_sent)
+    def serialize(self, drop_unaligned: bool = False) -> Tuple[str, str]:
+        """
+        Return both sentences as strings (serialized).
 
-    # add final sentence (i.e. remaining tokens)
-    aligned_sents.append(aligned_tokens[i:])
+        `drop_unaligned`specifies whether tokens that have no alignment to the other side get excluded from the string.
+        TODO: this needs to be extended to allow exclusion of None-aligned tokens from a,b or both sides or including all and/or adding a GAP token
 
-    return aligned_sents
+        """
 
-
-def split_alignment_into_sentences_OLD(
-    a: List[Union[int, None]],
-    b: List[Union[int, None]],
-    a_tokenized_sents: List[List[Any]],
-    keep_none: str = "both",  # none|a|b|both
-) -> List[Dict[str, Union[int, List[Union[int, None]]]]]:
-    """
-    From a token alignment `a<->b` (computed with a textalign.Aligner) and a tokenized
-    and sentence-split version of `a` (created with a tokenizer), create a list of dicts where each dict represents a sentence like this:
-
-    ```python
-    {
-        i : int,               # sentence index
-        a : List[str|None],    # list of tokens in the sentence as indices, can be None
-        b : List[str|None]     # "
-    }
-    ```
-
-    # TODO allow different key names than "a" and "b"
-    """
-
-    # Whether to keep or remove None tokens
-    keep_none_a = True
-    keep_none_b = True
-    if keep_none == "a":
-        keep_none_b = False
-    elif keep_none == "b":
-        keep_none_a = False
-    elif keep_none == "none":
-        keep_none_a, keep_none_b = False, False
-
-    aligned_sents = []
-
-    # Token counter
-    tok_cnt = 0
-    for i_sent, sent in enumerate(a_tokenized_sents):
-        # Create an empty entry and add tokens to a and b
-        entry = {"i": i_sent, "a": [], "b": []}
-        # entry["a"] = [a[tok_cnt] for _ in sent]
-        for _ in sent:
-            tok_a = a[tok_cnt]
-            if keep_none_a or tok_a is not None:
-                entry["a"].append(tok_a)
-            tok_b = b[tok_cnt]
-            if keep_none_b or tok_b is not None:
-                entry["b"].append(tok_b)
-            # entry["b"].append(b[tok_cnt])
-            tok_cnt += 1
-        aligned_sents.append(entry)
-
-    return aligned_sents
-
-
-def extract_sentence_as_token_list(
-    sent: List[Union[int, None]], doc_tok: List[Tuple[str, int, int]]
-) -> List[Tuple[str, int, int]]:
-    """ """
-    # TODO: Deal with None tokens
-    token_list = [doc_tok[i] for i in sent if i is not None]
-    return token_list
-
-
-def serialize_sentence_original_whitespace(sentence: List[Tuple[str, int, int]]) -> str:
-    """
-    A sentence is a list of triples (token, offset, length)
-
-    The serialized sentence inserts spaces between tokens i and j
-    until `offset(i)+len(i)+n(spaces) == offset(j)`
-    """
-
-    sent_serialized = sentence[0][0]
-    # store offset and length of previous token + number of leading spaces
-    tok_offset_prev = sentence[0][1]
-    tok_len_prev = sentence[0][2]
-    n_spaces = 0
-
-    for i, (tok_text, tok_offset, tok_len) in enumerate(sentence[1:]):
-        # Add spaces to sentence until offset is reached
-        while tok_offset_prev + tok_len_prev + n_spaces < tok_offset:
-            sent_serialized += " "
-            n_spaces += 1
-        # Add token to sentence
-        sent_serialized += tok_text
-
-        # Reset variables
-        tok_offset_prev = tok_offset
-        tok_len_prev = tok_len
-        n_spaces = 0
-
-    return sent_serialized
-
-
-def serialize_sentence_alignments_OLD(
-    sents_aligned_tokidxs: List[Dict[str, Union[int, List[Union[int, None]]]]],
-    a_tokenized_sents: List[Tuple[str, int, int]],
-    b_tokenized_sents: List[Tuple[str, int, int]],
-) -> List[Dict[str, Union[int, str]]]:
-    """
-    From `sents_aligned_tokidxs` (created with `split_alignment_into_sentences`) create a string version of each sentence where tokens are joined based on the whitespace information included in `a_tokenized_sents` and `b_tokenized_sents`.
-
-    Output looks like this:
-
-    ```python
-    [
-        {
-        i : int,    # sentence index
-        a : str,    # sentence serialized as a string
-        b : str     # "
-        },
-        ...
-    ]
-    ```
-    """
-
-    aligned_sents_all = []
-
-    for sent in sents_aligned_tokidxs:
-        sent_a = extract_sentence_as_token_list(sent["a"], a_tokenized_sents)
-        sent_b = extract_sentence_as_token_list(sent["b"], b_tokenized_sents)
-        sent_a_serialized = serialize_sentence_original_whitespace(sent_a)
-        sent_b_serialized = serialize_sentence_original_whitespace(sent_b)
-        aligned_sents_all.append(
-            {"i": sent["i"], "a": sent_a_serialized, "b": sent_b_serialized}
-        )
-
-    return aligned_sents_all
-
-
-# New on 6.7.
-def serialize_sentence_alignments(
-    sents_aligned_tokidxs: List[List[AlignedPair]],
-    a_doc: List[util.Token],
-    b_doc: List[util.Token],
-    drop_unaligned: bool = False,
-) -> List[Tuple[str, str]]:
-    sents_aligned_serialized = []
-
-    for sent in sents_aligned_tokidxs:
         str_a, str_b = "", ""
         last_idx_a, last_idx_b = -1, -1
         # Iterate over AligendPair objects in list
-        for aligned_idx in sent:
+        for aligned_idx in self.alignment:
             # Optional: exclude unaligned tokens (and gaps) from serialized sentence
             if drop_unaligned and ((aligned_idx.a is None) or (aligned_idx.b is None)):
                 continue
 
             # Add token and whitespace to serialized sentence for a
             if aligned_idx.a is not None and aligned_idx.a != last_idx_a:
-                # Add initial whitespace if it exists in doc
-                ws = " " if a_doc[aligned_idx.a].initial_ws else ""
-                str_a += ws + a_doc[aligned_idx.a].text
-            # If gaps are not excluded: Add special GAP token
+                # Check whether to add initial whitespace
+                ws = " " if self.tokens_a[aligned_idx.a].initial_ws else ""
+                str_a += ws + self.tokens_a[aligned_idx.a].text
+            # If gaps get included: Add special GAP token
             elif aligned_idx.a is None:
                 str_a += " " + "[GAP]"
 
             # Same for b
             if aligned_idx.b is not None and aligned_idx.b != last_idx_b:
-                ws = " " if b_doc[aligned_idx.b].initial_ws else ""
-                str_b += ws + b_doc[aligned_idx.b].text
+                ws = " " if self.tokens_b[aligned_idx.b].initial_ws else ""
+                str_b += ws + self.tokens_b[aligned_idx.b].text
             elif aligned_idx.b is None:
                 str_b += " " + "[GAP]"
 
             # Move last index
             last_idx_a, last_idx_b = aligned_idx.a, aligned_idx.b
 
-        # ~ for
-        sents_aligned_serialized.append((str_a.strip(), str_b.strip()))
+        return str_a.strip(), str_b.strip()
 
-    # ~ for
-    return sents_aligned_serialized
+
+def get_aligned_sentences(
+    aligned_tokens: List[AlignedPair],
+    start_idxs: List[int],
+    doc_a: List[util.Token],
+    doc_b: List[util.Token],
+    reset_tok_idxs: bool = True
+    # keep_none: str = "both",  # none|a|b|both
+) -> List[AlignedSentence]:
+    """
+    From a list of aligned token indices (created with Aligner), a list of
+    sentence beginning indices and the lists of token strings (a and b), create
+    a list of AlignedSentences.
+
+    Sentences are aligned based on `a`.
+
+    `reset_tok_idxs` : Whether to convert indices in sentence-wise token alignments to start at 0
+    """
+
+    aligned_sentences = []
+    index_of_the_last_appended_alignment_pair = -1
+
+    # We need the following variables, if we want to convert indices in
+    # sentence-wise token alignments to start at 0
+    if reset_tok_idxs:
+        end_a_prev, end_b_prev = -1, -1
+
+    for i, start_idx_a in enumerate(sorted(start_idxs)):
+        # Did we reach the end of a-tokens?
+        try:
+            next_start_idx_a = start_idxs[i + 1]
+        except IndexError:
+            next_start_idx_a = len(doc_a)
+
+        # (1) Get the a-tokens for the sentence via index
+        tokens_a = doc_a[start_idx_a:next_start_idx_a]
+
+        # (2) Get the alignment via the known a-token indices
+        s_alignment = []
+        # k is the index into the token alignments for the entire doc
+        k = index_of_the_last_appended_alignment_pair + 1
+        # Stores the current a-token's index (can become None)
+        _index_a = start_idx_a
+        # Only do this until we reached the end of token alignments for the entire doc
+        while k < len(aligned_tokens):
+            alignment_pair = aligned_tokens[k]
+            _index_a = alignment_pair.a  # Get the next a-token's index
+
+            # If we reached an a-index, where a new sentence starts, we break
+            # the loop (i.e. finish building the sentence alignemnt). Since we
+            # are one element to far ahead in the document alignments now, we
+            # have to decrease `k` by 1, before breaking.
+            if (_index_a is not None) and (_index_a >= next_start_idx_a):
+                k -= 1
+                break
+            s_alignment.append(alignment_pair)
+            k += 1
+        index_of_the_last_appended_alignment_pair = k
+
+        # (3) Get the b-tokens via the alignments
+        tokens_b = get_tokens_to_alignment(doc_b, s_alignment, side="b")
+
+        # (4) Optional: Convert indices in token alignments to start at 0
+        if reset_tok_idxs:
+            end_a, end_b = s_alignment[-1]
+            s_alignment = let_idxs_start_at_zero(s_alignment, end_a_prev, end_b_prev)
+            # Get the last indices in the previous sentence to normalize next one
+            end_a_prev = end_a
+            end_b_prev = end_b
+
+        # (5) Create sentence object and add to list
+        aligned_sent = AlignedSentence(tokens_a, tokens_b, s_alignment)
+        aligned_sentences.append(aligned_sent)
+
+    return aligned_sentences
+
+
+def let_idxs_start_at_zero(
+    s_alignment: List[AlignedPair], end_a_prev: int, end_b_prev: int
+) -> List[AlignedPair]:
+    """
+    Convert indices in a token alignment list to start at 0
+
+    `end_a_prev`|`end_b_prev` will be substracted from the index given at
+    a and b of the AlignedPairs in the list.
+    In practice this should be values found of the final element of the previous
+    sentence alignment
+    """
+    return [
+        AlignedPair(
+            a=pair.a - (end_a_prev + 1) if pair.a is not None else None,
+            b=pair.b - (end_b_prev + 1) if pair.b is not None else None,
+        )
+        for pair in s_alignment
+    ]
+
+
+def get_tokens_to_alignment(
+    doc: List[str], alignment: List[AlignedPair], side: str = "a"
+) -> List[str]:
+    """
+    Returns the list of tokens from `doc` from the indices specified in
+
+    `side` must be one of `a` or `b` to specify which side specified in the
+    alignment we want
+    """
+    if side == "a":
+        tok_indexes = [pair.a for pair in alignment]
+    elif side == "b":
+        tok_indexes = [pair.b for pair in alignment]
+    else:
+        raise ValueError(f"Unkown side: {side}, must be in {'a', 'b'}")
+    # Drop doubles and None
+    tok_indexes = set(tok_indexes)
+    if None in tok_indexes:
+        tok_indexes.remove(None)
+    tok_indexes = sorted(list(tok_indexes))
+    tokens = [doc[i] for i in tok_indexes]
+    return tokens

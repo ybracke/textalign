@@ -1,4 +1,33 @@
+import textalign
 from textalign import AlignmentPipeline
 
+
 def test_alignment_pipeline() -> None:
-    pass
+    f_hist = "tests/testdata/simplicissimus_hist.h200.txt"
+    f_norm = "tests/testdata/simplicissimus_norm.h200.txt"
+    config = {
+        "aligner": {
+            "similarity_func": textalign.aligner.levsim_rescored,
+            "gap_cost_func": textalign.aligner.decreasing_gap_cost,
+            "gap_cost_length_discount": textalign.aligner.length_discount,
+            "gap_cost_initial": 0.5,
+        },
+        "splitter": {
+            "max_lev_dist": 3,
+            "subseq_len": 7,
+            "step_size": 10,
+            "max_len_split": 100,
+            "apply_translit": True,
+        },
+        "serialization": {"drop_unaligned": True},
+    }
+    pipeline = AlignmentPipeline(config)
+    aligned_sents = pipeline(f_hist, f_norm)
+
+    for sent in aligned_sents:
+        sent_hist_ser, sent_norm_ser = sent.serialize()  # **config["serialization"])
+        print(sent_hist_ser)
+        print(sent_norm_ser)
+        print("----")
+
+    print(aligned_sents[0])

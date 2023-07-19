@@ -1,10 +1,12 @@
 from .aligner import Aligner, AlignedPair
 from .alignment_pipeline import AlignmentPipeline
-from . import util
-from . import sentences
+from .sentences import AlignedSentence
+from .docsplit import DocSplitter
 
 __all__ = [
     "Aligner",
     "AlignedPair",
     "AlignmentPipeline",
+    "AlignedSentence",
+    "DocSplitter",
 ]

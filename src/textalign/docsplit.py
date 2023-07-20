@@ -8,6 +8,7 @@ from fuzzysearch import find_near_matches
 
 from textalign import util, translit
 
+import itertools
 
 class DocSplitter:
     def __init__(
@@ -158,9 +159,14 @@ class DocSplitter:
 
             yield tokidx_a, tokidx_b
 
-    def split(self) -> Generator[Tuple[List[str], List[str]], None, None]:
-        """Generates document splits"""
-        for idx_a, idx_b in self.iterfind_split_positions():
-            split_a = self.tokens_a[idx_a : (idx_a + self.subseq_len)]
-            split_b = self.tokens_b[idx_b : (idx_b + self.subseq_len)]
-            yield split_a, split_b
+    # def split(self) -> Generator[Tuple[List[str], List[str]], None, None]:
+    #     """Generates document splits"""
+    #     prev_split_idx_orig = 0
+    #     prev_split_idx_norm = 0
+
+    #     # TODO
+    #     for idx_a, idx_b in itertools.chain(self.iterfind_split_positions(),[(len(self.tokens_a), len(self.tokens_b))])
+
+    #         split_a = self.tokens_a[idx_a : (idx_a + self.subseq_len)]
+    #         split_b = self.tokens_b[idx_b : (idx_b + self.subseq_len)]
+    #         yield split_a, split_b

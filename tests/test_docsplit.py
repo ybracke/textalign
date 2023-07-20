@@ -1,5 +1,8 @@
 from textalign import docsplit
 
+from textalign import translit
+
+from Levenshtein import distance
 
 # TODO
 def test_get_search_pattern() -> None:
@@ -147,16 +150,29 @@ def test_docsplit_iterfind_split_positions_realdoc() -> None:
     hist = [line.split()[0] for line in hist.split("\n") if len(line.split())]
     norm = [line.split()[0] for line in norm.split("\n") if len(line.split())]
 
+    kwargs = {
+        "max_lev_dist" : 3,
+        "subseq_len" : 7,
+        "step_size" : 100,
+        "max_len_split" : 1000,
+    }
+
     docsplitter = docsplit.DocSplitter(
-        hist, norm, max_lev_dist=3, subseq_len=7, step_size=100, max_len_split=1000
+        hist, norm, **kwargs
     )
 
     for idx_a, idx_b in docsplitter.iterfind_split_positions():
-        a = hist[idx_a : idx_a + 7]
-        b = norm[idx_b : idx_b + 7]
-        print(f"Matching:\n{a}\n{b}\n")
+        print(idx_a, idx_b)
+        a = hist[idx_a : idx_a + kwargs["subseq_len"]-1]
+        b = norm[idx_b : idx_b + kwargs["subseq_len"]-1]
+        a_ = translit.unidecode_ger(''.join(a))
+        b_ = translit.unidecode_ger(''.join(b))
 
-    assert True
+        print(f"Matching:\n{a}\n{b}\n")
+        
+        # Levenshtein distance is smaller than max distance 
+        assert distance(a_, b_) <= kwargs["max_lev_dist"]
+        
 
 
 def test_docsplit_split() -> None:

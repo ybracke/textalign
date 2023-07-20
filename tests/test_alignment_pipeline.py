@@ -21,13 +21,14 @@ def test_alignment_pipeline() -> None:
         },
         "serialization": {"drop_unaligned": True},
     }
+    print()
     pipeline = AlignmentPipeline(config)
     aligned_sents = pipeline(f_hist, f_norm)
+
+    assert len(pipeline.aligner.tokens_a) == len(pipeline.source_doc_flat)
+    assert len(pipeline.aligner.tokens_b) == len(pipeline.target_doc_flat)
 
     for sent in aligned_sents:
         sent_hist_ser, sent_norm_ser = sent.serialize()  # **config["serialization"])
         print(sent_hist_ser)
         print(sent_norm_ser)
-        print("----")
-
-    print(aligned_sents[0])

@@ -6,6 +6,8 @@ from . import sentences
 from .docsplit import DocSplitter
 from . import util
 
+import itertools
+
 
 class AlignmentPipeline:
     def __init__(self, config: Dict = {}):
@@ -54,11 +56,19 @@ class AlignmentPipeline:
         # 4. Iterate over split
         prev_split_idx_orig = 0
         prev_split_idx_norm = 0
-        # self.docsplitter.iterfind_split_positions()
+
+        # Use chain to append text length as final position to iterator
+        # TODO: this will take the entire rest of source and target doc and
+        # tries to compute alignment. Even if one of them is much longer than
+        # the other
         for (
             split_idx_orig,
             split_idx_norm,
-        ) in self.docsplitter.iterfind_split_positions():
+        ) in itertools.chain(
+            self.docsplitter.iterfind_split_positions(),
+            [(len(self.docsplitter.tokens_a), len(self.docsplitter.tokens_b))],
+        ):
+            # Select the splits
             split_orig = self.source_doc_flat_strlist[
                 prev_split_idx_orig:split_idx_orig
             ]
@@ -74,10 +84,8 @@ class AlignmentPipeline:
             # 6. Append the alignment for the split to the large aligner
             self.aligner.extend(aligner_split)
 
-            prev_split_idx_orig = 0
-            prev_split_idx_norm = 0
-
-            # TODO deal with final sentence
+            prev_split_idx_orig = split_idx_orig
+            prev_split_idx_norm = split_idx_norm
 
         # 7. Clean alignments for whole document
         self.aligner.get_bidirectional_alignments()
@@ -87,7 +95,7 @@ class AlignmentPipeline:
         #   (1) aligned by sentence
         #   (2) serializable (contains whitespace info: `util.Token`)
         start_idxs_hist = util.get_sentence_start_idxs(
-            self.target_doc
+            self.source_doc
         )  # List[List[util.Token]]
         aligned_sents = sentences.get_aligned_sentences(
             self.aligner.aligned_tokidxs,  # List[AlignedPair]

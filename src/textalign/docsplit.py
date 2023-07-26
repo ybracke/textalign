@@ -4,11 +4,16 @@
 # split documents
 
 from typing import Dict, Generator, List, Tuple
-from fuzzysearch import find_near_matches
+
+from collections import namedtuple
+
+import fuzzysearch
 
 from textalign import util, translit
 
-import itertools
+
+SplitPosition = namedtuple("SplitPosition", ["start_a", "end_a", "start_b", "end_b"])
+
 
 class DocSplitter:
     def __init__(
@@ -89,73 +94,101 @@ class DocSplitter:
         """Get the candidate token sequence from text a"""
         end = tokidx_a + self.subseq_len
         pattern = "".join(self.tokens_a[tokidx_a:end])
+        # TODO remove/replace in the future
         if self.apply_translit:
             return translit.unidecode_ger(pattern)
         return pattern
 
-    def iterfind_split_positions(self) -> Generator[Tuple[int, int], None, None]:
+    def _get_tokidx_from_charidx_b(self, charidx) -> int:
+        try:
+            tokidx_b = self.offset2tokidx_b[charidx]
+        # If the offset does not match with the beginning of a token in b, i.e. is located within a token, we need to find the closest offset
+        except KeyError:
+            closest_offset = util.find_closest(self.offset2tokidx_b_keys, charidx)
+            tokidx_b = self.offset2tokidx_b[closest_offset]
+        return tokidx_b
+
+    def find_split_positions(self) -> List[SplitPosition]:
         """
-        Generates pairs (start_a, start_b) where start_a [start_b] is the index of the
-        first token in tokens_a [tokens_b] that should go in the next split.
+        Returns a list of pairs (start_a, start_b) where start_a [start_b] is the index of the first token in tokens_a [tokens_b] that should go in the next split.
 
         About the index pair (start_a, start_b) we know that, starting at start_a and start_b, there is a token sequence of length `k` in both documents that aligns uniquely well with the other one.
 
         Use the output as follows: Create a split from tokens_a[prev_start_a:start_a]
         (same for for tokens_b)
-
-        TODO: What if, for some reason, this is still not the best match overall...
         """
+
+        split_positions = []
 
         tokidx_a = 0
         tokidx_b = 0
+        last_tokidx_a = 0
+        last_charidx_b = 0
 
         while tokidx_a <= len(self.tokens_a) - self.max_len_split - self.subseq_len:
             tokidx_a += self.max_len_split
-
             # Get the candidate token sequence from text a
             pattern_a = self._get_search_pattern(tokidx_a)
 
-            # Get offsets of near matches of pattern_a in b
+            # Get offsets of near-matches of pattern_a in b
             # only look at the remaining part of b
-            near_matches = find_near_matches(
+            near_matches = fuzzysearch.find_near_matches(
                 pattern_a,
-                self.b_joined[tokidx_b:],
+                self.b_joined[last_charidx_b:],
                 max_l_dist=self.max_lev_dist,
             )
 
-            # Look for a single near match
+            # Look for a single near-match
             while len(near_matches) != 1:
-                # Decrease index (look for a matching pattern earlier)
+                # Decrease index (= look for a matching pattern earlier in the doc)
                 tokidx_a -= self.step_size
 
-                # TODO: What to do if the index is decreased to be smaller than 0
-                # or smaller than the last index
-                if tokidx_a < 0:
+                # If we didn't find a match before hitting the last index:
+                # Jump up to the next possible position to search for matches
+                if tokidx_a <= last_tokidx_a:
+                    # Jump back up
+                    tokidx_a += self.max_len_split
+                    # Set as last index
+                    last_tokidx_a = tokidx_a
+                    # Jump up one more chunk
+                    tokidx_a += self.max_len_split
+
+                if tokidx_a > len(self.tokens_a) - self.max_len_split - self.subseq_len:
                     break
 
-                # Generate a new search pattern and look for matches
+                # Get new search pattern and look for matches
                 pattern_a = self._get_search_pattern(tokidx_a)
-                near_matches = find_near_matches(
+                near_matches = fuzzysearch.find_near_matches(
                     pattern_a,
-                    self.b_joined[tokidx_b:],
+                    self.b_joined[last_charidx_b:],
                     max_l_dist=self.max_lev_dist,
                 )
-            # ~ while
 
-            # TODO: Could the while loop never end?
-            # Possible if none of the pattern candidates have exactly 1 match (either always 0 or multiple)
-            # Break the loop after n attemps and say: sorry, this does not work?!
+            # while-loop finished because there is only a single near match
+            else:
+                # Our matching function gave us a character offset, but we need a token index. Use the mapping to get the token index from the offset
+                charidx_start_b = near_matches[0].start + last_charidx_b
+                tokidx_b = self._get_tokidx_from_charidx_b(charidx_start_b)
+                charidx_end_b = near_matches[0].end + last_charidx_b
+                tokidx_end_b = self._get_tokidx_from_charidx_b(charidx_end_b)
 
-            # Our matching function gave us a character offset, but we need a token index. Use the mapping to get the token index from the offset
-            offset_b = near_matches[0].start + tokidx_b
-            try:
-                tokidx_b = self.offset2tokidx_b[offset_b]
-            # If the offset does not match with the beginning of a token in b, i.e. is located within a token, we need to take the find the closest offset
-            except KeyError:
-                closest_offset_b = util.find_closest(
-                    self.offset2tokidx_b_keys, offset_b
+                # Increase by subsequence length, so that we don't end up looking for the same string as in the last iteration again
+                last_tokidx_a = tokidx_a + self.subseq_len
+                # Increase last character index b by the end of the near match
+                last_charidx_b += near_matches[0].end
+
+                # Return start and end token index of a and b
+                tokidx_end_a = tokidx_a + self.subseq_len
+                split_positions.append(
+                    SplitPosition(
+                        start_a=tokidx_a,
+                        end_a=tokidx_end_a,
+                        start_b=tokidx_b,
+                        end_b=tokidx_end_b,
+                    )
                 )
-                tokidx_b = self.offset2tokidx_b[closest_offset_b]
+
+        return split_positions
 
             yield tokidx_a, tokidx_b
 

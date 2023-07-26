@@ -1,10 +1,30 @@
-from textalign import docsplit
-
-from textalign import translit
+import pytest
 
 from Levenshtein import distance
 
-# TODO
+from textalign import docsplit
+from textalign.docsplit import SplitPosition
+from textalign import translit
+
+
+def test_find_near_matches() -> None:
+    import fuzzysearch
+
+    pattern_a = "UmUmUm"
+    b_joined = "AmAmAm---AmAmAm---AmAmAm---AmOmOm---OmOmOm---OmOmOm---OmOm"
+    # b_joined = "UmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUmUm"
+
+    max_lev_dist = 3
+
+    near_matches = fuzzysearch.find_near_matches(
+        pattern_a,
+        b_joined,
+        max_l_dist=max_lev_dist,
+    )
+
+    print(near_matches)
+
+
 def test_get_search_pattern() -> None:
     tokens_a = [
         "Um",
@@ -77,7 +97,7 @@ def test_get_search_pattern() -> None:
     assert pattern == target
 
 
-def test_docsplit_iterfind_split_positions() -> None:
+def test_docsplit_find_split_positions_simple() -> None:
     tokens_a = [
         "Um",
         "den",
@@ -131,15 +151,135 @@ def test_docsplit_iterfind_split_positions() -> None:
         tokens_a, tokens_b, max_lev_dist=2, subseq_len=3, step_size=1, max_len_split=5
     )
 
-    print()
-    for idx_a, idx_b in docsplitter.iterfind_split_positions():
-        print(idx_a, idx_b)
-        pass
+    split_positions = docsplitter.find_split_positions()
 
-    assert True
+    print(split_positions)
+    target = 3
+    assert len(split_positions) == target
+
+    target = [
+        SplitPosition(start_a=5, end_a=8, start_b=5, end_b=8),
+        SplitPosition(start_a=10, end_a=13, start_b=10, end_b=13),
+        SplitPosition(start_a=15, end_a=18, start_b=15, end_b=18),
+    ]
+    assert split_positions == target
 
 
-def test_docsplit_iterfind_split_positions_realdoc() -> None:
+def test_docsplit_find_split_positions_no_matches() -> None:
+    tokens_a = [
+        "Um",
+        "den",
+        "Vorrath",
+        "grüner",
+        "Olivenäſte",
+        ".",
+        "Den",
+        "er",
+        "ſich",
+        "zur",
+        "Seite",
+        "hatte",
+        "hinlegen",
+        "laſſen",
+        ".",
+        "Allmählig",
+        "in",
+        "die",
+        "Flamme",
+        "zu",
+        "ſchieben",
+        ".",
+    ]
+    # shuffled
+    tokens_b = [
+        "grüner",
+        "zur",
+        "sich",
+        "Seite",
+        "hatte",
+        ".",
+        "Vorrat",
+        ".",
+        "schieben",
+        "lassen",
+        "er",
+        "Allmählich",
+        "Den",
+        "in",
+        "Um",
+        ".",
+        "hinlegen",
+        "den",
+        "zu",
+        "Olivenäste",
+        "Flamme",
+        "die",
+    ]
+
+    docsplitter = docsplit.DocSplitter(
+        tokens_a, tokens_b, max_lev_dist=1, subseq_len=3, step_size=1, max_len_split=5
+    )
+
+    split_positions = docsplitter.find_split_positions()
+    target = []
+
+    assert split_positions == target
+
+
+# fake test
+def test_docsplit_find_split_positions_only_multiple_matches() -> None:
+    tokens_a = [
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+        "Um",
+    ]
+    tokens_b = [
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Am",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+        "Om",
+    ]
+    docsplitter = docsplit.DocSplitter(
+        tokens_a, tokens_b, max_lev_dist=3, subseq_len=3, step_size=1, max_len_split=5
+    )
+    split_positions = docsplitter.find_split_positions()
+    print("Split positions:", split_positions)
+
+
+def test_docsplit_find_split_positions_realdoc() -> None:
     f_hist = "tests/testdata/simplicissimus_hist.txt"
     f_norm = "tests/testdata/simplicissimus_norm.txt"
     with open(f_hist, "r", encoding="utf-8") as f:
@@ -147,32 +287,43 @@ def test_docsplit_iterfind_split_positions_realdoc() -> None:
     with open(f_norm, "r", encoding="utf-8") as f:
         norm = f.read()
 
-    hist = [line.split()[0] for line in hist.split("\n") if len(line.split())]
-    norm = [line.split()[0] for line in norm.split("\n") if len(line.split())]
+    from textalign import translit
+
+    hist = [
+        translit.german_map(line.split()[0])  # do transliteration
+        for line in hist.split("\n")
+        if len(line.split())
+    ]
+    norm = [
+        translit.german_map(line.split()[0])  # do transliteration
+        for line in norm.split("\n")
+        if len(line.split())
+    ]
 
     kwargs = {
-        "max_lev_dist" : 3,
-        "subseq_len" : 7,
-        "step_size" : 100,
-        "max_len_split" : 1000,
+        "max_lev_dist": 3,
+        "subseq_len": 7,
+        "step_size": 100,
+        "max_len_split": 1000,
+        "apply_translit": False,  # translit has already been done
     }
 
-    docsplitter = docsplit.DocSplitter(
-        hist, norm, **kwargs
-    )
+    docsplitter = docsplit.DocSplitter(hist, norm, **kwargs)
 
-    for idx_a, idx_b in docsplitter.iterfind_split_positions():
-        print(idx_a, idx_b)
-        a = hist[idx_a : idx_a + kwargs["subseq_len"]-1]
-        b = norm[idx_b : idx_b + kwargs["subseq_len"]-1]
-        a_ = translit.unidecode_ger(''.join(a))
-        b_ = translit.unidecode_ger(''.join(b))
+    for (
+        idx_start_a,
+        idx_end_a,
+        idx_start_b,
+        idx_end_b,
+    ) in docsplitter.find_split_positions():
+        a = hist[idx_start_a:idx_end_a]
+        b = norm[idx_start_b:idx_end_b]
+        a_ = "".join(a)
+        b_ = "".join(b)
+        # print(f"Matching:\n{a}\n{b}\n")
 
-        print(f"Matching:\n{a}\n{b}\n")
-        
-        # Levenshtein distance is smaller than max distance 
+        # Levenshtein distance is smaller than max distance
         assert distance(a_, b_) <= kwargs["max_lev_dist"]
-        
 
 
 def test_docsplit_split() -> None:

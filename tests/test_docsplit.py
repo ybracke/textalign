@@ -1,5 +1,3 @@
-import pytest
-
 from Levenshtein import distance
 
 from textalign import docsplit
@@ -287,8 +285,6 @@ def test_docsplit_find_split_positions_realdoc() -> None:
     with open(f_norm, "r", encoding="utf-8") as f:
         norm = f.read()
 
-    from textalign import translit
-
     hist = [
         translit.german_map(line.split()[0])  # do transliteration
         for line in hist.split("\n")
@@ -399,6 +395,7 @@ def test_docsplit_split_simple() -> None:
     for i, (split_a, split_b) in enumerate(docsplitter.split()):
         assert split_a == targets[i][0]
         assert split_b == targets[i][1]
+
 
 # fake-test
 def test_docsplit_split_with_unalignable_stretch_in_b() -> None:

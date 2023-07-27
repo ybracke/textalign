@@ -198,16 +198,17 @@ class DocSplitter:
         split_positions = self.find_split_positions()
 
         if not len(split_positions):
-            raise ValueError("DocSplitter cannot find any common splits for the two documents with given parameters.")
+            raise ValueError(
+                "DocSplitter cannot find any common splits for the two documents with given parameters."
+            )
 
         for split_position in split_positions:
-
             # print(f"Match: " )
             # print(self.tokens_a[split_position.start_a:split_position.end_a])
             # print(self.tokens_b[split_position.start_b:split_position.end_b])
 
-            split_a = self.tokens_a[prev_start_idx_a:split_position.start_a]
-            split_b = self.tokens_b[prev_start_idx_b:split_position.start_b]
+            split_a = self.tokens_a[prev_start_idx_a : split_position.start_a]
+            split_b = self.tokens_b[prev_start_idx_b : split_position.start_b]
 
             prev_start_idx_a = split_position.start_a
             prev_start_idx_b = split_position.start_b

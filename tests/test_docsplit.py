@@ -326,7 +326,7 @@ def test_docsplit_find_split_positions_realdoc() -> None:
         assert distance(a_, b_) <= kwargs["max_lev_dist"]
 
 
-def test_docsplit_split() -> None:
+def test_docsplit_split_simple() -> None:
     tokens_a = [
         "Um",
         "den",
@@ -381,11 +381,89 @@ def test_docsplit_split() -> None:
     )
 
     targets = [
-        ([".", "Den", "er"], [".", "Den", "er"]),
-        (["Seite", "hatte", "hinlegen"], ["Seite", "hatte", "hinlegen"]),
-        (["Allmählig", "in", "die"], ["Allmählich", "in", "die"]),
+        (
+            ["Um", "den", "Vorrath", "grüner", "Olivenäſte"],
+            ["Um", "den", "Vorrat", "grüner", "Olivenäste"],
+        ),
+        ([".", "Den", "er", "ſich", "zur"], [".", "Den", "er", "sich", "zur"]),
+        (
+            ["Seite", "hatte", "hinlegen", "laſſen", "."],
+            ["Seite", "hatte", "hinlegen", "lassen", "."],
+        ),
+        (
+            ["Allmählig", "in", "die", "Flamme", "zu", "ſchieben", "."],
+            ["Allmählich", "in", "die", "Flamme", "zu", "schieben", "."],
+        ),
     ]
 
     for i, (split_a, split_b) in enumerate(docsplitter.split()):
         assert split_a == targets[i][0]
         assert split_b == targets[i][1]
+
+# fake-test
+def test_docsplit_split_with_unalignable_stretch_in_b() -> None:
+    tokens_a = [
+        "Um",
+        "den",
+        "Vorrath",
+        "grüner",
+        "Olivenäſte",
+        ".",
+        "Den",
+        "er",
+        "ſich",
+        "zur",
+        "Seite",
+        "hatte",
+        "hinlegen",
+        "laſſen",
+        ".",
+        "Allmählig",
+        "in",
+        "die",
+        "Flamme",
+        "zu",
+        "ſchieben",
+        ".",
+    ]
+    tokens_b = [
+        "Um",
+        "den",
+        "Vorrat",
+        "grüner",
+        "Olivenäste",
+        ".",
+        "***Dieser",
+        "***Satz",
+        "***hat",
+        "***keine",
+        "***Entsprechung",
+        "***im",
+        "***anderen",
+        "***Text",
+        "Den",
+        "er",
+        "sich",
+        "zur",
+        "Seite",
+        "hatte",
+        "hinlegen",
+        "lassen",
+        ".",
+        "Allmählich",
+        "in",
+        "die",
+        "Flamme",
+        "zu",
+        "schieben",
+        ".",
+    ]
+
+    docsplitter = docsplit.DocSplitter(
+        tokens_a, tokens_b, max_lev_dist=2, subseq_len=3, step_size=1, max_len_split=5
+    )
+    print()
+    for i, (split_a, split_b) in enumerate(docsplitter.split()):
+        pass
+        # print(split_a)
+        # print(split_b)

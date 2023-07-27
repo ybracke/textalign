@@ -190,16 +190,31 @@ class DocSplitter:
 
         return split_positions
 
-            yield tokidx_a, tokidx_b
+    def split(self) -> Generator[Tuple[List[str], List[str]], None, None]:
+        """Generates document splits"""
+        prev_start_idx_a = 0
+        prev_start_idx_b = 0
 
-    # def split(self) -> Generator[Tuple[List[str], List[str]], None, None]:
-    #     """Generates document splits"""
-    #     prev_split_idx_orig = 0
-    #     prev_split_idx_norm = 0
+        split_positions = self.find_split_positions()
 
-    #     # TODO
-    #     for idx_a, idx_b in itertools.chain(self.iterfind_split_positions(),[(len(self.tokens_a), len(self.tokens_b))])
+        if not len(split_positions):
+            raise ValueError("DocSplitter cannot find any common splits for the two documents with given parameters.")
 
-    #         split_a = self.tokens_a[idx_a : (idx_a + self.subseq_len)]
-    #         split_b = self.tokens_b[idx_b : (idx_b + self.subseq_len)]
-    #         yield split_a, split_b
+        for split_position in split_positions:
+
+            # print(f"Match: " )
+            # print(self.tokens_a[split_position.start_a:split_position.end_a])
+            # print(self.tokens_b[split_position.start_b:split_position.end_b])
+
+            split_a = self.tokens_a[prev_start_idx_a:split_position.start_a]
+            split_b = self.tokens_b[prev_start_idx_b:split_position.start_b]
+
+            prev_start_idx_a = split_position.start_a
+            prev_start_idx_b = split_position.start_b
+
+            yield split_a, split_b
+
+        # Final split
+        split_a = self.tokens_a[prev_start_idx_a:]
+        split_b = self.tokens_b[prev_start_idx_b:]
+        yield split_a, split_b

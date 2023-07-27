@@ -116,7 +116,7 @@ def test_serizalize_list_of_aligned_sentences() -> None:
         assert serialized_norm == target_norm[i]
 
 
-def test_get_aligned_sentences() -> None:
+def test_get_aligned_sentences_simple() -> None:
     sentence_start_idxs = [0, 6, 9]
     # Document-wide alignment as list of `AlignedPair`s
     doc_aligned_tokidxs = [
@@ -162,7 +162,6 @@ def test_get_aligned_sentences() -> None:
         doc_aligned_tokidxs, sentence_start_idxs, doc_orig, doc_norm
     )
 
-    # TODO
     target: List[sentences.AlignedSentence] = [
         sentences.AlignedSentence(
             tokens_a=[
@@ -223,6 +222,148 @@ def test_get_aligned_sentences() -> None:
     # AlignedPair(7, 6),  -> (1,2)
     # AlignedPair(None, 7),  (None,3)
     # AlignedPair(8, 8),  -> (2,4)
+
+    assert aligned_sents == target
+
+
+def test_get_aligned_sentences_with_two_unalignable_target_sentences() -> None:
+    sentence_start_idxs = [0, 6, 9, 12, 15]
+    # Document-wide alignment as list of `AlignedPair`s
+    doc_aligned_tokidxs = [
+        AlignedPair(0, 0),
+        AlignedPair(1, 1),
+        AlignedPair(2, 2),
+        AlignedPair(3, 2),
+        AlignedPair(4, None),
+        AlignedPair(5, 3),
+        AlignedPair(6, 4),
+        AlignedPair(6, 5),
+        AlignedPair(7, 6),
+        AlignedPair(None, 7),
+        AlignedPair(8, 8),
+        AlignedPair(9, None),
+        AlignedPair(10, None),
+        AlignedPair(11, None),
+        AlignedPair(12, None),
+        AlignedPair(13, None),
+        AlignedPair(14, None),
+        AlignedPair(15, 9),
+    ]
+    doc_orig = [
+        util.Token("Das", False),
+        util.Token("iſt", True),
+        util.Token("aller", True),
+        util.Token("Hand", True),
+        util.Token("[NUR IN ORIG]", True),
+        util.Token(".", False),
+        util.Token("Gehts", True),
+        util.Token("noch", True),
+        util.Token("?", False),
+        util.Token("UNALIGNIERT", False),
+        util.Token("UNALIGNIERT", False),
+        util.Token("UNALIGNIERT", False),
+        util.Token("UNALIGNIERT", False),
+        util.Token("UNALIGNIERT", False),
+        util.Token("UNALIGNIERT", False),
+        util.Token("Ja", True),
+    ]
+    doc_norm = [
+        util.Token("Das", False),
+        util.Token("ist", True),
+        util.Token("allerhand", True),
+        util.Token(".", False),
+        util.Token("Geht", True),
+        util.Token("es", True),
+        util.Token("noch", True),
+        util.Token("[NUR IN NORM]", True),
+        util.Token("?", False),
+        util.Token("Ja", True),
+    ]
+
+    aligned_sents = sentences.get_aligned_sentences(
+        doc_aligned_tokidxs, sentence_start_idxs, doc_orig, doc_norm
+    )
+
+    target: List[sentences.AlignedSentence] = [
+        sentences.AlignedSentence(
+            tokens_a=[
+                util.Token("Das", False),
+                util.Token("iſt", True),
+                util.Token("aller", True),
+                util.Token("Hand", True),
+                util.Token("[NUR IN ORIG]", True),
+                util.Token(".", False),
+            ],
+            tokens_b=[
+                util.Token("Das", False),
+                util.Token("ist", True),
+                util.Token("allerhand", True),
+                util.Token(".", False),
+            ],
+            alignment=[
+                AlignedPair(0, 0),
+                AlignedPair(1, 1),
+                AlignedPair(2, 2),
+                AlignedPair(3, 2),
+                AlignedPair(4, None),
+                AlignedPair(5, 3),
+            ],
+        ),
+        sentences.AlignedSentence(
+            tokens_a=[
+                util.Token("Gehts", True),
+                util.Token("noch", True),
+                util.Token("?", False),
+            ],
+            tokens_b=[
+                util.Token("Geht", True),
+                util.Token("es", True),
+                util.Token("noch", True),
+                util.Token("[NUR IN NORM]", True),
+                util.Token("?", False),
+            ],
+            alignment=[
+                AlignedPair(0, 0),
+                AlignedPair(0, 1),
+                AlignedPair(1, 2),
+                AlignedPair(None, 3),
+                AlignedPair(2, 4),
+            ],
+        ),
+        sentences.AlignedSentence(
+            tokens_a=[
+                util.Token("UNALIGNIERT", False),
+                util.Token("UNALIGNIERT", False),
+                util.Token("UNALIGNIERT", False),
+            ],
+            tokens_b=[],
+            alignment=[
+                AlignedPair(0, None),
+                AlignedPair(1, None),
+                AlignedPair(2, None),
+            ],
+        ),
+        sentences.AlignedSentence(
+            tokens_a=[
+                util.Token("UNALIGNIERT", False),
+                util.Token("UNALIGNIERT", False),
+                util.Token("UNALIGNIERT", False),
+            ],
+            tokens_b=[],
+            alignment=[
+                AlignedPair(0, None),
+                AlignedPair(1, None),
+                AlignedPair(2, None),
+            ],
+        ),
+        sentences.AlignedSentence(
+            tokens_a=[util.Token("Ja", True)],
+            tokens_b=[util.Token("Ja", True)],
+            alignment=[
+                AlignedPair(0, 0),
+            ],
+        ),
+    ]
 
     assert aligned_sents == target
 

@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 from dataclasses import dataclass
 
 from textalign import AlignedPair
@@ -27,7 +27,8 @@ class AlignedSentence:
         """
 
         str_a, str_b = "", ""
-        last_idx_a, last_idx_b = -1, -1
+        last_idx_a: Optional[int] = -1
+        last_idx_b: Optional[int] = -1
         # Iterate over AligendPair objects in list
         for aligned_idx in self.alignment:
             # Optional: exclude unaligned tokens (and gaps) from serialized sentence
@@ -80,7 +81,8 @@ def get_aligned_sentences(
     # We need the following variables, if we want to convert indices in
     # sentence-wise token alignments to start at 0
     if reset_tok_idxs:
-        end_a_prev, end_b_prev = -1, -1
+        end_a_prev = -1
+        end_b_prev = -1
 
     for i, start_idx_a in enumerate(sorted(start_idxs)):
         # Did we reach the end of a-tokens?
@@ -97,7 +99,7 @@ def get_aligned_sentences(
         # k is the index into the token alignments for the entire doc
         k = index_of_the_last_appended_alignment_pair + 1
         # Stores the current a-token's index (can become None)
-        _index_a = start_idx_a
+        _index_a: Optional[int] = start_idx_a
         # Only do this until we reached the end of token alignments for the entire doc
         while k < len(aligned_tokens):
             alignment_pair = aligned_tokens[k]
@@ -117,11 +119,13 @@ def get_aligned_sentences(
         # (3) Get the b-tokens via the alignments
         tokens_b = get_tokens_to_alignment(doc_b, s_alignment, side="b")
 
-        # (4) Optional: Convert indices in token alignments to start at 0
+        # (4) Optional: Reset indices in token alignments to start at 0
         if reset_tok_idxs:
-            # Catch edge-cases: empty alignments and None in last pair
+            # Catch edge-case: empty alignments
             if len(s_alignment) == 0:
-                end_a, end_b = -1, -1
+                end_a = -1
+                end_b = -1
+            # Catch None in last pair
             else:
                 # Get the highest index of the current aligned_tokidxs (not None)
                 k = len(s_alignment) - 1
@@ -138,10 +142,15 @@ def get_aligned_sentences(
                     end_a = -1
                 if end_b is None:
                     end_b = -1
+            assert end_a is not None  # mypy
+            assert end_b is not None
             s_alignment = let_idxs_start_at_zero(s_alignment, end_a_prev, end_b_prev)
             # Get the last indices in the previous sentence to normalize next one
-            end_a_prev = end_a
-            end_b_prev = end_b
+            # If previous sentence was all None, don't move the last index
+            if end_a != -1:
+                end_a_prev = end_a
+            if end_b != -1:
+                end_b_prev = end_b
 
         # (5) Create sentence object and add to list
         aligned_sent = AlignedSentence(tokens_a, tokens_b, s_alignment)
@@ -158,7 +167,7 @@ def let_idxs_start_at_zero(
 
     `end_a_prev`|`end_b_prev` will be substracted from the index given at
     a and b of the AlignedPairs in the list.
-    In practice this should be values found of the final element of the previous
+    In practice these should be the values of the final element from the previous
     sentence alignment
     """
     return [
@@ -171,24 +180,23 @@ def let_idxs_start_at_zero(
 
 
 def get_tokens_to_alignment(
-    doc: List[str], alignment: List[AlignedPair], side: str = "a"
-) -> List[str]:
+    doc: List[util.Token], alignment: List[AlignedPair], side: str = "a"
+) -> List[util.Token]:
     """
     Returns the list of tokens from `doc` from the indices specified in
 
     `side` must be one of `a` or `b` to specify which side specified in the
     alignment we want
     """
+    # Drop doubles and None
     if side == "a":
-        tok_indexes = [pair.a for pair in alignment]
+        tok_indexes = [pair.a for pair in alignment if pair.a is not None]
     elif side == "b":
-        tok_indexes = [pair.b for pair in alignment]
+        tok_indexes = [pair.b for pair in alignment if pair.b is not None]
     else:
         raise ValueError(f"Unkown side: {side}, must be in {'a', 'b'}")
-    # Drop doubles and None
-    tok_indexes = set(tok_indexes)
-    if None in tok_indexes:
-        tok_indexes.remove(None)
-    tok_indexes = sorted(list(tok_indexes))
-    tokens = [doc[i] for i in tok_indexes]
+    tok_indexes_set = set(tok_indexes)
+    tok_indexes_cleaned = list(tok_indexes_set)
+    tok_indexes_cleaned = sorted(tok_indexes_cleaned)
+    tokens = [doc[i] for i in tok_indexes_cleaned]
     return tokens

@@ -3,13 +3,13 @@
 # This is useful in order to then apply token-wise alignment to the parts of the
 # split documents
 
-from typing import Dict, Generator, List, Tuple
+from typing import Callable, Dict, Generator, List, Optional, Tuple
 
 from collections import namedtuple
 
 import fuzzysearch
 
-from textalign import util, translit
+from . import util
 
 
 SplitPosition = namedtuple("SplitPosition", ["start_a", "end_a", "start_b", "end_b"])
@@ -24,7 +24,7 @@ class DocSplitter:
         subseq_len: int = 7,
         max_lev_dist: int = 7,
         step_size: int = 20,  # TODO: maybe change dynamically (e.g. increase after each step)?
-        apply_translit: bool = True,
+        translit_func: Optional[Callable] = None,
     ):
         """
         A class for splitting documents at positions where they match well
@@ -72,7 +72,7 @@ class DocSplitter:
         # Step size for setting a new index during the search for a pattern_a
         self.step_size: int = step_size
         # Apply transliteration before fuzzy search
-        self.apply_translit: bool = apply_translit
+        self.translit_func: Optional[Callable] = translit_func
 
     @staticmethod
     def _get_offset2tokidx(doc: List[str]) -> Dict[int, int]:
@@ -94,9 +94,9 @@ class DocSplitter:
         """Get the candidate token sequence from text a"""
         end = tokidx_a + self.subseq_len
         pattern = "".join(self.tokens_a[tokidx_a:end])
-        # TODO remove/replace in the future
-        if self.apply_translit:
-            return translit.unidecode_ger(pattern)
+        # Optionally apply transliteration to pattern
+        if self.translit_func is not None:
+            return self.translit_func(pattern)
         return pattern
 
     def _get_tokidx_from_charidx_b(self, charidx) -> int:

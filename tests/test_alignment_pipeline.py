@@ -1,12 +1,14 @@
 import textalign
 from textalign import AlignmentPipeline
+from textalign import translit
 
 
 # fake test
 def test_alignment_pipeline() -> None:
-    f_hist = "tests/testdata/simplicissimus_hist.txt"
-    f_norm = "tests/testdata/simplicissimus_norm.txt"
+    f_hist = "tests/testdata/simplicissimus_hist.h200.txt"
+    f_norm = "tests/testdata/simplicissimus_norm.h200.txt"
     config = {
+        "translit_func": translit.unidecode_ger,
         "aligner": {
             "similarity_func": textalign.aligner.levsim_rescored,
             "gap_cost_func": textalign.aligner.decreasing_gap_cost,
@@ -17,8 +19,8 @@ def test_alignment_pipeline() -> None:
             "max_lev_dist": 3,
             "subseq_len": 7,
             "step_size": 10,
-            "max_len_split": 1000,
-            "apply_translit": True,
+            "max_len_split": 100,
+            "translit_func": translit.unidecode_ger,
         },
         "serialization": {"drop_unaligned": True},
     }
@@ -29,9 +31,9 @@ def test_alignment_pipeline() -> None:
     assert len(pipeline.aligner.tokens_a) == len(pipeline.doc_flat_a)
     assert len(pipeline.aligner.tokens_b) == len(pipeline.doc_flat_b)
 
-    # with open("tests/testdata/out/pipeline.sent.02.out", "w", encoding="utf-8") as f:
-    #     for sent in aligned_sents:
-    #         sent_hist_ser, sent_norm_ser = sent.serialize(**config["serialization"])
-    #         f.write(f"{sent_hist_ser}\n")
-    #         f.write(f"{sent_norm_ser}\n")
-    #         f.write("\n")
+    with open("tests/testdata/out/pipeline.sent.02.out", "w", encoding="utf-8") as f:
+        for sent in aligned_sents:
+            sent_hist_ser, sent_norm_ser = sent.serialize(**config["serialization"])
+            f.write(f"{sent_hist_ser}\n")
+            f.write(f"{sent_norm_ser}\n")
+            f.write("\n")

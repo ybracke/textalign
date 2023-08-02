@@ -19,7 +19,7 @@ kwargs = {
     "gap_cost_func": textalign.aligner.decreasing_gap_cost,
     "gap_cost_initial": 1,
 }
-aligner.get_bidirectional_alignments(**kwargs)
+aligner.get_bidirectional_alignments(translit_func=textalign.translit.unidecode_ger, **kwargs)
 
 aligned_pairs = aligner.get_aligned_pairs()
 

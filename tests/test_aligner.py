@@ -1,4 +1,5 @@
 from textalign import AlignedPair
+from textalign import translit
 import textalign
 
 
@@ -30,7 +31,7 @@ def test_nw_align() -> None:
         "gap_cost_initial": 1,
     }
     aligner = textalign.Aligner(tokens_a, tokens_b)
-    aligner.translit_tokens()
+    aligner.translit_tokens(translit.unidecode_ger)
     aligner.nw_align(**kwargs)
     output = aligner.aligned_tokidxs
 
@@ -55,7 +56,7 @@ def test_clean_alignments_old2new() -> None:
     ]
 
     aligner = textalign.Aligner(tokens_a, tokens_b)
-    aligner.translit_tokens()
+    aligner.translit_tokens(translit.unidecode_ger)
     aligner.aligned_tokidxs = nw_alignments
     aligner.clean_alignments()
     output = aligner.aligned_tokidxs
@@ -91,7 +92,7 @@ def test_clean_alignments_new2old() -> None:
     ]
 
     aligner = textalign.Aligner(tokens_a, tokens_b)
-    aligner.translit_tokens()
+    aligner.translit_tokens(translit.unidecode_ger)
     aligner.aligned_tokidxs = nw_alignments
     aligner.clean_alignments()
     output = aligner.aligned_tokidxs
@@ -128,7 +129,7 @@ def test_get_bidirectional_alignments() -> None:
         "gap_cost_length_discount": textalign.aligner.length_discount,
         "gap_cost_initial": 0.5,
     }
-    aligner.get_bidirectional_alignments(**kwargs)
+    aligner.get_bidirectional_alignments(translit_func=translit.unidecode_ger, **kwargs)
 
     outfile = "tests/testdata/out/test01.out"
     with open(outfile, "w", encoding="utf-8") as fout:

@@ -4,8 +4,6 @@ from dataclasses import astuple, dataclass
 import Levenshtein as lev
 import numpy as np
 
-from textalign.translit import unidecode_ger
-
 
 def monotonic_cost(cost=1):
     return cost
@@ -192,7 +190,19 @@ class Aligner:
 
         return
 
-    def translit_tokens(self, function: Callable = unidecode_ger) -> None:
+    def translit_tokens(self, function: Optional[Callable]) -> None:
+        """
+        Store transliterations of tokens in self._tokens_a|b
+
+        Default transliteration is identity mapping (nothing is changed).
+        """
+
+        if function is None:
+
+            def identity(s):
+                return s
+
+            function = identity
         self._tokens_a = [function(t) for t in self.tokens_a]
         self._tokens_b = [function(t) for t in self.tokens_b]
 
@@ -298,16 +308,18 @@ class Aligner:
 
         return float("inf")
 
-    def get_bidirectional_alignments(self, **kwargs) -> None:
+    def get_bidirectional_alignments(
+        self, translit_func: Optional[Callable] = None, **nw_kwargs
+    ) -> None:
         """
         Computes an alignment stored in `self.aligned_tokidxs` and the tokens (self.tokens_a and self.tokens_b) by applying sequence alignment followed by a two-sided refinement of the alignment.
 
         """
         # 0. transliterate tokens for distance metric
-        self.translit_tokens(function=unidecode_ger)  # TODO customizable function
+        self.translit_tokens(translit_func)
 
         # 1. Compute the initial 1:1 alignments
-        self.nw_align(**kwargs)
+        self.nw_align(**nw_kwargs)
 
         # 2. Clean alignments a->b
         self.clean_alignments()

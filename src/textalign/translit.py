@@ -3,14 +3,10 @@ import unidecode
 # Map Umlauts and 'ß' to private use codepoints
 # see: https://unicode-table.com/en/blocks/private-use-area/
 GERMAN_MAP = {
-    "A\u0364": "Ä",
-    "O\u0364": "Ö",
-    "U\u0364": "Ü",
-    "a\u0364": "ä",
-    "o\u0364": "ö",
-    "ü\u0364": "ü",
+    "\u0364": "\u0308",  # uppercase e to trema, keeps the length of the word identical
     "æ": "ä",
     "ꝛ": "r",
+    "ſ": "s",
     "/": ",",  # / is often replaced by comma in modern version
 }
 

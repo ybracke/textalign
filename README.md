@@ -1,4 +1,4 @@
-# README
+# `textalign`
 
 Package for aligning two (similar) tokenized versions of a text. 
 
@@ -15,6 +15,8 @@ positions where they align well. (2) Next the resulting shorter text sequences a
 aligned token-wise. (3) After that, the prelimenary alignments are joined back
 together and cleaned. (4) Optionally, the text can then be serialized back to
 sentence strings, giving us aligned sentence pairs.
+
+`textalign.AlignmentPipeline` provides all of the above functionality. The individual aspects are provided by other modules of the package.
 
 
 ## Requirements
@@ -38,7 +40,7 @@ pip install -r requirements-dev.txt
 
 The script `align_short_demo.py` contains the code for aligning a short(ish) text, without splitting it first.
 
-The script `align_long_demo.py` contains the code for aligning a longer text, by splitting it into multiple parts.
+For aligning two versions of a longer text, refer to `test_alignment_pipeline.py` for the moment. Here we use the `AlignmentPipeline` (see [below](#pipeline)). This entails steps (1-4) described [above](#in-a-nutshell).
 
 
 ## Details
@@ -69,10 +71,39 @@ Post-correction of alignments:
 Utilities for splitting documents at positions where they match well. Useful for creating well-alignable parts of two documents. This way, apply token-wise alignment can be computed on shorter passages, saving time and memory.
 
 
-### Sentences serialization with `sentences`
+### Sentence serialization with `sentences`
 
 Re-serialise the sentences (insert spaces where they were in the original).
 
 1. we need both texts in tokenised form (`tokens_orig: List[str]` and `tokens_hist: List[str]`) and store the sentence boundaries of the orig text in a list `sent_start_idxs: List[int]`, e.g. `[1,10,28]`, ints indicate the token index where a sentence starts.
 2. we need a token alignment, created with `Aligner`
 3. make aligned sentences from sentence indices and token alignment.
+
+### Workflow with `AlignmentPipeline`
+
+Initialize a pipeline with a config file in YAML. Refer to the `config.yaml` in the root directory of this project and to the test script `test_alignment_pipeline.py` for examples.
+
+Call the pipeline object with two files containing tokenized documents. TODO: Currently, only [WASTE](https://kaskade.dwds.de/waste/about.perl)-style input files are supported.
+
+WASTE format:
+
+```txt
+Solchen	1091 7
+naͤrꝛiſchen	1099 15
+Leuten	1115 6
+nun	1122 3
+/	1125 1	[$(]
+mag	1127 3
+ich	1131 3
+mich	1135 4
+nicht	1140 5
+```
+
+A pipeline call returns an object of type `List[AlignedSentences]`, based on the sentences in the source text. For each sentence in the source text, we get the tokens from the source text, the aligned or unaligned intervening tokens from the target text and alignment mapping between the two. 
+This can be used to create a representation of the document's sentence alignment with serialized sentences, e.g. in JSON format, like:
+
+```json
+{
+  "orig": "(du moͤgſt wol Eſelsleben ſagen) in welchem man ſich auch nichts umb die Medicin bekuͤmmert.",
+  "norm": "(du mögst wohl Eselsleben sagen) in welchem man sich auch nichts um die Medizin bekümmert."
+}

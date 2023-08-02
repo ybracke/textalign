@@ -1,0 +1,22 @@
+data:
+  file_source: tests/testdata/simplicissimus_hist.txt
+  file_target: tests/testdata/simplicissimus_norm.txt
+
+
+aligner:
+  similarity_func: textalign.aligner.levsim_rescored
+  gap_cost_func: textalign.aligner.decreasing_gap_cost
+  gap_cost_length_discount: textalign.aligner.length_discount
+  gap_cost_initial: 0.5
+
+
+splitter:
+  max_len_split: 1000
+  subseq_len: 7
+  max_lev_dist: 7
+  step_size: 50
+  apply_translit: true
+
+serialization:
+  drop_unaligned: true
+

@@ -54,7 +54,7 @@ class AlignmentPipeline:
             self.aligner.extend(aligner_split)
 
         # 7. Clean alignments for whole document
-        self.aligner.get_bidirectional_alignments()
+        self.aligner.clean_bidirectional()
 
         # 8. Create sentence-aligned serialization
         # Create a representation where the bitext is

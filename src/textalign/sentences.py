@@ -1,8 +1,8 @@
 from typing import List, Optional, Tuple
 from dataclasses import dataclass
 
-from textalign import AlignedPair
-from textalign import util
+from . import AlignedPair
+from . import util
 
 
 @dataclass
@@ -17,7 +17,9 @@ class AlignedSentence:
         self.tokens_b = tokens_b
         self.alignment = alignment
 
-    def serialize(self, drop_unaligned: bool = False) -> Tuple[str, str]:
+    def serialize(
+        self, drop_unaligned: bool = False, gap_token: str = "[GAP]"
+    ) -> Tuple[str, str]:
         """
         Return both sentences as strings (serialized).
 
@@ -42,14 +44,14 @@ class AlignedSentence:
                 str_a += ws + self.tokens_a[aligned_idx.a].text
             # If gaps get included: Add special GAP token
             elif aligned_idx.a is None:
-                str_a += " " + "[GAP]"
+                str_a += f" {gap_token}"
 
             # Same for b
             if aligned_idx.b is not None and aligned_idx.b != last_idx_b:
                 ws = " " if self.tokens_b[aligned_idx.b].initial_ws else ""
                 str_b += ws + self.tokens_b[aligned_idx.b].text
             elif aligned_idx.b is None:
-                str_b += " " + "[GAP]"
+                str_b += f" {gap_token}"
 
             # Move last index
             last_idx_a, last_idx_b = aligned_idx.a, aligned_idx.b

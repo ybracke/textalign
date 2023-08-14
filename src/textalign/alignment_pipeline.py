@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import Dict, List
 
 from .aligner import Aligner
 
@@ -47,7 +47,7 @@ class AlignmentPipeline:
         for split_a, split_b in self.docsplitter.split():
             # 5. Create Aligner objects for every split
             aligner_split = Aligner(split_a, split_b)
-            aligner_split.translit_tokens()
+            aligner_split.translit_tokens(self.config["translit_func"])
             aligner_split.nw_align(**self.config["aligner"])
 
             # 6. Append the alignment for the split to the large aligner

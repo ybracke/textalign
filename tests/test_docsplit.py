@@ -74,7 +74,7 @@ def test_get_search_pattern() -> None:
     ]
 
     docsplitter = docsplit.DocSplitter(
-        tokens_a, tokens_b, subseq_len=4, apply_translit=False  # 4 tokens per pattern
+        tokens_a, tokens_b, subseq_len=4, translit_func=None  # 4 tokens per pattern
     )
 
     # Without translit
@@ -83,7 +83,7 @@ def test_get_search_pattern() -> None:
     assert pattern == target
 
     # With translit
-    docsplitter.apply_translit = True
+    docsplitter.translit_func = translit.unidecode_ger
     target = "grünerOlivenäste.Den"
     pattern = docsplitter._get_search_pattern(3)
     assert pattern == target
@@ -301,7 +301,7 @@ def test_docsplit_find_split_positions_realdoc() -> None:
         "subseq_len": 7,
         "step_size": 100,
         "max_len_split": 1000,
-        "apply_translit": False,  # translit has already been done
+        "translit_func": None,  # translit has already been done
     }
 
     docsplitter = docsplit.DocSplitter(hist, norm, **kwargs)

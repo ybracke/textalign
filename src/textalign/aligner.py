@@ -85,8 +85,8 @@ class Aligner:
         self.tokens_a: List[str] = tokens_a
         self.tokens_b: List[str] = tokens_b
         # Modified version of tokens
-        self._tokens_a: List[str]
-        self._tokens_b: List[str]
+        self._tokens_a: List[str] = []
+        self._tokens_b: List[str] = []
         # Alignment of token indices
         # e.g. [(0,0), (1,None), (2,1), (None,2)]
         # where token at index 1 in a is aligned to a gap in b
@@ -321,7 +321,17 @@ class Aligner:
         # 1. Compute the initial 1:1 alignments
         self.nw_align(**nw_kwargs)
 
-        # 2. Clean alignments a->b
+        self.clean_bidirectional()
+
+        return
+
+    def clean_bidirectional(self) -> None:
+        """
+        Perform cleaning with clean_alignments() on both sides of the 
+        raw alignment produced by nw_align().
+        """
+
+        # 1. Clean alignments a->b
         self.clean_alignments()
 
         # Switch a and b
@@ -332,7 +342,7 @@ class Aligner:
         self._tokens_b = tmp
         del tmp
 
-        # 3. Clean alignments b->a
+        # 2. Clean alignments b->a
         self.clean_alignments()
 
         # Switch back

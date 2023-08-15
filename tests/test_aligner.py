@@ -3,6 +3,35 @@ from textalign import translit
 import textalign
 
 
+def test_decreasing_gap_cost() -> None:
+    pointers = [3,4,7,0,0,4,7,0]
+    initial_cost = 1.0
+    cost = initial_cost
+    cost_reduction_factor = 0.1
+
+    for i,p in enumerate(pointers):
+        cost = textalign.aligner.decreasing_gap_cost(
+            cost, 
+            p, 
+            initial_cost, 
+            cost_reduction_factor)
+        if i == 0:
+            assert round(cost, 1) == 0.9
+        elif i == 1:
+            assert round(cost, 2) == 0.81
+        elif i == 2:
+            assert round(cost, 3) == 0.729
+        elif i == 3:
+            assert cost == 1
+        elif i == 4:
+            assert cost == 1
+        elif i == 5:
+            assert round(cost, 1) == 0.9
+        elif i == 6:
+            assert round(cost, 2) == 0.81
+        elif i == 7:
+            assert cost == 1
+
 def test_alignedpair() -> None:
     pair = AlignedPair(a=1, b=2)
     assert None not in pair
@@ -11,7 +40,7 @@ def test_alignedpair() -> None:
     # pair = AlignedPair(a=1,b=2)
 
 
-def test_nw_align() -> None:
+def test_nw_align_matching() -> None:
     tokens_a = ["Eyn", "Haus", "mann", "riefs", "ſo", "."]
     tokens_b = ["Ein", "Hausmann", "rief", "es", "so"]
 
@@ -36,6 +65,58 @@ def test_nw_align() -> None:
     output = aligner.aligned_tokidxs
 
     assert output == target_alignments
+
+
+
+# Fake test
+def test_nw_align_nonmatching() -> None:
+
+    tokens_a = ["Jch", "fuͤtterte", "mit", "meinen", "Mit", "Kaͤlbern", "/", "wie", "ſolches", "mein", "Appetit"]
+    tokens_b = ["Das", "VIII.", "bis", "XII", "." "Kapitel", "Simplicius", "dient", "zur", "Erheiterung", "des", "Gubernators", "und", "seiner", "Tischgesellschaft"]
+
+    target_alignments = [
+        AlignedPair(0, None),  
+        AlignedPair(1, None),  
+        AlignedPair(2, None),  
+        AlignedPair(3, None),  
+        AlignedPair(4, None),  
+        AlignedPair(5, None),  
+        AlignedPair(6, None),  
+        AlignedPair(7, None),  
+        AlignedPair(8, None),  
+        AlignedPair(9, None),  
+        AlignedPair(10, None), 
+        AlignedPair(None, 0),  
+        AlignedPair(None, 1),  
+        AlignedPair(None, 2),  
+        AlignedPair(None, 3),  
+        AlignedPair(None, 4),  
+        AlignedPair(None, 5),  
+        AlignedPair(None, 6),  
+        AlignedPair(None, 7),  
+        AlignedPair(None, 8),  
+        AlignedPair(None, 9),  
+        AlignedPair(None, 10),  
+        AlignedPair(None, 11),  
+        AlignedPair(None, 12),  
+        AlignedPair(None, 13),  
+    ]
+
+    target_alignments_set = {(pair.a, pair.b) for pair in target_alignments}
+
+    kwargs = {
+        "similarity_func": textalign.aligner.levsim_rescored,
+        "gap_cost_func": textalign.aligner.decreasing_gap_cost,
+        "gap_cost_initial": 0.5,
+    }
+    aligner = textalign.Aligner(tokens_a, tokens_b)
+    aligner.translit_tokens(translit.unidecode_ger)
+    aligner.nw_align(**kwargs)
+    output = aligner.aligned_tokidxs
+    output_set =  {(pair.a, pair.b) for pair in output}
+
+    # assert output_set == target_alignments_set
+    # print(output)
 
 
 def test_clean_alignments_old2new() -> None:

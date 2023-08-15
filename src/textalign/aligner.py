@@ -12,11 +12,22 @@ def monotonic_cost(cost=1):
 def decreasing_gap_cost(cost: float, 
                         pointer: int, 
                         initial_cost: float = 1, 
-                        cost_reduction_factor: float = 10):
+                        cost_reduction_factor: float = 0.1) -> float:
+    """
+    Computes the cost of inserting a gap at the current position
+    
+    If there are no previous gap, the gap's costs == `initial_cost`.
+    The more gaps we have already seen, the 'cheaper' an additional gap will get.
+
+    pointer := value in previous cell in the grid
+    cost := current cost
+    initial_cost := cost of first gap (no neighbouring gaps)
+    cost_reduction_factor := factor by which to reduce (default 10% of current cost)
+    """
     # Did I come here via a gap? 
     # If yes: decrease gap costs by a percentage of the current costs
     if pointer in [3, 4, 7]:
-        cost -= cost / cost_reduction_factor
+        cost -= cost * cost_reduction_factor
         return cost
     # If not: restore gap costs
     return initial_cost
@@ -105,6 +116,7 @@ class Aligner:
         gap_cost_func: Callable = decreasing_gap_cost,
         gap_cost_length_discount: Callable = length_discount,
         gap_cost_initial: float = 0.5,
+        cost_reduction_factor: float = 0.1
     ) -> None:
         """
         Needleman-Wunsch algorithm for global alignment
@@ -141,9 +153,10 @@ class Aligner:
                 # Set costs
                 # TODO for now this only works with 'decreasing_gap_cost'
                 gap_cost_func_args = {
-                    "cost": gap_cost,
                     "pointer": pointers[i, j],
+                    "cost": gap_cost,
                     "initial_cost": gap_cost_initial,
+                    "cost_reduction_factor": cost_reduction_factor,
                 }
                 gap_cost = gap_cost_func(**gap_cost_func_args)
 

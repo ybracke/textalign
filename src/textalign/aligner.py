@@ -9,12 +9,16 @@ def monotonic_cost(cost=1):
     return cost
 
 
-def decreasing_gap_cost(current_cost: float, pointer: int, initial_cost: float = 1):
-    # Did I come here via a gap? If yes: decrease gap costs by a percentage of
-    # the current costs
+def decreasing_gap_cost(cost: float, 
+                        pointer: int, 
+                        initial_cost: float = 1, 
+                        cost_reduction_factor: float = 10):
+    # Did I come here via a gap? 
+    # If yes: decrease gap costs by a percentage of the current costs
     if pointer in [3, 4, 7]:
-        current_cost -= current_cost / 100
-    # if no: restore gap costs
+        cost -= cost / cost_reduction_factor
+        return cost
+    # If not: restore gap costs
     return initial_cost
 
 
@@ -135,8 +139,9 @@ class Aligner:
                 t[0] = scores[i, j] + sim
 
                 # Set costs
+                # TODO for now this only works with 'decreasing_gap_cost'
                 gap_cost_func_args = {
-                    "current_cost": gap_cost,
+                    "cost": gap_cost,
                     "pointer": pointers[i, j],
                     "initial_cost": gap_cost_initial,
                 }

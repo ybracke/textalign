@@ -191,6 +191,40 @@ def test_clean_alignments_new2old() -> None:
     assert output == target_alignments
 
 
+def test_clean_alignments_1_to_3() -> None:
+    # Checks whether gaps in b (a aligns to None) can be removed
+    # (note: not the other way around)
+
+    tokens_a = ["Nichts", "desto", "trotz", "bin", "ich", "hier"]
+    tokens_b = ["Nichtsdestotrotz", "bin", "ich", "hier"]
+
+    nw_alignments = [
+        AlignedPair(0, 0),  # Nichts   <-> Nichtsdestotrotz
+        AlignedPair(1, None),  # desto  <-> [GAP]
+        AlignedPair(2, None),  # trotz  <-> [GAP]
+        AlignedPair(3, 1),  # bin <-> bin
+        AlignedPair(4, 2),  # ich <-> ich
+        AlignedPair(5, 3),  # hier <-> hier
+    ]
+
+    aligner = textalign.Aligner(tokens_a, tokens_b)
+    aligner.translit_tokens(translit.unidecode_ger)
+    aligner.aligned_tokidxs = nw_alignments
+    aligner.clean_alignments()
+    output = aligner.aligned_tokidxs
+
+    target_alignments = [
+        AlignedPair(0, 0),  # Nichts   <-> Nichtsdestotrotz
+        AlignedPair(1, 0),  # desto  <-> Nichtsdestotrotz
+        AlignedPair(2, 0),  # trotz  <-> Nichtsdestotrotz
+        AlignedPair(3, 1),  # bin <-> bin
+        AlignedPair(4, 2),  # ich <-> ich
+        AlignedPair(5, 3),  # hier <-> hier
+    ]
+
+    assert output == target_alignments
+
+
 def test_get_bidirectional_alignments() -> None:
     f_hist = "tests/testdata/simplicissimus_hist.txt"
     f_norm = "tests/testdata/simplicissimus_norm.txt"

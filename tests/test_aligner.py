@@ -4,17 +4,15 @@ import textalign
 
 
 def test_decreasing_gap_cost() -> None:
-    pointers = [3,4,7,0,0,4,7,0]
+    pointers = [3, 4, 7, 0, 0, 4, 7, 0]
     initial_cost = 1.0
     cost = initial_cost
     cost_reduction_factor = 0.1
 
-    for i,p in enumerate(pointers):
+    for i, p in enumerate(pointers):
         cost = textalign.aligner.decreasing_gap_cost(
-            cost, 
-            p, 
-            initial_cost, 
-            cost_reduction_factor)
+            cost, p, initial_cost, cost_reduction_factor
+        )
         if i == 0:
             assert round(cost, 1) == 0.9
         elif i == 1:
@@ -31,6 +29,7 @@ def test_decreasing_gap_cost() -> None:
             assert round(cost, 2) == 0.81
         elif i == 7:
             assert cost == 1
+
 
 def test_alignedpair() -> None:
     pair = AlignedPair(a=1, b=2)
@@ -67,39 +66,64 @@ def test_nw_align_matching() -> None:
     assert output == target_alignments
 
 
-
 # Fake test
 def test_nw_align_nonmatching() -> None:
-
-    tokens_a = ["Jch", "fuͤtterte", "mit", "meinen", "Mit", "Kaͤlbern", "/", "wie", "ſolches", "mein", "Appetit"]
-    tokens_b = ["Das", "VIII.", "bis", "XII", "." "Kapitel", "Simplicius", "dient", "zur", "Erheiterung", "des", "Gubernators", "und", "seiner", "Tischgesellschaft"]
+    tokens_a = [
+        "Jch",
+        "fuͤtterte",
+        "mit",
+        "meinen",
+        "Mit",
+        "Kaͤlbern",
+        "/",
+        "wie",
+        "ſolches",
+        "mein",
+        "Appetit",
+    ]
+    tokens_b = [
+        "Das",
+        "VIII.",
+        "bis",
+        "XII",
+        "." "Kapitel",
+        "Simplicius",
+        "dient",
+        "zur",
+        "Erheiterung",
+        "des",
+        "Gubernators",
+        "und",
+        "seiner",
+        "Tischgesellschaft",
+    ]
 
     target_alignments = [
-        AlignedPair(0, None),  
-        AlignedPair(1, None),  
-        AlignedPair(2, None),  
-        AlignedPair(3, None),  
-        AlignedPair(4, None),  
-        AlignedPair(5, None),  
-        AlignedPair(6, None),  
-        AlignedPair(7, None),  
-        AlignedPair(8, None),  
-        AlignedPair(9, None),  
-        AlignedPair(10, None), 
-        AlignedPair(None, 0),  
-        AlignedPair(None, 1),  
-        AlignedPair(None, 2),  
-        AlignedPair(None, 3),  
-        AlignedPair(None, 4),  
-        AlignedPair(None, 5),  
-        AlignedPair(None, 6),  
-        AlignedPair(None, 7),  
-        AlignedPair(None, 8),  
-        AlignedPair(None, 9),  
-        AlignedPair(None, 10),  
-        AlignedPair(None, 11),  
-        AlignedPair(None, 12),  
-        AlignedPair(None, 13),  
+        AlignedPair(0, None),
+        AlignedPair(1, None),
+        AlignedPair(2, None),
+        AlignedPair(3, None),
+        AlignedPair(4, None),
+        AlignedPair(5, None),
+        AlignedPair(6, None),
+        AlignedPair(7, None),
+        AlignedPair(8, None),
+        AlignedPair(9, None),
+        AlignedPair(10, None),
+        AlignedPair(None, 0),
+        AlignedPair(None, 1),
+        AlignedPair(None, 2),
+        AlignedPair(None, 3),
+        AlignedPair(None, 4),
+        AlignedPair(None, 5),
+        AlignedPair(None, 6),
+        AlignedPair(None, 7),
+        AlignedPair(None, 8),
+        AlignedPair(None, 9),
+        AlignedPair(None, 10),
+        AlignedPair(None, 11),
+        AlignedPair(None, 12),
+        AlignedPair(None, 13),
     ]
 
     target_alignments_set = {(pair.a, pair.b) for pair in target_alignments}
@@ -113,7 +137,7 @@ def test_nw_align_nonmatching() -> None:
     aligner.translit_tokens(translit.unidecode_ger)
     aligner.nw_align(**kwargs)
     output = aligner.aligned_tokidxs
-    output_set =  {(pair.a, pair.b) for pair in output}
+    output_set = {(pair.a, pair.b) for pair in output}
 
     # assert output_set == target_alignments_set
     # print(output)
@@ -198,19 +222,18 @@ def test_clean_alignments_1_to_3() -> None:
     tokens_a = ["Nichts", "desto", "trotz", "bin", "ich", "hier"]
     tokens_b = ["Nichtsdestotrotz", "bin", "ich", "hier"]
 
-    nw_alignments = [
-        AlignedPair(0, 0),  # Nichts   <-> Nichtsdestotrotz
-        AlignedPair(1, None),  # desto  <-> [GAP]
-        AlignedPair(2, None),  # trotz  <-> [GAP]
-        AlignedPair(3, 1),  # bin <-> bin
-        AlignedPair(4, 2),  # ich <-> ich
-        AlignedPair(5, 3),  # hier <-> hier
-    ]
-
     aligner = textalign.Aligner(tokens_a, tokens_b)
-    aligner.translit_tokens(translit.unidecode_ger)
-    aligner.aligned_tokidxs = nw_alignments
-    aligner.clean_alignments()
+
+    kwargs = {
+        # "similarity_func": textalign.aligner.jaro_rescored,
+        "similarity_func": textalign.aligner.levsim_rescored,
+        "gap_cost_func": textalign.aligner.decreasing_gap_cost,
+        "gap_cost_length_discount": textalign.aligner.length_discount,
+        "gap_cost_initial": 0.5,
+    }
+    aligner.get_bidirectional_alignments(
+        translit_func=translit.unidecode_ger, max_aligned_tokens=3, **kwargs
+    )
     output = aligner.aligned_tokidxs
 
     target_alignments = [
@@ -220,6 +243,34 @@ def test_clean_alignments_1_to_3() -> None:
         AlignedPair(3, 1),  # bin <-> bin
         AlignedPair(4, 2),  # ich <-> ich
         AlignedPair(5, 3),  # hier <-> hier
+    ]
+
+    assert output == target_alignments
+
+
+def test_clean_alignments_1_to_4() -> None:
+    tokens_a = ["Annette-von-Droste-Hülshoff-Professur"]
+    tokens_b = ["Annette", "von", "Droste-Hülshoff", "Professur"]
+
+    aligner = textalign.Aligner(tokens_a, tokens_b)
+
+    kwargs = {
+        # "similarity_func": textalign.aligner.jaro_rescored,
+        "similarity_func": textalign.aligner.levsim_rescored,
+        "gap_cost_func": textalign.aligner.decreasing_gap_cost,
+        "gap_cost_length_discount": textalign.aligner.length_discount,
+        "gap_cost_initial": 0.5,
+    }
+    aligner.get_bidirectional_alignments(
+        translit_func=translit.unidecode_ger, max_aligned_tokens=4, **kwargs
+    )
+    output = aligner.aligned_tokidxs
+
+    target_alignments = [
+        AlignedPair(0, 0),
+        AlignedPair(0, 1),
+        AlignedPair(0, 2),
+        AlignedPair(0, 3),
     ]
 
     assert output == target_alignments

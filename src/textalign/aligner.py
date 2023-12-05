@@ -9,13 +9,15 @@ def monotonic_cost(cost=1):
     return cost
 
 
-def decreasing_gap_cost(cost: float, 
-                        pointer: int, 
-                        initial_cost: float = 1, 
-                        cost_reduction_factor: float = 0.1) -> float:
+def decreasing_gap_cost(
+    cost: float,
+    pointer: int,
+    initial_cost: float = 1,
+    cost_reduction_factor: float = 0.1,
+) -> float:
     """
     Computes the cost of inserting a gap at the current position
-    
+
     If there are no previous gap, the gap's costs == `initial_cost`.
     The more gaps we have already seen, the 'cheaper' an additional gap will get.
 
@@ -24,7 +26,7 @@ def decreasing_gap_cost(cost: float,
     initial_cost := cost of first gap (no neighbouring gaps)
     cost_reduction_factor := factor by which to reduce (default 10% of current cost)
     """
-    # Did I come here via a gap? 
+    # Did I come here via a gap?
     # If yes: decrease gap costs by a percentage of the current costs
     if pointer in [3, 4, 7]:
         cost -= cost * cost_reduction_factor
@@ -116,7 +118,7 @@ class Aligner:
         gap_cost_func: Callable = decreasing_gap_cost,
         gap_cost_length_discount: Callable = length_discount,
         gap_cost_initial: float = 0.5,
-        cost_reduction_factor: float = 0.1
+        cost_reduction_factor: float = 0.1,
     ) -> None:
         """
         Needleman-Wunsch algorithm for global alignment
@@ -298,7 +300,6 @@ class Aligner:
                 next_a = self._tokens_a[self.aligned_tokidxs[i + 1].a]
                 candidate = this_a + next_a
                 next_b = self._tokens_b[self.aligned_tokidxs[i + 1].b]
-                dist = lev.distance(candidate, next_b)
                 # Is it better than the current alignment?
                 dist = levdistance_normal(candidate, next_b)
                 if dist < levdistance_normal(next_a, next_b):
@@ -318,7 +319,6 @@ class Aligner:
                 prev_a = self._tokens_a[self.aligned_tokidxs[i - 1].a]
                 candidate = prev_a + this_a
                 prev_b = self._tokens_b[self.aligned_tokidxs[i - 1].b]
-                dist = lev.distance(candidate, prev_b)
                 # Is it better than the current alignment?
                 dist = levdistance_normal(candidate, prev_b)
                 if dist < levdistance_normal(prev_a, prev_b):
@@ -327,10 +327,15 @@ class Aligner:
         return float("inf")
 
     def get_bidirectional_alignments(
-        self, translit_func: Optional[Callable] = None, **nw_kwargs
+        self,
+        translit_func: Optional[Callable] = None,
+        max_aligned_tokens: int = 4,
+        **nw_kwargs,
     ) -> None:
         """
-        Computes an alignment stored in `self.aligned_tokidxs` and the tokens (self.tokens_a and self.tokens_b) by applying sequence alignment followed by a two-sided refinement of the alignment.
+        Computes an alignment stored in `self.aligned_tokidxs` and the tokens (`self.tokens_a` and `self.tokens_b`) by applying sequence alignment followed by a two-sided refinement of the alignment.
+
+        `max_aligned_tokens` defines the maximum number of tokens that can be aligned to a single token. (Internally, this number determines how often the refinement function is called.)
 
         """
         # 0. transliterate tokens for distance metric
@@ -339,13 +344,16 @@ class Aligner:
         # 1. Compute the initial 1:1 alignments
         self.nw_align(**nw_kwargs)
 
-        self.clean_bidirectional()
+        # 2. Clean the 1:1 alignments n-1 times to get possible 1:n/n:1 alignments
+        n = max_aligned_tokens
+        for _ in range(n - 1):
+            self.clean_bidirectional()
 
         return
 
     def clean_bidirectional(self) -> None:
         """
-        Perform cleaning with clean_alignments() on both sides of the 
+        Perform cleaning with clean_alignments() on both sides of the
         raw alignment produced by nw_align().
         """
 

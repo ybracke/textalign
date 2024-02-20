@@ -110,10 +110,10 @@ class DocSplitter:
 
     def _unique_in_a(self, pattern_a) -> bool:
         near_matches = fuzzysearch.find_near_matches(
-                    pattern_a,
-                    self.a_joined,
-                    max_l_dist=1, # maximum allowed dist
-                )
+            pattern_a,
+            self.a_joined,
+            max_l_dist=1,  # maximum allowed dist
+        )
         return len(near_matches) == 1
 
     def find_split_positions(self) -> List[SplitPosition]:
@@ -139,11 +139,10 @@ class DocSplitter:
             pattern_a = self._get_search_pattern(tokidx_a)
 
             # Is the search pattern candidate even unique in the source text
-            # If not this might lead to false positives when matching with 
+            # If not this might lead to false positives when matching with
             # the target text
-            unique_in_a =  self._unique_in_a(pattern_a)
+            unique_in_a = self._unique_in_a(pattern_a)
             if unique_in_a:
-
                 # Get offsets of near-matches of pattern_a in b
                 # only look at the remaining part of b
                 near_matches = fuzzysearch.find_near_matches(
@@ -153,7 +152,7 @@ class DocSplitter:
                 )
 
             else:
-                near_matches = [] # empty list
+                near_matches = []  # empty list
 
             # Look for a single near-match
             while (not unique_in_a) or (len(near_matches) != 1):
@@ -219,7 +218,7 @@ class DocSplitter:
         prev_start_idx_b = 0
 
         split_positions = self.find_split_positions()
-        
+
         if not len(split_positions):
             raise ValueError(
                 "DocSplitter cannot find any common splits for the two documents with given parameters."

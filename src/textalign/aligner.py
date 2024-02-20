@@ -90,17 +90,17 @@ class AlignedPair:
 class Aligner:
     def __init__(
         self,
-        tokens_a: List[str] = [],
-        tokens_b: List[str] = [],
-        aligned_tokidxs: List[AlignedPair] = [],
+        tokens_a: Optional[List[str]] = None,
+        tokens_b: Optional[List[str]] = None,
+        aligned_tokidxs: Optional[List[AlignedPair]] = None,
     ):
         """
         Class for creating alignments of two tokenized texts
         """
 
         # String representation of tokens
-        self.tokens_a: List[str] = tokens_a
-        self.tokens_b: List[str] = tokens_b
+        self.tokens_a: List[str] = [] if tokens_a is None else tokens_a
+        self.tokens_b: List[str] = [] if tokens_b is None else tokens_b
         # Modified version of tokens
         self._tokens_a: List[str] = []
         self._tokens_b: List[str] = []
@@ -108,7 +108,9 @@ class Aligner:
         # e.g. [(0,0), (1,None), (2,1), (None,2)]
         # where token at index 1 in a is aligned to a gap in b
         # and the token at index 2 in b is aligned to a gap in a
-        self.aligned_tokidxs: List[AlignedPair] = aligned_tokidxs
+        self.aligned_tokidxs: List[AlignedPair] = (
+            [] if aligned_tokidxs is None else aligned_tokidxs
+        )
 
     def nw_align(
         self,

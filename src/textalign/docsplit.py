@@ -11,7 +11,6 @@ import fuzzysearch
 
 from . import util
 
-
 SplitPosition = namedtuple("SplitPosition", ["start_a", "end_a", "start_b", "end_b"])
 
 
@@ -55,7 +54,8 @@ class DocSplitter:
         self.tokens_a: List[str] = tokens_a
         self.tokens_b: List[str] = tokens_b
 
-        # Text B, serialized
+        # Texts, serialized
+        self.a_joined = "".join(self.tokens_a)
         self.b_joined = "".join(self.tokens_b)
 
         # For text B: mapping of offsets to token index
@@ -108,6 +108,14 @@ class DocSplitter:
             tokidx_b = self.offset2tokidx_b[closest_offset]
         return tokidx_b
 
+    def _unique_in_a(self, pattern_a) -> bool:
+        near_matches = fuzzysearch.find_near_matches(
+            pattern_a,
+            self.a_joined,
+            max_l_dist=1,  # maximum allowed dist
+        )
+        return len(near_matches) == 1
+
     def find_split_positions(self) -> List[SplitPosition]:
         """
         Returns a list of pairs (start_a, start_b) where start_a [start_b] is the index of the first token in tokens_a [tokens_b] that should go in the next split.
@@ -130,16 +138,24 @@ class DocSplitter:
             # Get the candidate token sequence from text a
             pattern_a = self._get_search_pattern(tokidx_a)
 
-            # Get offsets of near-matches of pattern_a in b
-            # only look at the remaining part of b
-            near_matches = fuzzysearch.find_near_matches(
-                pattern_a,
-                self.b_joined[last_charidx_b:],
-                max_l_dist=self.max_lev_dist,
-            )
+            # Is the search pattern candidate even unique in the source text
+            # If not this might lead to false positives when matching with
+            # the target text
+            unique_in_a = self._unique_in_a(pattern_a)
+            if unique_in_a:
+                # Get offsets of near-matches of pattern_a in b
+                # only look at the remaining part of b
+                near_matches = fuzzysearch.find_near_matches(
+                    pattern_a,
+                    self.b_joined[last_charidx_b:],
+                    max_l_dist=self.max_lev_dist,
+                )
+
+            else:
+                near_matches = []  # empty list
 
             # Look for a single near-match
-            while len(near_matches) != 1:
+            while (not unique_in_a) or (len(near_matches) != 1):
                 # Decrease index (= look for a matching pattern earlier in the doc)
                 tokidx_a -= self.step_size
 
@@ -158,6 +174,12 @@ class DocSplitter:
 
                 # Get new search pattern and look for matches
                 pattern_a = self._get_search_pattern(tokidx_a)
+                # If the pattern is not unique to the source text, continue loop
+                # i.e. get a new pattern
+                unique_in_a = self._unique_in_a(pattern_a)
+                if not unique_in_a:
+                    continue
+                # If the pattern is unique get near_matches
                 near_matches = fuzzysearch.find_near_matches(
                     pattern_a,
                     self.b_joined[last_charidx_b:],

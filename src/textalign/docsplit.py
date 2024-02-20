@@ -11,24 +11,6 @@ import fuzzysearch
 
 from . import util
 
-# DEBUG
-import logging
-
-# Create a custom logger
-logger = logging.getLogger(__name__)
-
-# Create handlers
-f_handler = logging.FileHandler('file.log', mode="w")
-
-# Create formatters and add it to handlers
-f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-f_handler.setFormatter(f_format)
-
-# Add handlers to the logger
-logger.addHandler(f_handler)
-
-logger.setLevel(logging.DEBUG) # DEBUG
-
 SplitPosition = namedtuple("SplitPosition", ["start_a", "end_a", "start_b", "end_b"])
 
 
@@ -238,13 +220,6 @@ class DocSplitter:
 
         split_positions = self.find_split_positions()
         
-        # DEBUG
-        for split_pos in split_positions:
-            tokens_a = self.tokens_a[split_pos.start_a : split_pos.end_a]
-            tokens_b = self.tokens_b[split_pos.start_b : split_pos.end_b]
-            logger.debug(f"{split_pos}, {tokens_a}, {tokens_b}") 
-        # ~ DEBUG
-
         if not len(split_positions):
             raise ValueError(
                 "DocSplitter cannot find any common splits for the two documents with given parameters."

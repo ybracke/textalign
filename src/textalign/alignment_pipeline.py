@@ -54,7 +54,10 @@ class AlignmentPipeline:
             self.aligner.extend(aligner_split)
 
         # 7. Clean alignments for whole document
-        self.aligner.clean_bidirectional()
+        # Clean the 1:1 alignments n-1 times to get possible 1:n/n:1 alignments
+        n = self.config["max_aligned_tokens"]
+        for _ in range(n - 1):
+            self.aligner.clean_bidirectional()
 
         # 8. Create sentence-aligned serialization
         # Create a representation where the bitext is

@@ -275,6 +275,24 @@ def test_clean_alignments_1_to_4() -> None:
 
     assert output == target_alignments
 
+    # reversed
+
+    aligner = textalign.Aligner(tokens_b, tokens_a)
+
+    aligner.get_bidirectional_alignments(
+        translit_func=translit.unidecode_ger, max_aligned_tokens=4, **kwargs
+    )
+    output = aligner.aligned_tokidxs
+
+    target_alignments = [
+        AlignedPair(0, 0),
+        AlignedPair(1, 0),
+        AlignedPair(2, 0),
+        AlignedPair(3, 0),
+    ]
+
+    assert output == target_alignments
+
 
 def test_get_bidirectional_alignments() -> None:
     f_hist = "tests/testdata/simplicissimus_hist.txt"

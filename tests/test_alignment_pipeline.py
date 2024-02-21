@@ -15,6 +15,7 @@ def test_alignment_pipeline() -> None:
             "gap_cost_length_discount": textalign.aligner.length_discount,
             "gap_cost_initial": 0.5,
         },
+        "max_aligned_tokens": 4,
         "splitter": {
             "max_lev_dist": 3,
             "subseq_len": 7,
